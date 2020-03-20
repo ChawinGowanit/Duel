@@ -36,4 +36,8 @@ public abstract class Card {
 	public String getName() {
 		return this.name;
 	}
+
+	public String image() {
+		return this.image;
+	}
 }

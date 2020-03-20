@@ -5,8 +5,9 @@ import java.util.HashMap;
 import Card.base.Card;
 import Card.base.attackAble;
 import Card.base.haveChainSymbol;
+import logic.Player;
 
-public class AttackCard extends Card implements haveChainSymbol,attackAble {
+public class AttackCard extends Card implements haveChainSymbol, attackAble {
 	private int attackPoint;
 	private String chainSymbol;
 
@@ -16,14 +17,17 @@ public class AttackCard extends Card implements haveChainSymbol,attackAble {
 		this.attackPoint = attackPoint;
 		this.chainSymbol = chainSymbol;
 	}
-	/*
-	 * public void addChainSymbol(Player player){
-	 * 
-	 * }
-	 * 
-	 * public void attackPlayer(Player player){
-	 * 
-	 * }
-	 * 
-	 */
+
+	public void addChainSymbol(Player player) {
+		player.addChainSymbol(this.chainSymbol);
+	}
+
+	public void attackPlayer(Player player) {
+		if (player.geNum() == 1) {
+			player.getPlayer(2).setAttackPoint(player.getAttackpoint() - this.attackPoint);
+		} else {
+			player.getPlayer(1).setAttackPoint(player.getAttackpoint() - this.attackPoint);
+		}
+	}
+
 }

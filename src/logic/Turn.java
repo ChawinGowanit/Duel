@@ -8,11 +8,15 @@ public class Turn {
 	private boolean repeatTurn ;
 	
 	public Turn() {
-		this.playerturn = 1 ;
+		this.playerTurn = 1 ;
 		this.repeatTurn = false ;
 	}
 	public boolean pickCard(Card card) {
-		
+		if (card.pickAble) {
+			
+		} else {
+			return false ;
+		}
 	}
 	public boolean build(Card card) {
 		
