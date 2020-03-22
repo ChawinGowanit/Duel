@@ -13,8 +13,9 @@ public class Turn {
 	}
 
 	public boolean pickCard(Card card) {
-		if (card.pickAble) {
-
+		if (card.getPickAble()) {
+			Mainboard.removeCard(card);
+			return true ;
 		} else {
 			return false;
 		}

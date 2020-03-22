@@ -43,4 +43,7 @@ public abstract class Card {
 	public HashMap<String, Integer> getCost(){
 		return this.cost ;
 	}
+	public boolean getPickAble() {
+		return this.pickAble ;
+	}
 }
