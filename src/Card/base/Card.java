@@ -40,4 +40,7 @@ public abstract class Card {
 	public String image() {
 		return this.image;
 	}
+	public HashMap<String, Integer> getCost(){
+		return this.cost ;
+	}
 }
