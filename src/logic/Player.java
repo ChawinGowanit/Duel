@@ -97,7 +97,11 @@ public class Player {
 		this.chainSymbols.add(chainSymbol);
 	}
 
-	public Player getPlayer(int num) {
-		return this;
+	public Player getPlayer(Player ATKplayer,Player player) {
+		if (ATKplayer.geNum() == 1) {
+			return player ;
+		} else {
+			return ATKplayer ;
+		}
 	}
 }

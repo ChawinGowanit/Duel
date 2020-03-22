@@ -41,13 +41,9 @@ public class PlaceCard implements haveResource, havePoint, attackAble {
 		}
 	}
 
-	public void attackPlayer(Player player) {
-		if (player.geNum() == 1) {
-			player.getPlayer(2).setAttackPoint(player.getAttackpoint() - this.attackPoint);
-		} else {
-			player.getPlayer(1).setAttackPoint(player.getAttackpoint() - this.attackPoint);
-		}
-	}
+	public void attackPlayer(Player ATKplayer,Player player) {
+		player.getPlayer(ATKplayer,player).setAttackPoint(player.getAttackpoint() - this.attackPoint);
+}
 
 	public void addPlayerPoint(Player player) {
 		player.increasePlayerPoint(this.playerPoint);

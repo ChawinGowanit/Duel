@@ -22,12 +22,8 @@ public class AttackCard extends Card implements haveChainSymbol, attackAble {
 		player.addChainSymbol(this.chainSymbol);
 	}
 
-	public void attackPlayer(Player player) {
-		if (player.geNum() == 1) {
-			player.getPlayer(2).setAttackPoint(player.getAttackpoint() - this.attackPoint);
-		} else {
-			player.getPlayer(1).setAttackPoint(player.getAttackpoint() - this.attackPoint);
-		}
+	public void attackPlayer(Player ATKplayer,Player player) {
+			player.getPlayer(ATKplayer,player).setAttackPoint(player.getAttackpoint() - this.attackPoint);
 	}
 
 }
