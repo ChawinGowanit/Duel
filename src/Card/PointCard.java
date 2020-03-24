@@ -3,17 +3,17 @@ package Card;
 import java.util.HashMap;
 
 import Card.base.Card;
-import Card.base.haveChainSymbol;
-import Card.base.havePoint;
+import Card.base.HaveChainSymbol;
+import Card.base.HavePoint;
 import logic.Player;
 
-public class PointCard extends Card implements haveChainSymbol, havePoint {
+public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 	private int point;
 	private String chainSymbol;
 
 	public PointCard(String name, String image, String type, int age, int[] position, boolean pickAble,
 			boolean flipAble, boolean isFlip, HashMap<String, Integer> cost, int point, String chainSymbol) {
-		super(name, image, "resourceCard", age, position, pickAble, flipAble, isFlip, cost);
+		super(name,  "pointCard", age,  cost);
 		this.point = point;
 		this.chainSymbol = chainSymbol;
 	}

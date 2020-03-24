@@ -2,6 +2,6 @@ package Card.base;
 
 import logic.Player;
 
-public interface haveChainSymbol {
+public interface HaveChainSymbol {
 	public void addChainSymbol(Player player);
 }

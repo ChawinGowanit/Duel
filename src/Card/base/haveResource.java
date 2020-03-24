@@ -2,6 +2,6 @@ package Card.base;
 
 import logic.Player;
 
-public interface haveResource {
+public interface HaveResource {
 	public void addPlayerCounter(Player player);
 }

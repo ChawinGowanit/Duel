@@ -2,6 +2,6 @@ package Card.base;
 
 import logic.Player;
 
-public interface attackAble {
+public interface Attackable {
 	public void attackPlayer(Player ATKplayer,Player player);
 }

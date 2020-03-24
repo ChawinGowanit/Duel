@@ -2,6 +2,6 @@ package Card.base;
 
 import logic.Player;
 
-public interface havePoint {
+public interface HavePoint {
 	public void addPlayerPoint(Player player);
 }
