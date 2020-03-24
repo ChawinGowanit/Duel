@@ -9,6 +9,7 @@ public abstract class Card {
 	private int[] position;
 	private boolean flipAble;
 	private boolean isFlip;
+	private boolean pickAble;
 	private HashMap<String,Integer> cost;
 	
 	public Card(String name,String type,int age,HashMap<String,Integer> cost) {
