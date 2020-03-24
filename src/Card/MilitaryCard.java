@@ -13,9 +13,8 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	private int attackPoint;
 	
 	
-	public MilitaryCard(String name,  String type, int age, 
-			HashMap<String, Integer> cost, int attackPoint, String chainSymbol) {
-		super(name, "resourceCard", age,  cost);
+	public MilitaryCard(String name, HashMap<String, Integer> cost, int attackPoint, String chainSymbol) {
+		super(name, cost);
 		this.attackPoint = attackPoint;
 		this.chainSymbol = chainSymbol;
 	}

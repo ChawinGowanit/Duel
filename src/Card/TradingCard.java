@@ -10,13 +10,16 @@ import logic.Player;
 public class TradingCard extends Card implements HaveResource, HaveChainSymbol {
 	private String chainSymbol;
 	private HashMap<String, Integer> resource;
+	private String changeRule ;
+	private int point ;
 
-	public TradingCard(String name, String image, String type, int age, int[] position, boolean pickAble,
-			boolean flipAble, boolean isFlip, HashMap<String, Integer> cost, String chainSymbol,
-			HashMap<String, Integer> resource) {
-		super(name,  "resourceCard", age,  cost);
+	public TradingCard(String name, HashMap<String, Integer> cost, String chainSymbol,
+			HashMap<String, Integer> resource,String changeRule,int point) {
+		super(name, cost);
 		this.chainSymbol = chainSymbol;
 		this.resource = resource;
+		this.changeRule = changeRule ;
+		this.point = point ;
 	}
 
 	public void addChainSymbol(Player player) {

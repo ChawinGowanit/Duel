@@ -9,8 +9,8 @@ import logic.Player;
 public class RawMaterialCard extends Card implements HaveResource{
 	private HashMap<String, Integer> resource;
 	
-	public RawMaterialCard(String name, String type,int age,HashMap<String ,Integer> cost,HashMap<String, Integer> resource) {
-		super(name,"RawMaterialCard",age,cost);
+	public RawMaterialCard(String name,HashMap<String ,Integer> cost,HashMap<String, Integer> resource) {
+		super(name,cost);
 		this.resource = resource;
 	}
 	

@@ -11,9 +11,8 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 	private int point;
 	private String chainSymbol;
 
-	public PointCard(String name, String image, String type, int age, int[] position, boolean pickAble,
-			boolean flipAble, boolean isFlip, HashMap<String, Integer> cost, int point, String chainSymbol) {
-		super(name,  "pointCard", age,  cost);
+	public PointCard(String name, HashMap<String, Integer> cost, int point, String chainSymbol) {
+		super(name, cost);
 		this.point = point;
 		this.chainSymbol = chainSymbol;
 	}
