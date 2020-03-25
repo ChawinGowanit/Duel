@@ -4,31 +4,30 @@ import java.util.HashMap;
 
 public abstract class Card {
 	private String name;
+	private Cost cost;
 	private int position;
 	private boolean flipAble;
 	private boolean isFlip;
 	private boolean pickAble;
-	private HashMap<String,Integer> cost;
-	
-	public Card(String name,HashMap<String,Integer> cost) {
-		this.name = name;	
-		this.cost = cost;
+
+	public Card(String name, Cost cost) {
+		this.name = name;
+		this.cost = new Cost();
 		this.flipAble = false;
 		this.isFlip = false;
-		this.pickAble = false ;
-		
+		this.pickAble = false;
+
 	}
-	
-	
+
 	public String getName() {
 		return this.name;
 	}
 
-	
-	public HashMap<String ,Integer> getCost(){
-		return this.cost ;
+	public Cost getCost() {
+		return this.cost;
 	}
+
 	public boolean getPickAble() {
-		return this.pickAble ;
+		return this.pickAble;
 	}
 }

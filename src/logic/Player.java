@@ -3,34 +3,23 @@ package logic;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import Card.base.Cost;
+
 public class Player {
 	private String name;
 	private int num;
-	private HashMap<String, Integer> resourceCounter;
-	private HashMap<String, Integer> buyResourceCost;
+	private Cost resourceCounter;
+	private Cost buyResourceCost;
 	private ArrayList<String> chainSymbols;
 	private int playerPoint;
-	private int attackPoint;
 	
 	public Player(String name, int num) {
 		this.name = name;
 		this.num = num;
-		this.resourceCounter = new HashMap<String, Integer>();
-		this.resourceCounter.put("D32Steel", 0);
-		this.resourceCounter.put("Bipolar Nanoflake", 0);
-		this.resourceCounter.put("Polymerization Preparation", 0);
-		this.resourceCounter.put("Sugar Pack", 0);
-		this.resourceCounter.put("Manganese Ore", 0);
-		this.resourceCounter.put("LMD", 7);
-		this.buyResourceCost = new HashMap<String, Integer>();
-		this.buyResourceCost.put("D32SteelCost", 2);
-		this.buyResourceCost.put("NanoflakeCost", 2);
-		this.buyResourceCost.put("PolymerizationCost", 2);
-		this.buyResourceCost.put("SugarPackCost", 2);
-		this.buyResourceCost.put("ManganeseCost", 2);
+		this.resourceCounter = new Cost(0,0,0,0,0,7) ;
+		this.buyResourceCost = new Cost(2,2,2,2,2,0) ;
 		this.chainSymbols = new ArrayList<String>();
 		this.playerPoint = 0;
-		this.attackPoint = 0;
 	}
 	
 	
@@ -42,20 +31,16 @@ public class Player {
 		this.num = num;
 	}
 
-	public void setResourceCounter(HashMap<String, Integer> resourceCounter) {
+	public void setResourceCounter(Cost resourceCounter) {
 		this.resourceCounter = resourceCounter;
 	}
 
-	public void setBuyResourceCost(HashMap<String, Integer> buyResourceCost) {
+	public void setBuyResourceCost(Cost buyResourceCost) {
 		this.buyResourceCost = buyResourceCost;
 	}
 
 	public void setPlayerPoint(int playerPoint) {
 		this.playerPoint = playerPoint;
-	}
-
-	public void setAttackPoint(int attackPoint) {
-		this.attackPoint = attackPoint;
 	}
 
 	public void setChainSymbol(ArrayList<String> chainSymbols) {
@@ -70,24 +55,16 @@ public class Player {
 		return this.num;
 	}
 
-	public HashMap<String, Integer> getResourceCounter() {
+	public Cost getResourceCounter() {
 		return this.resourceCounter;
 	}
 
-	public HashMap<String, Integer> getbuyResourceCost() {
+	public Cost getbuyResourceCost() {
 		return this.buyResourceCost;
 	}
 
 	public int getplayerPoint() {
 		return this.playerPoint;
-	}
-
-	public int getAttackpoint() {
-		return this.attackPoint;
-	}
-
-	public void increaseResourceCounter(String key, int counter) {
-		this.resourceCounter.put(key, this.resourceCounter.get(key) + counter);
 	}
 
 	public void increasePlayerPoint(int point) {
@@ -98,11 +75,4 @@ public class Player {
 		this.chainSymbols.add(chainSymbol);
 	}
 	
-
-
-
-	public void increasePlayerMoney(int i) {
-		// TODO Auto-generated method stub
-		this.resourceCounter.put("LMD",this.resourceCounter.get("LMD"+i));
-	}
 }

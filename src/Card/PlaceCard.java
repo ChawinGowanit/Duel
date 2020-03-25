@@ -1,8 +1,8 @@
 package Card;
 
-import java.util.HashMap;
 
 import Card.base.Attackable;
+import Card.base.Cost;
 import Card.base.HavePoint;
 import Card.base.HaveResource;
 import logic.Player;
@@ -15,11 +15,11 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	private int attackPoint;
 	private int playerPoint;
 	private boolean repeatTurn;
-	private HashMap<String, Integer> cost;
-	private HashMap<String, Integer> resource;
+	private Cost cost;
+	private Cost resource;
 
 	public PlaceCard(String name, String image, int attackPoint, int playerPoint, boolean repeatTurn,
-			HashMap<String, Integer> cost, HashMap<String, Integer> resource) {
+			Cost cost, Cost resource) {
 		this.name = name;
 		this.image = image;
 
@@ -46,14 +46,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	@Override
 	public void addPlayerCounter(Player player) {
 		// TODO Auto-generated method stub
-		for (String resource : resource.keySet()) {
-			for (String playerResource : player.getResourceCounter().keySet()) {
-				if (resource.equals(playerResource)) {
-					player.increaseResourceCounter(resource, this.resource.get(resource));
-				}
-			}
 
-		}
 	}
 
 }
