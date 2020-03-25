@@ -19,8 +19,7 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 		this.chainSymbol = chainSymbol;
 	}
 	public void attackPlayer(Player ATKplayer, Player player) {
-		
-		
+				
 	}
 
 	

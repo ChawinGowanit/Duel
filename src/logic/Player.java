@@ -11,7 +11,6 @@ public class Player {
 	private ArrayList<String> chainSymbols;
 	private int playerPoint;
 	private int attackPoint;
-	private int playerMoney;
 	
 	public Player(String name, int num) {
 		this.name = name;
@@ -99,10 +98,6 @@ public class Player {
 		this.chainSymbols.add(chainSymbol);
 	}
 	
-	
-	public void increasePlayerMoney(int money) {
-		this.playerMoney+=money;
-	}
 	
 	public Player getPlayer(Player ATKplayer,Player player) {
 		if (ATKplayer.getNum() == 1) {

@@ -1,7 +1,7 @@
 package logic;
 
-import card.PlaceCard;
-import card.cards.base.Card;
+import Card.PlaceCard;
+import Card.base.Card;
 
 public class Turn {
 	private int playerTurn;
