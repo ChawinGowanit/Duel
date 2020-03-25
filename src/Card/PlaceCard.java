@@ -32,8 +32,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 
 	@Override
 	public void attackPlayer(Player ATKplayer) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 		AttackBoard.attackTime(ATKplayer);
 	}
 
@@ -46,7 +45,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	@Override
 	public void addPlayerCounter(Player player) {
 		// TODO Auto-generated method stub
-
+		player.setResourceCounter(Cost.addCost(this.resource,player.getResourceCounter()));
 	}
 
 }
