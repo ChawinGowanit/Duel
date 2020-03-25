@@ -98,12 +98,11 @@ public class Player {
 		this.chainSymbols.add(chainSymbol);
 	}
 	
-	
-	public Player getPlayer(Player ATKplayer,Player player) {
-		if (ATKplayer.getNum() == 1) {
-			return player ;
-		} else {
-			return ATKplayer ;
-		}
+
+
+
+	public void increasePlayerMoney(int i) {
+		// TODO Auto-generated method stub
+		this.resourceCounter.put("LMD",this.resourceCounter.get("LMD"+i));
 	}
 }

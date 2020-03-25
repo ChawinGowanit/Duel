@@ -13,24 +13,24 @@ public class Turn {
 	}
 
 	public boolean pickCard(Card card) {
-<<<<<<< HEAD
+
 		if (card.getPickAble()) {
 			Mainboard.removeCard(card);
 			return true ;
-||||||| constructed merge base
+
 		if (card.pickAble) {
 
-=======
+
 		if (card.pickAble) {
 			
->>>>>>> Change some class name, add AttackBoard
+
 		} else {
 			return false;
 		}
 	}
 
 	public boolean build(Card card, Player player) {
-		
+		place.create(Player,card);
 	}
 
 	public void sell(Card card, Player player) {

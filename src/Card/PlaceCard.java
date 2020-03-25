@@ -6,6 +6,8 @@ import Card.base.Attackable;
 import Card.base.HavePoint;
 import Card.base.HaveResource;
 import logic.Player;
+import logic.AttackBoard;
+
 
 public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	private String name;
@@ -29,9 +31,10 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	}
 
 	@Override
-	public void attackPlayer(Player ATKplayer, Player player) {
+	public void attackPlayer(Player ATKplayer) {
 		// TODO Auto-generated method stub
-		player.getPlayer(ATKplayer, player).setAttackPoint(player.getAttackpoint() - this.attackPoint);
+		
+		AttackBoard.attackTime(ATKplayer);
 	}
 
 	@Override

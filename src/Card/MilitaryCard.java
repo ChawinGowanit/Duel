@@ -6,7 +6,7 @@ import Card.base.Attackable;
 import Card.base.Card;
 import Card.base.HaveChainSymbol;
 import logic.Player;
-
+import logic.AttackBoard;;
 public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	
 	private String chainSymbol;
@@ -18,8 +18,11 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 		this.attackPoint = attackPoint;
 		this.chainSymbol = chainSymbol;
 	}
-	public void attackPlayer(Player ATKplayer, Player player) {
-				
+	
+	public void attackPlayer(Player ATKplayer) {
+
+		AttackBoard.attackTime(ATKplayer);
+		
 	}
 
 	
