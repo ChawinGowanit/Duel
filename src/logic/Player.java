@@ -1,7 +1,6 @@
 package logic;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import Card.base.Cost;
 
@@ -13,8 +12,7 @@ public class Player {
 	private ArrayList<String> chainSymbols;
 	private int playerPoint;
 	
-	public Player(String name, int num) {
-		this.name = name;
+	public Player(int num) {
 		this.num = num;
 		this.resourceCounter = new Cost(0,0,0,0,0,7) ;
 		this.buyResourceCost = new Cost(2,2,2,2,2,0) ;

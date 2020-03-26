@@ -20,7 +20,7 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	}	
 	public void attackPlayer(Player ATKplayer) {
 
-		AttackBoard.attackTime(ATKplayer);
+		AttackBoard.attackTime(ATKplayer,this);
 		
 	}
 	public void addChainSymbol(Player player) {

@@ -2,6 +2,9 @@ package logic;
 
 import java.util.HashMap;
 
+import Card.base.Attackable;
+import Card.base.Cost;
+
 
 
 public  class AttackBoard {
@@ -17,11 +20,11 @@ public  class AttackBoard {
 		PosAndCoinLoss.put(-6,5);
 	}
 	
-	public static void attackTime(Player player) {
+	public static void attackTime(Player player,Attackable attackable) {
 		if (player.getNum()==1) {
-			position+=player.getAttackpoint();
+			position+= attackable.getAttackPoint();
 		}else {
-			position-=player.getAttackpoint();
+			position-= attackable.getAttackPoint();
 		}
 	}
 	
@@ -31,10 +34,10 @@ public  class AttackBoard {
 				player1.increasePlayerPoint(PosAndCoinLoss.get(1));
 				PosAndCoinLoss.remove(1);
 			}else if (position==3 || position==6) {
-				player2.increasePlayerMoney(-PosAndCoinLoss.get(position));
+				player2.setResourceCounter(Cost.addCost(player2.getResourceCounter(),new Cost(0,0,0,0,0,-2)));
 				PosAndCoinLoss.remove(position);
 			}else if (position==-3 || position==-6) {
-				player1.increasePlayerMoney(-PosAndCoinLoss.get(position));
+				player1.setResourceCounter(Cost.addCost(player1.getResourceCounter(),new Cost(0,0,0,0,0,-2)));
 				PosAndCoinLoss.remove(position);
 			}else if (position==-1) {
 				player2.increasePlayerPoint(PosAndCoinLoss.get(-1));
