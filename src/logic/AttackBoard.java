@@ -34,10 +34,10 @@ public  class AttackBoard {
 				player1.increasePlayerPoint(PosAndCoinLoss.get(1));
 				PosAndCoinLoss.remove(1);
 			}else if (position==3 || position==6) {
-				player2.setResourceCounter(Cost.addCost(player2.getResourceCounter(),new Cost(0,0,0,0,0,-2)));
+				player2.setResourceCounter(Cost.reduceCost(player2.getResourceCounter(),new Cost(0,0,0,0,0,2)));
 				PosAndCoinLoss.remove(position);
 			}else if (position==-3 || position==-6) {
-				player1.setResourceCounter(Cost.addCost(player1.getResourceCounter(),new Cost(0,0,0,0,0,-2)));
+				player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(),new Cost(0,0,0,0,0,2)));
 				PosAndCoinLoss.remove(position);
 			}else if (position==-1) {
 				player2.increasePlayerPoint(PosAndCoinLoss.get(-1));

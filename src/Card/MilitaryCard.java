@@ -1,22 +1,24 @@
 package Card;
 
 
+
 import Card.base.Attackable;
 import Card.base.Card;
+import Card.base.ChainSymbols;
 import Card.base.Cost;
 import Card.base.HaveChainSymbol;
 import logic.Player;
 import logic.AttackBoard;;
 public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	
-	private String chainSymbol;
+	private ChainSymbols chainSymbol;
 	private int attackPoint;
 	
 	
-	public MilitaryCard(String name, Cost cost, int attackPoint, String chainSymbol) {
+	public MilitaryCard(String name, Cost cost, int attackPoint, ChainSymbols chainsymbol) {
 		super(name, cost);
 		this.attackPoint = attackPoint;
-		this.chainSymbol = chainSymbol;
+		this.chainSymbol = chainsymbol;
 	}	
 	public void attackPlayer(Player ATKplayer) {
 
@@ -24,8 +26,9 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 		
 	}
 	public void addChainSymbol(Player player) {
-		player.addChainSymbol(this.chainSymbol);
-		
+		for (String chainSymbol:this.chainSymbol.getChainSymbol()) {
+		player.addChainSymbol(chainSymbol);
+		}
 	}	
 	public int getAttackPoint() {
 		return attackPoint;

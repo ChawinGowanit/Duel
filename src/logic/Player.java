@@ -1,7 +1,7 @@
 package logic;
 
-import java.util.ArrayList;
 
+import Card.base.ChainSymbols;
 import Card.base.Cost;
 
 public class Player {
@@ -9,14 +9,14 @@ public class Player {
 	private int num;
 	private Cost resourceCounter;
 	private Cost buyResourceCost;
-	private ArrayList<String> chainSymbols;
+	private ChainSymbols chainSymbols;
 	private int playerPoint;
 	
 	public Player(int num) {
 		this.num = num;
 		this.resourceCounter = new Cost(0,0,0,0,0,7) ;
 		this.buyResourceCost = new Cost(2,2,2,2,2,0) ;
-		this.chainSymbols = new ArrayList<String>();
+		this.chainSymbols = new ChainSymbols() ;
 		this.playerPoint = 0;
 	}
 	
@@ -41,7 +41,7 @@ public class Player {
 		this.playerPoint = playerPoint;
 	}
 
-	public void setChainSymbol(ArrayList<String> chainSymbols) {
+	public void setChainSymbol(ChainSymbols chainSymbols) {
 		this.chainSymbols = chainSymbols;
 	}
 
@@ -70,7 +70,7 @@ public class Player {
 	}
 
 	public void addChainSymbol(String chainSymbol) {
-		this.chainSymbols.add(chainSymbol);
+		this.chainSymbols.addChainSymbols(chainSymbol);
 	}
 	
 }
