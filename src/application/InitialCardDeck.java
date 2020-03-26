@@ -75,6 +75,6 @@ public class InitialCardDeck {
 		this.lateGameCard.add(new TradingCard("Nightingale", new Cost(0, 0, 1, 1, 1, 0), "", new Cost(), "", 3));
 		this.lateGameCard.add(new TradingCard("Magallan", new Cost(0, 2, 0, 0, 1, 0), "", new Cost(), "", 3));
 		this.lateGameCard.add(new TradingCard("Savage", new Cost(2, 0, 0, 0, 1, 0), "Rim Bilition", new Cost(), "", 3));
-		this.lateGameCard.add(new TradingCard("Silverash", new Cost(1, 1, 1, 0, 0, 0), "Kazimierz", new Cost(), "", 3));
+		this.lateGameCard.add(new TradingCard("Silverash", new Cost(1, 1, 1, 0, 0, 0), "Kjerag", new Cost(), "", 3));
 	}
 }
