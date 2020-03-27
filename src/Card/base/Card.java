@@ -1,6 +1,5 @@
 package Card.base;
 
-import java.util.HashMap;
 
 public abstract class Card {
 	private String name;
@@ -29,5 +28,14 @@ public abstract class Card {
 
 	public boolean getPickAble() {
 		return this.pickAble;
+	}
+	public void setPosition(int position) {
+		this.position = position ;
+	}
+	public int getPosition() {
+		return this.position ;
+	}
+	public String toString() {
+		return this.name ;
 	}
 }

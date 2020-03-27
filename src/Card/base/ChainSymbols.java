@@ -8,7 +8,12 @@ public class ChainSymbols {
 	public ChainSymbols() {
 		this.chainSymbol = new ArrayList<String>() ;
 	}
+	public ChainSymbols(String chainSymbol) {
+		this.chainSymbol = new ArrayList<String>() ;
+		this.chainSymbol.add(chainSymbol) ;
+	}
 	public ChainSymbols(String chainSymbol1,String chainSymbol2) {
+		this.chainSymbol = new ArrayList<String>() ;
 		this.chainSymbol.add(chainSymbol1) ;
 		this.chainSymbol.add(chainSymbol2) ;
 	}

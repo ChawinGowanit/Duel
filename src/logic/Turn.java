@@ -2,6 +2,7 @@ package logic;
 
 import Card.PlaceCard;
 import Card.base.Card;
+import Card.base.Cost;
 
 public class Turn {
 	private int playerTurn;
@@ -17,43 +18,31 @@ public class Turn {
 		if (card.getPickAble()) {
 			Mainboard.removeCard(card);
 			return true ;
-
-		if (card.pickAble) {
-
-
-		if (card.pickAble) {
-			
-
 		} else {
-			return false;
+			
 		}
 	}
 
 	public boolean build(Card card, Player player) {
-		place.create(Player,card);
+		place.create(Player, card);
 	}
 
 	public void sell(Card card, Player player) {
-		player.increaseResourceCounter("LMD", player.getResourceCounter().get("LMD"));
+		player.setResourceCounter(Cost.addCost(player.getResourceCounter(),new Cost(0,0,0,0,0,2)));
 	}
 
 	public boolean buildPlace(PlaceCard card) {
 		
 	}
-	public void setRepeatTurn(boolean repeat) {
-		this.repeatTurn = repeat;
-	}
 
 	public void switchPlayerTurn() {
-		if (this.repeatTurn) {
-			this.playerTurn = this.playerTurn;
-			this.repeatTurn = false;
+		if (this.playerTurn == 1) {
+			this.playerTurn = 2;
 		} else {
-			if (this.playerTurn == 1) {
-				this.playerTurn = 2;
-			} else {
-				this.playerTurn = 1;
-			}
+			this.playerTurn = 1;
 		}
+	}
+	public void updateCardOnBoard() {
+		
 	}
 }

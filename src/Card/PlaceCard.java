@@ -14,18 +14,14 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	private String image;
 	private int attackPoint;
 	private int playerPoint;
-	private boolean repeatTurn;
 	private Cost cost;
 	private Cost resource;
 
-	public PlaceCard(String name, String image, int attackPoint, int playerPoint, boolean repeatTurn,
+	public PlaceCard(String name, int attackPoint, int playerPoint,
 			Cost cost, Cost resource) {
 		this.name = name;
-		this.image = image;
-
 		this.attackPoint = attackPoint;
 		this.playerPoint = playerPoint;
-		this.repeatTurn = repeatTurn;
 		this.cost = cost;
 		this.resource = resource;
 	}
