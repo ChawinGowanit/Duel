@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import Card.PlaceCard;
 
 public class PlaceBoard {
+	private ArrayList<PlaceCard> cardOnBoard ;
 	private ArrayList<PlaceCard> placeListPlayer1 ;
 	private ArrayList<PlaceCard> placeListPlayer2 ;
 	public PlaceBoard() {
+		cardOnBoard = new ArrayList<PlaceCard>() ;
 		placeListPlayer1 = new ArrayList<PlaceCard>();
 		placeListPlayer2 = new ArrayList<PlaceCard>();
 	}
 	
+	public void addCardOnBoard(ArrayList<PlaceCard> placeCardDeck) {
+		cardOnBoard.addAll(placeCardDeck) ;
+	}
 	
 	public void construction(Player player,PlaceCard card) {
 		if (player.getNum()==1){
@@ -21,7 +26,7 @@ public class PlaceBoard {
 		}
 		
 	}
-	
+	//เดี๋ยวค่อยมาทำ
 	public void specialEffect(PlaceCard card) {
 		String j = card.getName();
 		switch (j){

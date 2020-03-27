@@ -57,6 +57,9 @@ public class MainBoard {
 	}
 	public void updateCardOnBoard() {
 		//update boolean flipAble isFlip piackAble from each card
+		
+		
+		
 	}
 	public ArrayList<Card> getStartingCardOnBoard(){
 		return this.startingCardOnBoard ;

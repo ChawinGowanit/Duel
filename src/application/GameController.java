@@ -7,10 +7,11 @@ import logic.Player;
 import java.util.Scanner;
 
 public class GameController {
+	private static int phase ;
 	private static Scanner keyboard = new Scanner(System.in) ;//Game initialize
 	static InitialCardDeck initialCardDeck = new InitialCardDeck() ;
-	static Player player1 = new Player(1);
-	static Player player2 = new Player(2);	
+	public static Player player1 = new Player(1);
+	public static Player player2 = new Player(2);	
 	public static AttackBoard ATKboard = new AttackBoard();
 	public static MainBoard mainBoard = new MainBoard() ;
 	public static PlaceBoard placeBoard = new PlaceBoard();
@@ -36,14 +37,17 @@ public class GameController {
 		System.out.println(mainBoard.getMidGameCardOnBoard());
 		System.out.println(mainBoard.getLateGameCardOnBoard());
 		//StartingGame phase
+		phase = 1 ;
 		/*for (int i = 0;i==20;i++) {
 			turn()
 		}
 		//MidGame phase
+		phase = 2 ;
 		for (int i = 0;i==20;i++) {
 			turn()
 		}
 		//LateGame phase
+		phase = 3 ;
 		for (int i = 0;i==18;i++) {
 			turn()
 		}*/
@@ -56,5 +60,8 @@ public class GameController {
 			System.out.println(player1.getName() + " and " + player2.getName() + " TIE!");
 		}
 		
+	}
+	public static int getPhase() {
+		return phase;
 	}
 }

@@ -57,4 +57,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 		GameController.placeBoard.construction(player, this);
 		
 	}
+	public Cost getCost() {
+		return this.cost ;
+	}
 }
