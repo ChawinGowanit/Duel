@@ -34,4 +34,9 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	public int getAttackPoint() {
 		return attackPoint;
 	}
+	@Override
+	public ChainSymbols getChainSymbols() {
+		// TODO Auto-generated method stub
+		return this.chainSymbol;
+	}
 }

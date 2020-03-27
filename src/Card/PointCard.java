@@ -27,5 +27,8 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 	public void addPlayerPoint(Player player) {
 		player.increasePlayerPoint(this.point);
 	}
-
+	public ChainSymbols getChainSymbols() {
+		// TODO Auto-generated method stub
+		return this.chainSymbol;
+	}
 }

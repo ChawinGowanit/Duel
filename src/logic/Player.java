@@ -74,5 +74,8 @@ public class Player {
 	public void addChainSymbol(String chainSymbol) {
 		this.chainSymbols.addChainSymbols(chainSymbol);
 	}
+	public ChainSymbols getChainSymbols() {
+		return chainSymbols;
+	}
 	
 }

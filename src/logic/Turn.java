@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Card.PlaceCard;
 import Card.base.Attackable;
 import Card.base.Card;
+import Card.base.ChainSymbols;
 import Card.base.Cost;
 import Card.base.HaveChainSymbol;
 import Card.base.HavePoint;
@@ -15,7 +16,7 @@ public class Turn {
 	private static Scanner keyboard = new Scanner(System.in);
 	private int playerTurn;
 	private boolean repeatTurn;
-	private int phase = GameController.getPhase() ;
+	private int phase = GameController.getPhase();
 
 	public Turn() {
 		this.playerTurn = 1;
@@ -42,18 +43,38 @@ public class Turn {
 						turnConTroller(card,phase) ;
 					}
 				}
+				switchPlayerTurn() ;
+				break ;
 			case "sell" :
 				if (playerTurn == 1) {
 					sell(card, GameController.player1);
 				} else {
 					sell(card, GameController.player2);
 				}
+				switchPlayerTurn() ;
+				break ;
 			case "buildPlace" :
 				/**/
 	}
 
 	public boolean build(Card card, Player player) {
-		if (Cost.checkCost(player.getResourceCounter(), card.getCost())) {
+		if (card instanceof HaveChainSymbol && ChainSymbols.isHaveChainSymbol(player, (HaveChainSymbol) card)) {
+			if (card instanceof HaveResource) {
+				((HaveResource) card).addPlayerCounter(player);
+			}
+			if (card instanceof HavePoint) {
+				((HavePoint) card).addPlayerPoint(player);
+			}
+			if (card instanceof HaveChainSymbol) {
+				((HaveChainSymbol) card).addChainSymbol(player);
+			}
+			if (card instanceof Attackable) {
+				((Attackable) card).attackPlayer(player);
+			}
+			return true;
+		}
+
+		else if (Cost.checkCost(player.getResourceCounter(), card.getCost())) {
 			if (card instanceof HaveResource) {
 				((HaveResource) card).addPlayerCounter(player);
 			}
