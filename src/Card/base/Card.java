@@ -38,4 +38,12 @@ public abstract class Card {
 	public String toString() {
 		return this.name ;
 	}
+	
+	public void setFlipAble(boolean flipAble) {
+		this.flipAble= flipAble;
+	}
+	
+	
+		
+	
 }

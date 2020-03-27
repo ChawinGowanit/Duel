@@ -2,6 +2,7 @@ package application;
 
 import logic.AttackBoard;
 import logic.MainBoard;
+import logic.PlaceBoard;
 import logic.Player;
 import java.util.Scanner;
 
@@ -10,8 +11,10 @@ public class GameController {
 	static InitialCardDeck initialCardDeck = new InitialCardDeck() ;
 	static Player player1 = new Player(1);
 	static Player player2 = new Player(2);	
-	static AttackBoard ATKboard = new AttackBoard();
-	static MainBoard mainBoard = new MainBoard() ;
+	public static AttackBoard ATKboard = new AttackBoard();
+	public static MainBoard mainBoard = new MainBoard() ;
+	public static PlaceBoard placeBoard = new PlaceBoard();
+	
 	public static void main(String args[]) {
 		//set player name
 		System.out.println("=====Start Game=====");

@@ -7,11 +7,12 @@ import Card.base.Cost;
 
 
 
-public  class AttackBoard {
-	private static int position=0;
-	private  HashMap<Integer , Integer> PosAndCoinLoss = new HashMap<Integer, Integer>();
+public class AttackBoard {
+	private int position=0;
+	private HashMap<Integer , Integer> PosAndCoinLoss;
 	
 	public AttackBoard() {
+		HashMap<Integer , Integer> PosAndCoinLoss = new HashMap<Integer, Integer>();
 		PosAndCoinLoss.put(1, 2);
 		PosAndCoinLoss.put(3,2);
 		PosAndCoinLoss.put(6,5);
@@ -20,15 +21,19 @@ public  class AttackBoard {
 		PosAndCoinLoss.put(-6,5);
 	}
 	
-	public static void attackTime(Player player,Attackable attackable) {
+
+	
+	
+	public void attackTime(Player player,Attackable card) {
+
 		if (player.getNum()==1) {
-			position+= attackable.getAttackPoint();
+			position+= card.getAttackPoint();
 		}else {
-			position-= attackable.getAttackPoint();
+			position-= card.getAttackPoint();
 		}
 	}
 	
-	public void rewardAndPun(Player player1,Player player2) {
+	public  void rewardAndPun(Player player1,Player player2) {
 		if (PosAndCoinLoss.containsKey(position)) {
 			if (position==1) {
 				player1.increasePlayerPoint(PosAndCoinLoss.get(1));
@@ -45,7 +50,7 @@ public  class AttackBoard {
 			}
 		}
 	}
-	public static boolean winConditionCheck(Player player) {
+	public boolean winConditionCheck(Player player) {
 		if (player.getNum()==1){
 			if (position ==9) {
 				return true;

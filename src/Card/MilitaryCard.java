@@ -7,6 +7,7 @@ import Card.base.Card;
 import Card.base.ChainSymbols;
 import Card.base.Cost;
 import Card.base.HaveChainSymbol;
+import application.GameController;
 import logic.Player;
 import logic.AttackBoard;;
 public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
@@ -22,7 +23,7 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	}	
 	public void attackPlayer(Player ATKplayer) {
 
-		AttackBoard.attackTime(ATKplayer,this);
+		GameController.ATKboard.attackTime(ATKplayer,this);
 		
 	}
 	public void addChainSymbol(Player player) {

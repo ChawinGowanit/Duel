@@ -5,6 +5,7 @@ import Card.base.Attackable;
 import Card.base.Cost;
 import Card.base.HavePoint;
 import Card.base.HaveResource;
+import application.GameController;
 import logic.Player;
 import logic.AttackBoard;
 
@@ -29,7 +30,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	@Override
 	public void attackPlayer(Player ATKplayer) {
 		// TODO Auto-generated method stub	
-		AttackBoard.attackTime(ATKplayer,this);
+		GameController.ATKboard.attackTime(ATKplayer,this);
 	}
 
 	@Override
@@ -47,4 +48,13 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 		return attackPoint;
 	}
 
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void constructPlace(Player player) {
+		GameController.placeBoard.construction(player, this);
+		
+	}
 }
