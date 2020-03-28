@@ -36,6 +36,7 @@ public class MainBoard {
 				i++;
 				this.startingCardOnBoard.add(card);
 			}
+			break ;
 		case 2:
 			Collections.shuffle(initialCardDeck.midGameCard);
 			int i1 = 1;
@@ -44,6 +45,7 @@ public class MainBoard {
 				i1++;
 				this.midGameCardOnBoard.add(card);
 			}
+			break ;
 		case 3:
 			Collections.shuffle(initialCardDeck.lateGameCard);
 			int i2 = 1;
@@ -52,7 +54,9 @@ public class MainBoard {
 				i2++;
 				this.lateGameCardOnBoard.add(card);
 			}
+			break ;
 		}
+		
 	}
 
 	public void removeCardFromBoard(Card card, int phase) {

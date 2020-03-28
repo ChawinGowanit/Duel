@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import Card.base.Attackable;
 import Card.base.Cost;
+import application.GameController;
 
 
 
@@ -28,10 +29,13 @@ public class AttackBoard {
 	
 	public void attackTime(Player player,Attackable card) {
 
+		
 		if (player.getNum()==1) {
 			position+= card.getAttackPoint();
+			rewardAndPun(player,GameController.player2) ;
 		}else {
 			position-= card.getAttackPoint();
+			rewardAndPun(player,GameController.player1) ;
 		}
 	}
 	

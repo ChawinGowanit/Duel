@@ -28,14 +28,23 @@ public class Turn {
 			case "build":
 				if (playerTurn == 1) {
 					if (canBulid(card, GameController.player1)) {
-						build(card, GameController.player1);
-						System.out.println("-----build complete-----");
-						GameController.mainBoard.removeCardFromBoard(card, phase);
+						if (build(card, GameController.player1)) {
+							System.out.println("-----build complete-----");
+							GameController.mainBoard.removeCardFromBoard(card, phase);
+						} else{
+							System.out.println("please pick new card");
+							System.out.println(GameController.placeBoard.getPlaceCardOnBoard());
+							System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
+							System.out.println("Type Card you want to pick");
+							String respond = keyboard.nextLine();
+							turnConTroller(GameController.mainBoard.getCardFromName(respond,
+									GameController.mainBoard.getStartingCardOnBoard()), GameController.getPhase());
+						}
 					} else {
-						System.out.println("insufficient material!");
+						System.out.println("Insufficient material");
 						System.out.println("please pick new card");
 						System.out.println(GameController.placeBoard.getPlaceCardOnBoard());
-						System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase())); // แก้ด้วย
+						System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
 						System.out.println("Type Card you want to pick");
 						String respond = keyboard.nextLine();
 						turnConTroller(GameController.mainBoard.getCardFromName(respond,
@@ -43,14 +52,23 @@ public class Turn {
 					}
 				} else {
 					if (canBulid(card, GameController.player2)) {
-						build(card, GameController.player2);
-						System.out.println("-----Build complete-----");
-						GameController.mainBoard.removeCardFromBoard(card, phase);
+						if (build(card, GameController.player2)) {
+							System.out.println("-----build complete-----");
+							GameController.mainBoard.removeCardFromBoard(card, phase);
+						} else{
+							System.out.println("please pick new card");
+							System.out.println(GameController.placeBoard.getPlaceCardOnBoard());
+							System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
+							System.out.println("Type Card you want to pick");
+							String respond = keyboard.nextLine();
+							turnConTroller(GameController.mainBoard.getCardFromName(respond,
+									GameController.mainBoard.getStartingCardOnBoard()), GameController.getPhase());
+						}
 					} else {
-						System.out.println("insufficient material!");
+						System.out.println("Insufficient material");
 						System.out.println("please pick new card");
 						System.out.println(GameController.placeBoard.getPlaceCardOnBoard());
-						System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase())); // แก้ด้วย
+						System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
 						System.out.println("Type Card you want to pick");
 						String respond = keyboard.nextLine();
 						turnConTroller(GameController.mainBoard.getCardFromName(respond,
@@ -107,13 +125,18 @@ public class Turn {
 								GameController.mainBoard.getStartingCardOnBoard()), GameController.getPhase());
 					}
 				}
+				switchPlayerTurn();
+				break;
+				default :{
+					String message = "Incorrect command" ;
+				}
 			}
 		} else {
 			throw new PickCardFailException("This card is not pickable!");
 		}
 	}
 
-	public static boolean build(Card card, Player player) {
+	public static boolean build(Card card, Player player) throws PickCardFailException {
 		if (card instanceof HaveChainSymbol && ChainSymbols.isHaveChainSymbol(player, (HaveChainSymbol) card)) {
 			if (card instanceof HaveResource) {
 				((HaveResource) card).addPlayerCounter(player);
@@ -130,6 +153,11 @@ public class Turn {
 				((Attackable) card).attackPlayer(player);
 				System.out.println("Attack!!");
 				System.out.println("Attacker's position :" + AttackBoard.getPosition());
+				if (player.getNum() == 1) {
+					System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+				} else {
+					System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+				}
 			}
 			if (card instanceof TradingCard) {
 				player.setSellResourceGain(player.getSellResourceGain() + 1);
@@ -158,6 +186,11 @@ public class Turn {
 				((Attackable) card).attackPlayer(player);
 				System.out.println("Attack!!");
 				System.out.println("Attacker's position :" + AttackBoard.getPosition());
+				if (player.getNum() == 1) {
+					System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+				} else {
+					System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+				}
 			}
 			if (card instanceof TradingCard) {
 				player.setSellResourceGain(player.getSellResourceGain() + 1);
@@ -192,6 +225,11 @@ public class Turn {
 					((Attackable) card).attackPlayer(player);
 					System.out.println("Attack!!");
 					System.out.println("Attacker's position :" + AttackBoard.getPosition());
+					if (player.getNum() == 1) {
+						System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+					} else {
+						System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+					}
 				}
 				if (card instanceof TradingCard) {
 					player.setSellResourceGain(player.getSellResourceGain() + 1);
@@ -204,6 +242,7 @@ public class Turn {
 				System.out.println(player.getName() + "'s new resources :" + player.getResourceCounter());
 				return true;
 			case "n":
+				System.out.println("you've cenceled picked this card");
 				return false;
 			default:
 				return false;
@@ -220,7 +259,7 @@ public class Turn {
 				Cost.addCost(player.getResourceCounter(), new Cost(0, 0, 0, 0, 0, player.getSellResourceGain())));
 	}
 
-	public static boolean buildPlace(PlaceCard card, Player player) {
+	public static boolean buildPlace(PlaceCard card, Player player) throws PickCardFailException {
 		if (card instanceof HaveChainSymbol && ChainSymbols.isHaveChainSymbol(player, (HaveChainSymbol) card)) {
 			if (card instanceof HaveResource) {
 				((HaveResource) card).addPlayerCounter(player);
@@ -237,6 +276,11 @@ public class Turn {
 				((Attackable) card).attackPlayer(player);
 				System.out.println("Attack!!");
 				System.out.println("Attacker's position :" + AttackBoard.getPosition());
+				if (player.getNum() == 1) {
+					System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+				} else {
+					System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+				}
 			}
 			System.out.println(player.getName() + "'s new resources :" + player.getResourceCounter());
 			return true;
@@ -258,6 +302,11 @@ public class Turn {
 				((Attackable) card).attackPlayer(player);
 				System.out.println("Attack!!");
 				System.out.println("Attacker's position :" + AttackBoard.getPosition());
+				if (player.getNum() == 1) {
+					System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+				} else {
+					System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+				}
 			}
 			System.out.println(player.getName() + "'s new resources :" + player.getResourceCounter());
 			return true;
@@ -285,10 +334,17 @@ public class Turn {
 					((Attackable) card).attackPlayer(player);
 					System.out.println("Attack!!");
 					System.out.println("Attacker's position :" + AttackBoard.getPosition());
+					if (player.getNum() == 1) {
+						System.out.println(GameController.player2.getName()+"'s resources :"+GameController.player2.getResourceCounter());
+					} else {
+						System.out.println(GameController.player1.getName()+"'s resources :"+GameController.player1.getResourceCounter());
+					}
 				}
+
 				System.out.println(player.getName() + "'s new resources :" + player.getResourceCounter());
 				return true;
 			case "n":
+				System.out.println("you've cenceled picked this card");
 				return false;
 			default:
 				return false;
@@ -298,6 +354,7 @@ public class Turn {
 			return false;
 		}
 
+
 	}
 
 	public static void switchPlayerTurn() {
@@ -306,10 +363,6 @@ public class Turn {
 		} else {
 			playerTurn = 1;
 		}
-	}
-
-	public void updateCardOnBoard() {
-
 	}
 
 	public int getPlayerTurn() {
