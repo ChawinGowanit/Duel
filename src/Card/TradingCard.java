@@ -42,4 +42,7 @@ public class TradingCard extends Card implements HaveResource, HaveChainSymbol,H
 		// TODO Auto-generated method stub
 		return this.chainSymbol;
 	}
+	public Cost getReduceCost() {
+		return reduceCost;
+	}
 }

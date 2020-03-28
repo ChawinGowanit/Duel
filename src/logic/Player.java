@@ -16,9 +16,9 @@ public class Player {
 	public Player(int num) {
 		this.num = num;
 		this.resourceCounter = new Cost(0,0,0,0,0,7) ;
-		this.buyResourceCost = new Cost(2,2,2,2,2,0) ;
+		this.buyResourceCost = new Cost(2,2,2,2,2,1) ;
 		this.chainSymbols = new ChainSymbols() ;
-		this.sellResourceGain = 1;
+		this.sellResourceGain = 2;
 		this.playerPoint = 0;
 	}
 	
@@ -77,5 +77,10 @@ public class Player {
 	public ChainSymbols getChainSymbols() {
 		return chainSymbols;
 	}
-	
+	public int getSellResourceGain() {
+		return sellResourceGain;
+	}
+	public void setSellResourceGain(int sellResourceGain) {
+		this.sellResourceGain = sellResourceGain;
+	}
 }

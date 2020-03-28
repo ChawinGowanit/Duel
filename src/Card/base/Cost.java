@@ -82,10 +82,11 @@ public class Cost {
 	}
 
 	public static boolean checkCost(Cost playerCost, Cost cardCost) {
-		return (playerCost.D32Steel >= cardCost.D32Steel) && (playerCost.BipolarNanoflake >= cardCost.BipolarNanoflake)
-				&& (playerCost.PolymerizationPreparation >= cardCost.PolymerizationPreparation)
-				&& (playerCost.SugarPack >= cardCost.SugarPack) && (playerCost.ManganeseOre >= cardCost.ManganeseOre)
-				&& (playerCost.LMD >= cardCost.LMD);
+		return ((playerCost.D32Steel >= cardCost.D32Steel)&&((playerCost.D32Steel != 0)||(cardCost.D32Steel!=0)))
+				&& ((playerCost.BipolarNanoflake >= cardCost.BipolarNanoflake)&&((playerCost.BipolarNanoflake != 0)||(cardCost.BipolarNanoflake!=0)))
+				&& ((playerCost.PolymerizationPreparation >= cardCost.PolymerizationPreparation)&&((playerCost.PolymerizationPreparation != 0)||(cardCost.PolymerizationPreparation!=0)))
+				&& ((playerCost.SugarPack >= cardCost.SugarPack)&&((playerCost.SugarPack != 0)||(cardCost.SugarPack!=0))) 
+				&& ((playerCost.ManganeseOre >= cardCost.ManganeseOre)&&((playerCost.ManganeseOre != 0)||(cardCost.ManganeseOre!=0)));
 
 	}
 
@@ -93,22 +94,26 @@ public class Cost {
 		// TODO Auto-generated method stub
 		Cost haveToBuy = new Cost();
 		if (playerCost.D32Steel < cardCost.D32Steel) {
-			haveToBuy.D32Steel = cardCost.D32Steel - cardCost.D32Steel;
+			haveToBuy.D32Steel = cardCost.D32Steel - playerCost.D32Steel;
 		}
 		if (playerCost.BipolarNanoflake < cardCost.BipolarNanoflake) {
-			haveToBuy.BipolarNanoflake = cardCost.BipolarNanoflake - cardCost.BipolarNanoflake;
+			haveToBuy.BipolarNanoflake = cardCost.BipolarNanoflake - playerCost.BipolarNanoflake;
 		}
 		if (playerCost.PolymerizationPreparation < cardCost.PolymerizationPreparation) {
-			haveToBuy.PolymerizationPreparation = cardCost.PolymerizationPreparation- cardCost.PolymerizationPreparation;
+			haveToBuy.PolymerizationPreparation = cardCost.PolymerizationPreparation- playerCost.PolymerizationPreparation;
 		}
 		if (playerCost.SugarPack < cardCost.SugarPack) {
-			haveToBuy.SugarPack = cardCost.SugarPack - cardCost.SugarPack;
+			haveToBuy.SugarPack = cardCost.SugarPack - playerCost.SugarPack;
 		}
 		if (playerCost.ManganeseOre < cardCost.ManganeseOre) {
-			haveToBuy.ManganeseOre = cardCost.ManganeseOre - cardCost.ManganeseOre;
+			haveToBuy.ManganeseOre = cardCost.ManganeseOre - playerCost.ManganeseOre;
 		}
-		if (playerCost.LMD < cardCost.LMD) {
-			haveToBuy.LMD = cardCost.LMD - cardCost.LMD;
+		if (cardCost.LMD == 0) {
+			haveToBuy.LMD = 0 ;
+		} else if (cardCost.LMD <= playerCost.LMD) {
+			haveToBuy.LMD = cardCost.LMD ;
+		} else if (cardCost.LMD > playerCost.LMD){
+			return 1000 ;
 		}
 		int LMD = 0;
 		LMD += haveToBuy.D32Steel * buyResourceCost.D32Steel;
@@ -116,6 +121,7 @@ public class Cost {
 		LMD += haveToBuy.PolymerizationPreparation * buyResourceCost.PolymerizationPreparation;
 		LMD += haveToBuy.SugarPack * buyResourceCost.SugarPack;
 		LMD += haveToBuy.ManganeseOre * buyResourceCost.ManganeseOre;
+		LMD += haveToBuy.LMD * buyResourceCost.LMD;
 		return LMD ;
 	}
 	public void setLMD(int LMD) {

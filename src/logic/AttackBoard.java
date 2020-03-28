@@ -8,7 +8,7 @@ import Card.base.Cost;
 
 
 public class AttackBoard {
-	private int position=0;
+	private static int position=0;
 	private HashMap<Integer , Integer> PosAndCoinLoss;
 	
 	public AttackBoard() {
@@ -21,7 +21,9 @@ public class AttackBoard {
 		PosAndCoinLoss.put(-6,5);
 	}
 	
-
+	public static int getPosition() {
+		return position;
+	}
 	
 	
 	public void attackTime(Player player,Attackable card) {

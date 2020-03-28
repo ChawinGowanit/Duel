@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Card.PlaceCard;
 
 public class PlaceBoard {
-	private ArrayList<PlaceCard> cardOnBoard ;
+	private static ArrayList<PlaceCard> cardOnBoard ;
 	private ArrayList<PlaceCard> placeListPlayer1 ;
 	private ArrayList<PlaceCard> placeListPlayer2 ;
 	public PlaceBoard() {
@@ -26,6 +26,16 @@ public class PlaceBoard {
 		}
 		
 	}
+	
+	public static PlaceCard getPlaceCardFromName(String name) {
+		PlaceCard outputCard = null ;
+		for (PlaceCard placeCard : cardOnBoard) {
+			if (placeCard.getName().equals(name)) {
+				outputCard =  placeCard ;
+			}
+		}
+		return outputCard ;
+	}
 	//เดี๋ยวค่อยมาทำ
 	public void specialEffect(PlaceCard card) {
 		String j = card.getName();
@@ -41,7 +51,7 @@ public class PlaceBoard {
 				///////////////////////////
 				break;
 			case "Lungman's Uptown":
-				////////////////////
+				//////////////////// 
 				break;
 			case "Rhodes Island":
 				///////////////////////////
@@ -56,6 +66,11 @@ public class PlaceBoard {
 				///////////////////////
 		}
 				
+	}
+
+	public ArrayList<PlaceCard> getPlaceCardOnBoard() {
+		// TODO Auto-generated method stub
+		return this.cardOnBoard;
 	}
 	
 }

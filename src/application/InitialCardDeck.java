@@ -17,8 +17,8 @@ public class InitialCardDeck {
 	public InitialCardDeck() {
 		// cardAgeOne
 		this.startingCard = new ArrayList<Card>();
-		this.startingCard.add(new MilitaryCard("Volcano Boss", new Cost(), 1, new ChainSymbols()));
-		this.startingCard.add(new MilitaryCard("Volcano Boss", new Cost(), 1, new ChainSymbols()));
+		this.startingCard.add(new MilitaryCard("Volcano Boss1", new Cost(), 1, new ChainSymbols()));
+		this.startingCard.add(new MilitaryCard("Volcano Boss2", new Cost(), 1, new ChainSymbols()));
 		this.startingCard.add(new MilitaryCard("Ambriel", new Cost(0, 0, 1, 0, 0, 0), 1, new ChainSymbols("Laternora")));
 		this.startingCard.add(new MilitaryCard("Ifrit", new Cost(1, 0, 0, 0, 0, 0), 1, new ChainSymbols("Rhine Lab")));
 		this.startingCard.add(new MilitaryCard("EarthSpirit", new Cost(0, 0, 0, 0, 0, 2), 1, new ChainSymbols("Leithanien")));
@@ -39,8 +39,8 @@ public class InitialCardDeck {
 		this.startingCard.add(new TradingCard("Rope", new Cost(), new ChainSymbols("Rim Bilition"), new Cost(0, 0, 0, 0, 0, 4), new Cost(), 0));
 		// cardAgeTwo
 		this.midGameCard = new ArrayList<Card>();
-		this.midGameCard.add(new MilitaryCard("Reunion's Attack", new Cost(0, 2, 0, 0, 0, 0), 2, new ChainSymbols()));
-		this.midGameCard.add(new MilitaryCard("Reunion's Attack", new Cost(0, 0, 2, 0, 0, 0), 2, new ChainSymbols()));
+		this.midGameCard.add(new MilitaryCard("Reunion's Attack1", new Cost(0, 2, 0, 0, 0, 0), 2, new ChainSymbols()));
+		this.midGameCard.add(new MilitaryCard("Reunion's Attack2", new Cost(0, 0, 2, 0, 0, 0), 2, new ChainSymbols()));
 		this.midGameCard.add(new MilitaryCard("Saria", new Cost(0, 0, 0, 0, 0, 3), 1,new ChainSymbols("Rhine Lab") ));
 		this.midGameCard.add(new MilitaryCard("Swire", new Cost(0, 1, 1, 1, 0, 0), 2, new ChainSymbols("Lungman")));
 		this.midGameCard.add(new MilitaryCard("Mostima", new Cost(1, 0, 1, 0, 0, 0), 1, new ChainSymbols("Laternora")));

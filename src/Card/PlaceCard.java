@@ -60,4 +60,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	public Cost getCost() {
 		return this.cost ;
 	}
+	public String toString() {
+		return this.name ;
+	}
 }

@@ -40,4 +40,11 @@ public class ChainSymbols {
 		}
 		return false ;
 	}
+	public String toString() {
+		String output = "" ;
+		for (String chainSymbol : this.chainSymbol) {
+			output += chainSymbol + " " ;
+		}
+		return output ;
+	}
 }

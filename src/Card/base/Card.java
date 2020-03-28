@@ -11,7 +11,7 @@ public abstract class Card {
 
 	public Card(String name, Cost cost) {
 		this.name = name;
-		this.cost = new Cost();
+		this.cost = cost;
 		this.flipAble = false;
 		this.isFlip = false;
 		this.pickAble = false;
@@ -36,13 +36,15 @@ public abstract class Card {
 		return this.position ;
 	}
 	public String toString() {
-		return this.name ;
+		return this.name+" "+this.pickAble;
 	}
 	
 	public void setFlipAble(boolean flipAble) {
 		this.flipAble= flipAble;
 	}
-	
+	public void setPickAble(boolean pickAble) {
+		this.pickAble = pickAble;
+	}
 	
 		
 	
