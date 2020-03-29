@@ -21,7 +21,17 @@ public class Turn {
 		if (card.isPickAble()) {
 			selectedCard = card;
 		} else {
+<<<<<<< Updated upstream
 			throw new PickCardFailException("This card is not pickable");
+||||||| constructed merge base
+			throw new PickCardFailException("This card is not pickable!");
+=======
+			String respond = keyboard.nextLine();
+			turnConTroller(GameController.mainBoard.getCardFromName(respond,
+					GameController.mainBoard.getStartingCardOnBoard()), GameController.getPhase());
+			throw new PickCardFailException("This card is not pickable!");
+			
+>>>>>>> Stashed changes
 		}
 	}
 

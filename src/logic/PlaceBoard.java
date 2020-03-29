@@ -56,4 +56,11 @@ public class PlaceBoard {
 		cardOnBoard.set(card.getPosition(), blankPlace) ;
 	}
 	
+	public ArrayList<PlaceCard> getPlaceListPlayer1() {
+		return placeListPlayer1;
+	}
+	
+	public ArrayList<PlaceCard> getPlaceListPlayer2() {
+		return placeListPlayer2;
+	}
 }
