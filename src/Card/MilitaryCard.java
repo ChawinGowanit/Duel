@@ -9,7 +9,6 @@ import Card.base.Cost;
 import Card.base.HaveChainSymbol;
 import application.GameController;
 import logic.Player;
-import logic.AttackBoard;;
 public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	
 	private ChainSymbols chainSymbol;

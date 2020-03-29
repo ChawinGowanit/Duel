@@ -31,20 +31,21 @@ public class ChainSymbols {
 	}
 
 	public static boolean isHaveChainSymbol(Player player, HaveChainSymbol card) {
-		for (String chainSymbol:card.getChainSymbols().chainSymbol) {
-			for (String playerChainSymbol:player.getChainSymbols().chainSymbol) {
+		for (String chainSymbol : card.getChainSymbols().chainSymbol) {
+			for (String playerChainSymbol : player.getChainSymbols().chainSymbol) {
 				if (chainSymbol.equals(playerChainSymbol)) {
-					return true ;
+					return true;
 				}
 			}
 		}
-		return false ;
+		return false;
 	}
+
 	public String toString() {
-		String output = "" ;
+		String output = "";
 		for (String chainSymbol : this.chainSymbol) {
-			output += chainSymbol + " " ;
+			output += chainSymbol + " ";
 		}
-		return output ;
+		return output;
 	}
 }

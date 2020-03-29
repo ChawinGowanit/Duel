@@ -7,56 +7,43 @@ import Card.TradingCard;
 import Card.base.Card;
 import Card.base.ChainSymbols;
 import Card.base.Cost;
-import application.GameController;
 import application.InitialCardDeck;
 
 public class MainBoard {
-	private int phase = GameController.getPhase();
 	private ArrayList<Card> startingCardOnBoard;
 	private ArrayList<Card> midGameCardOnBoard;
 	private ArrayList<Card> lateGameCardOnBoard;
-	private Card blankCard ;
+	private Card blankCard;
 
 	public MainBoard() {
 		this.startingCardOnBoard = new ArrayList<Card>();
 		this.midGameCardOnBoard = new ArrayList<Card>();
 		this.lateGameCardOnBoard = new ArrayList<Card>();
-		this.blankCard = new TradingCard("", new Cost(), new ChainSymbols(), new Cost(), new Cost(), 0) ;
+		this.blankCard = new TradingCard("", new Cost(), new ChainSymbols(), new Cost(), new Cost(), 0);
 		this.blankCard.setFlipAble(true);
 		this.blankCard.setPickAble(true);
 	}
 
 	public void addCardOnBoard(InitialCardDeck initialCardDeck, int phase) {
-		switch (phase) {
-		case 1:
-			Collections.shuffle(initialCardDeck.startingCard);
-			int i = 1;
-			for (Card card : initialCardDeck.startingCard) {
-				card.setPosition(i);
-				i++;
-				this.startingCardOnBoard.add(card);
-			}
-			break ;
-		case 2:
-			Collections.shuffle(initialCardDeck.midGameCard);
-			int i1 = 1;
-			for (Card card : initialCardDeck.midGameCard) {
-				card.setPosition(i1);
-				i1++;
-				this.midGameCardOnBoard.add(card);
-			}
-			break ;
-		case 3:
-			Collections.shuffle(initialCardDeck.lateGameCard);
-			int i2 = 1;
-			for (Card card : initialCardDeck.lateGameCard) {
-				card.setPosition(i2);
-				i2++;
-				this.lateGameCardOnBoard.add(card);
-			}
-			break ;
+		shuffleDeck(initialCardDeck);
+		int i = 1;
+		for (Card card : initialCardDeck.startingCard) {
+			card.setPosition(i);
+			i++;
+			this.startingCardOnBoard.add(card);
 		}
-		
+		int i1 = 1;
+		for (Card card : initialCardDeck.midGameCard) {
+			card.setPosition(i1);
+			i1++;
+			this.midGameCardOnBoard.add(card);
+		}
+		int i2 = 1;
+		for (Card card : initialCardDeck.lateGameCard) {
+			card.setPosition(i2);
+			i2++;
+			this.lateGameCardOnBoard.add(card);
+		}
 	}
 
 	public void removeCardFromBoard(Card card, int phase) {
@@ -87,10 +74,10 @@ public class MainBoard {
 			break;
 		case 2:
 			for (Card card : this.midGameCardOnBoard) {
-				if (card.getPosition() == 1 | card.getPosition() == 2 | card.getPosition() == 6
-						| card.getPosition() == 7 | card.getPosition() == 8 | card.getPosition() == 9
-						| card.getPosition() == 15 | card.getPosition() == 16 | card.getPosition() == 17
-						| card.getPosition() == 18 | card.getPosition() == 19 | card.getPosition() == 20) {
+				if (card.getPosition() == 1 || card.getPosition() == 2 || card.getPosition() == 6
+						|| card.getPosition() == 7 || card.getPosition() == 8 || card.getPosition() == 9
+						|| card.getPosition() == 15 || card.getPosition() == 16 || card.getPosition() == 17
+						|| card.getPosition() == 18 || card.getPosition() == 19 || card.getPosition() == 20) {
 					card.setFlipAble(true);
 
 				}
@@ -98,9 +85,9 @@ public class MainBoard {
 			break;
 		case 3:
 			for (Card card : this.lateGameCardOnBoard) {
-				if (card.getPosition() == 3 | card.getPosition() == 4 | card.getPosition() == 5
-						| card.getPosition() == 10 | card.getPosition() == 11 | card.getPosition() == 12
-						| card.getPosition() == 13 | card.getPosition() == 17 | card.getPosition() == 18) {
+				if (card.getPosition() == 3 || card.getPosition() == 4 || card.getPosition() == 5
+						|| card.getPosition() == 10 || card.getPosition() == 11 || card.getPosition() == 12
+						|| card.getPosition() == 13 || card.getPosition() == 17 || card.getPosition() == 18) {
 					card.setFlipAble(true);
 				}
 			}
@@ -232,21 +219,9 @@ public class MainBoard {
 		}
 	}
 
-	public ArrayList<Card> getStartingCardOnBoard() {
-		return this.startingCardOnBoard;
-	}
-
-	public ArrayList<Card> getMidGameCardOnBoard() {
-		return this.midGameCardOnBoard;
-	}
-
-	public ArrayList<Card> getLateGameCardOnBoard() {
-		return this.lateGameCardOnBoard;
-	}
-
-	public Card getCardFromName(String name, ArrayList<Card> deckList) {
+	public Card getCardFromName(String name, int phase) {
 		Card outCard = null;
-		for (Card card : deckList) {
+		for (Card card : getCardOnBoard(phase)) {
 			if (card.getName().equals(name)) {
 				outCard = card;
 				break;
@@ -257,16 +232,32 @@ public class MainBoard {
 
 	public ArrayList<Card> getCardOnBoard(int i) {
 		switch (i) {
-		case 1 :
-			return getStartingCardOnBoard() ;
-		case 2 :
-			return getMidGameCardOnBoard() ;
-		case 3 :
-			return getLateGameCardOnBoard() ;
-		default :
-			return getStartingCardOnBoard() ;
+		case 1:
+			return this.startingCardOnBoard;
+		case 2:
+			return this.midGameCardOnBoard;
+		case 3:
+			return this.lateGameCardOnBoard;
+		default:
+			System.out.println("getCardOnBoard phase input Error");
+			return null;
 		}
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public boolean checkIfAllBlankCard(ArrayList<Card> cardOnBoard) {
+		for (Card card : cardOnBoard) {
+			if (!card.equals(blankCard)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void shuffleDeck(InitialCardDeck initialCardDeck) {
+		Collections.shuffle(initialCardDeck.startingCard);
+		Collections.shuffle(initialCardDeck.startingCard);
+		Collections.shuffle(initialCardDeck.startingCard);
 	}
 }

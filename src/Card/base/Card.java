@@ -6,14 +6,12 @@ public abstract class Card {
 	private Cost cost;
 	private int position;
 	private boolean flipAble;
-	private boolean isFlip;
 	private boolean pickAble;
 
 	public Card(String name, Cost cost) {
 		this.name = name;
 		this.cost = cost;
 		this.flipAble = false;
-		this.isFlip = false;
 		this.pickAble = false;
 
 	}
@@ -26,7 +24,7 @@ public abstract class Card {
 		return this.cost;
 	}
 
-	public boolean getPickAble() {
+	public boolean isPickAble() {
 		return this.pickAble;
 	}
 	public void setPosition(int position) {
@@ -45,7 +43,9 @@ public abstract class Card {
 	public void setPickAble(boolean pickAble) {
 		this.pickAble = pickAble;
 	}
-	
+	public boolean isFlipAble() {
+		return flipAble;
+	}
 		
 	
 }

@@ -7,7 +7,6 @@ import Card.base.HavePoint;
 import Card.base.HaveResource;
 import application.GameController;
 import logic.Player;
-import logic.AttackBoard;
 
 
 public class PlaceCard implements HavePoint, HaveResource, Attackable {
@@ -15,6 +14,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	private String image;
 	private int attackPoint;
 	private int playerPoint;
+	private int position ;
 	private Cost cost;
 	private Cost resource;
 
@@ -25,6 +25,7 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 		this.playerPoint = playerPoint;
 		this.cost = cost;
 		this.resource = resource;
+		this.position = 0 ;
 	}
 
 	@Override
@@ -48,7 +49,6 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 		return attackPoint;
 	}
 
-	
 	public String getName() {
 		return name;
 	}
@@ -62,5 +62,15 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	}
 	public String toString() {
 		return this.name ;
+	}
+
+	public void setPosition(int i) {
+		// TODO Auto-generated method stub
+		this.position = i ;
+	}
+
+	public int getPosition() {
+		// TODO Auto-generated method stub
+		return this.position;
 	}
 }
