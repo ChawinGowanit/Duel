@@ -130,4 +130,19 @@ public class Cost {
 	public int getLMD() {
 		return this.LMD;
 	}
+	public int getD32Steel() {
+		return D32Steel;
+	}
+	public int getBipolarNanoflake() {
+		return BipolarNanoflake;
+	}
+	public int getPolymerizationPreparation() {
+		return PolymerizationPreparation;
+	}
+	public int getSugarPack() {
+		return SugarPack;
+	}
+	public int getManganeseOre() {
+		return ManganeseOre;
+	}
 }

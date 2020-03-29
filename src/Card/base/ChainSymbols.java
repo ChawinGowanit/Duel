@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import logic.Player;
 
 public class ChainSymbols {
-	public ArrayList<String> chainSymbol;
+	private ArrayList<String> chainSymbol;
 
 	public ChainSymbols() {
 		this.chainSymbol = new ArrayList<String>();
@@ -22,8 +22,14 @@ public class ChainSymbols {
 		this.chainSymbol.add(chainSymbol2);
 	}
 
-	public void addChainSymbols(String chainSymbol1) {
+	public boolean addChainSymbols(String chainSymbol1) {
+		for (String ChainSymbols:this.chainSymbol) {
+			if (chainSymbol1.equals(ChainSymbols)) {
+				return false ;
+			}
+		} 
 		this.chainSymbol.add(chainSymbol1);
+		return true ;
 	}
 
 	public ArrayList<String> getChainSymbol() {
@@ -48,4 +54,5 @@ public class ChainSymbols {
 		}
 		return output;
 	}
+
 }

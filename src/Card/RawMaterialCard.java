@@ -16,5 +16,7 @@ public class RawMaterialCard extends Card implements HaveResource{
 	public void addPlayerCounter(Player player) {
 		player.setResourceCounter(Cost.addCost(this.resource,player.getResourceCounter()));
 	}
-	
+	public Cost getResource() {
+		return resource;
+	}
 }

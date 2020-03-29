@@ -14,7 +14,11 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 
 	public PointCard(String name, Cost cost, int point,  ChainSymbols chainsymbol) {
 		super(name, cost);
-		this.point = point;
+		if (point < 0) {
+			this.point = 0 ;
+		} else {
+			this.point = point;
+		}
 		this.chainSymbol = chainsymbol;
 	}
 
@@ -30,5 +34,8 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 	public ChainSymbols getChainSymbols() {
 		// TODO Auto-generated method stub
 		return this.chainSymbol;
+	}
+	public int getPoint() {
+		return point;
 	}
 }

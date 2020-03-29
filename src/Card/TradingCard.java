@@ -20,7 +20,11 @@ public class TradingCard extends Card implements HaveResource, HaveChainSymbol,H
 		this.chainSymbol = chainsymbol;
 		this.resource = resource;
 		this.reduceCost = reduceCost;
-		this.point = point;
+		if (point<0) {
+			this.point = 0 ;
+		} else {
+			this.point = point ;
+		}
 	}
 
 	public void addChainSymbol(Player player) {
@@ -44,5 +48,8 @@ public class TradingCard extends Card implements HaveResource, HaveChainSymbol,H
 	}
 	public Cost getReduceCost() {
 		return reduceCost;
+	}
+	public int getPoint() {
+		return point;
 	}
 }

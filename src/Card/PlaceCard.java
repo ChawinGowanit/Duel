@@ -21,8 +21,16 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	public PlaceCard(String name, int attackPoint, int playerPoint,
 			Cost cost, Cost resource) {
 		this.name = name;
-		this.attackPoint = attackPoint;
-		this.playerPoint = playerPoint;
+		if (attackPoint<0) {
+			this.attackPoint = 0 ;
+		}else {
+			this.attackPoint = attackPoint;
+		}
+		if (playerPoint<0) {
+			this.playerPoint = 0 ;
+		} else {
+			this.playerPoint = playerPoint;
+		}
 		this.cost = cost;
 		this.resource = resource;
 		this.position = 0 ;
@@ -55,7 +63,6 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	
 	public void constructPlace(Player player) {
 		GameController.placeBoard.construction(player, this);
-		
 	}
 	public Cost getCost() {
 		return this.cost ;
@@ -72,5 +79,11 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	public int getPosition() {
 		// TODO Auto-generated method stub
 		return this.position;
+	}
+	public int getPlayerPoint() {
+		return playerPoint;
+	}
+	public Cost getResource() {
+		return resource;
 	}
 }

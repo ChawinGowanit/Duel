@@ -2,6 +2,8 @@ package Card;
 
 
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 import Card.base.Attackable;
 import Card.base.Card;
 import Card.base.ChainSymbols;
@@ -17,7 +19,11 @@ public class MilitaryCard extends Card implements HaveChainSymbol,Attackable{
 	
 	public MilitaryCard(String name, Cost cost, int attackPoint, ChainSymbols chainsymbol) {
 		super(name, cost);
-		this.attackPoint = attackPoint;
+		if (attackPoint < 0) {
+			this.attackPoint = 0 ;
+		} else {
+			this.attackPoint = attackPoint;
+		}
 		this.chainSymbol = chainsymbol;
 	}	
 	public void attackPlayer(Player ATKplayer) {
