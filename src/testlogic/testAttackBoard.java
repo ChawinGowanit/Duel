@@ -16,6 +16,7 @@ import logic.Player;
 
 public class testAttackBoard {
 	AttackBoard attackTest;
+	
 	MilitaryCard testMilitaryCard;
 	MilitaryCard testMilitaryCard2;
 	Player player1;
@@ -24,6 +25,7 @@ public class testAttackBoard {
 	@Before
 	public void setUp() {
 		attackTest = new AttackBoard();
+		
 		player1 = new Player(1);
 		player2 = new Player(2);
 		 
@@ -33,7 +35,7 @@ public class testAttackBoard {
 
 	@Test
 	public void testPosition() {
-		
+		attackTest.setPosition(0);
 		assertEquals(0,attackTest.getPosition());
 	}
 
@@ -51,6 +53,7 @@ public class testAttackBoard {
 	
 	@Test
 	public void testAttackTime() {
+		attackTest.setPosition(0);
 		testMilitaryCard =  new MilitaryCard("testMilitaryCard", new Cost(), 1, new ChainSymbols());
 		attackTest.attackTime(player1, testMilitaryCard);
 		assertEquals(1,attackTest.getPosition());

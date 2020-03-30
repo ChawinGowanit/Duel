@@ -24,13 +24,13 @@ public class testPlayer {
 		assertEquals(1, player1.getNum());
 		assertEquals(2, player2.getNum());
 		
-		Cost cost = new Cost(0,0,0,0,0,7);
-		assertEquals(cost, player1.getResourceCounter());
-		assertEquals(cost, player2.getResourceCounter());
 		
-		Cost cost1 = new Cost(2,2,2,2,2,1);
-		assertEquals(cost1, player1.getbuyResourceCost());
-		assertEquals(cost1, player2.getbuyResourceCost());
+		assertEquals(new Cost(0,0,0,0,0,7), player1.getResourceCounter());
+		assertEquals(new Cost(0,0,0,0,0,7), player2.getResourceCounter());
+		
+		
+		assertEquals(new Cost(2,2,2,2,2,1), player1.getbuyResourceCost());
+		assertEquals(new Cost(2,2,2,2,2,1), player2.getbuyResourceCost());
 		
 		
 		assertEquals(0, player1.getplayerPoint());

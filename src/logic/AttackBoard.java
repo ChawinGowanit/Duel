@@ -46,16 +46,16 @@ public class AttackBoard {
 	public void rewardAndPun(Player player1, Player player2) {
 		if (posAndCoinLoss.containsKey(position)) {
 			if ((position == 1 )) {
-				GameController.player1.increasePlayerPoint(posAndCoinLoss.get(1));
+				player1.increasePlayerPoint(posAndCoinLoss.get(1));
 				posAndCoinLoss.remove(1);
 			} else if (position == 3  || position == 6 ) {
-				GameController.player2.setResourceCounter(Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
+				player2.setResourceCounter(Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
 				posAndCoinLoss.remove(position);
 			} else if (position == -3|| position == -6 ) {
-				GameController.player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
+				player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
 				posAndCoinLoss.remove(position);
 			} else if (position == -1 ) {
-				GameController.player2.increasePlayerPoint(posAndCoinLoss.get(-1));
+				player2.increasePlayerPoint(posAndCoinLoss.get(-1));
 				posAndCoinLoss.remove(-1);
 			}
 		}
