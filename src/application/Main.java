@@ -121,15 +121,16 @@ public class Main {
 							System.out.println(GameController.player1.getName() + " and "
 									+ GameController.player2.getName() + " TIE!");
 						}
-					} else if (GameController.ATKboard.getPosition() == 9) {
-						System.out.println("=====The game has end=====");
-						System.out.println(GameController.player1.getName() + " WIN!");
-					} else {
-						System.out.println("=====The game has end=====");
-						System.out.println(GameController.player1.getName() + " WIN!");
 					}
 				default:
 					break;
+				}
+				if (GameController.ATKboard.getPosition() == 9) {
+					System.out.println("=====The game has end=====");
+					System.out.println(GameController.player1.getName() + " WIN!");
+				} else {
+					System.out.println("=====The game has end=====");
+					System.out.println(GameController.player1.getName() + " WIN!");
 				}
 			} catch (PickCardFailException e) {
 				System.out.println(e.message);
