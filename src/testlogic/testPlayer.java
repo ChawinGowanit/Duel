@@ -25,12 +25,12 @@ public class testPlayer {
 		assertEquals(2, player2.getNum());
 		
 		
-		assertEquals(new Cost(0,0,0,0,0,7), player1.getResourceCounter());
-		assertEquals(new Cost(0,0,0,0,0,7), player2.getResourceCounter());
+		assertEquals(new Cost(0,0,0,0,0,7).toString(), player1.getResourceCounter().toString());
+		assertEquals(new Cost(0,0,0,0,0,7).toString(), player2.getResourceCounter().toString());
 		
 		
-		assertEquals(new Cost(2,2,2,2,2,1), player1.getbuyResourceCost());
-		assertEquals(new Cost(2,2,2,2,2,1), player2.getbuyResourceCost());
+		assertEquals(new Cost(2,2,2,2,2,1).toString(), player1.getbuyResourceCost().toString());
+		assertEquals(new Cost(2,2,2,2,2,1).toString(), player2.getbuyResourceCost().toString());
 		
 		
 		assertEquals(0, player1.getplayerPoint());

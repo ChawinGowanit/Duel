@@ -128,7 +128,7 @@ public class Main {
 				if (GameController.ATKboard.getPosition() == 9) {
 					System.out.println("=====The game has end=====");
 					System.out.println(GameController.player1.getName() + " WIN!");
-				} else {
+				} else if (GameController.ATKboard.getPosition() == -9){
 					System.out.println("=====The game has end=====");
 					System.out.println(GameController.player1.getName() + " WIN!");
 				}

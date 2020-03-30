@@ -7,7 +7,7 @@ import Card.base.Cost;
 import application.GameController;
 
 public class AttackBoard {
-	private static int position = 0;
+	private int position = 0;
 	private HashMap<Integer, Integer> posAndCoinLoss;
 
 	public AttackBoard() {

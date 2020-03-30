@@ -7,7 +7,7 @@ import Card.base.Cost;
 
 public class PlaceBoard {
 	//rename
-	private static ArrayList<PlaceCard> cardOnBoard ;
+	private ArrayList<PlaceCard> cardOnBoard ;
 	private ArrayList<PlaceCard> placeListPlayer1 ;
 	private ArrayList<PlaceCard> placeListPlayer2 ;
 	private PlaceCard blankPlace ;
@@ -63,7 +63,8 @@ public class PlaceBoard {
 	public ArrayList<PlaceCard> getPlaceListPlayer2() {
 		return placeListPlayer2;
 	}
-	public static ArrayList<PlaceCard> getCardOnBoard() {
+	public ArrayList<PlaceCard> getCardOnBoard() {
 		return cardOnBoard;
 	}
+
 }

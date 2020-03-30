@@ -39,23 +39,23 @@ public class testPlaceBoard {
 	@Test
 	public void  testAddCardOnBoard() {
 		placeBoardPlayerTest.addCardOnBoard(initialPlaceCard.getPlaceCardDeck());
-		assertEquals(0,PlaceBoard.getCardOnBoard().get(0).getPosition());
-		assertEquals(1,PlaceBoard.getCardOnBoard().get(1).getPosition());
-		assertEquals(2,PlaceBoard.getCardOnBoard().get(2).getPosition());
-		assertEquals(3,PlaceBoard.getCardOnBoard().get(3).getPosition());
-		assertEquals(4,PlaceBoard.getCardOnBoard().get(4).getPosition());
-		assertEquals(5,PlaceBoard.getCardOnBoard().get(5).getPosition());
-		assertEquals(6,PlaceBoard.getCardOnBoard().get(6).getPosition());
-		assertEquals(7,PlaceBoard.getCardOnBoard().get(7).getPosition());
+		assertEquals(0,placeBoardPlayerTest.getCardOnBoard().get(0).getPosition());
+		assertEquals(1,placeBoardPlayerTest.getCardOnBoard().get(1).getPosition());
+		assertEquals(2,placeBoardPlayerTest.getCardOnBoard().get(2).getPosition());
+		assertEquals(3,placeBoardPlayerTest.getCardOnBoard().get(3).getPosition());
+		assertEquals(4,placeBoardPlayerTest.getCardOnBoard().get(4).getPosition());
+		assertEquals(5,placeBoardPlayerTest.getCardOnBoard().get(5).getPosition());
+		assertEquals(6,placeBoardPlayerTest.getCardOnBoard().get(6).getPosition());
+		assertEquals(7,placeBoardPlayerTest.getCardOnBoard().get(7).getPosition());
 		
-		assertEquals("Bar",PlaceBoard.getCardOnBoard().get(0).getName());
-		assertEquals("Hotel",PlaceBoard.getCardOnBoard().get(1).getPosition());
-		assertEquals("Lungman's Command Center",PlaceBoard.getCardOnBoard().get(2).getPosition());
-		assertEquals("Lungman's Uptown",PlaceBoard.getCardOnBoard().get(3).getPosition());
-		assertEquals("Rhodes Island",PlaceBoard.getCardOnBoard().get(4).getPosition());
-		assertEquals("Rhodes Island's server room",PlaceBoard.getCardOnBoard().get(5).getPosition());
-		assertEquals("Rhodes Island's infirmary",PlaceBoard.getCardOnBoard().get(6).getPosition());
-		assertEquals("Victirian Mounted Cave",PlaceBoard.getCardOnBoard().get(7).getPosition());
+		assertEquals("Bar",placeBoardPlayerTest.getCardOnBoard().get(0).getName());
+		assertEquals("Hotel",placeBoardPlayerTest.getCardOnBoard().get(1).getName());
+		assertEquals("Lungman's Command Center",placeBoardPlayerTest.getCardOnBoard().get(2).getName());
+		assertEquals("Lungman's Uptown",placeBoardPlayerTest.getCardOnBoard().get(3).getName());
+		assertEquals("Rhodes Island",placeBoardPlayerTest.getCardOnBoard().get(4).getName());
+		assertEquals("Rhodes Island's server room",placeBoardPlayerTest.getCardOnBoard().get(5).getName());
+		assertEquals("Rhodes Island's infirmary",placeBoardPlayerTest.getCardOnBoard().get(6).getName());
+		assertEquals("Victirian Mounted Cave",placeBoardPlayerTest.getCardOnBoard().get(7).getName());
 		
 		
 	}
@@ -86,7 +86,7 @@ public class testPlaceBoard {
 	public void testRemoveCardFromBoard() {
 		placeBoardPlayerTest.removeCardFromBoard(new PlaceCard("Lungman's Uptown", 2, 3, new Cost(3, 0, 0, 0, 1, 0), new Cost()), 1);
 		PlaceCard blankPlace = new PlaceCard("", 0, 0, new Cost(), new Cost()) ;		
-		assertEquals(blankPlace,PlaceBoard.getCardOnBoard().get(3));
+		assertEquals(blankPlace,placeBoardPlayerTest.getCardOnBoard().get(3));
 	}
 
 }

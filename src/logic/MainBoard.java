@@ -27,7 +27,7 @@ public class MainBoard {
 	public void addCardOnBoard(InitialCardDeck initialCardDeck, int phase) {
 		switch (phase) {
 		case 1:
-			Collections.shuffle(initialCardDeck.startingCard);
+			this.shuffleCeck(initialCardDeck, phase);
 			int i = 1;
 			for (Card card : initialCardDeck.startingCard) {
 				card.setPosition(i);
@@ -36,7 +36,7 @@ public class MainBoard {
 			}
 			break;
 		case 2:
-			Collections.shuffle(initialCardDeck.midGameCard);
+			this.shuffleCeck(initialCardDeck, phase);
 			int i1 = 1;
 			for (Card card : initialCardDeck.midGameCard) {
 				card.setPosition(i1);
@@ -45,7 +45,7 @@ public class MainBoard {
 			}
 			break;
 		case 3:
-			Collections.shuffle(initialCardDeck.lateGameCard);
+			this.shuffleCeck(initialCardDeck, phase);
 			int i2 = 1;
 			for (Card card : initialCardDeck.lateGameCard) {
 				card.setPosition(i2);
@@ -263,5 +263,22 @@ public class MainBoard {
 			}
 		}
 		return true;
+	}
+
+	public ArrayList<Card> shuffleCeck(InitialCardDeck initialCardDeck, int phase) {
+		switch (phase) {
+		case 1:
+			Collections.shuffle(initialCardDeck.startingCard);
+			return initialCardDeck.startingCard ;
+		case 2:
+			Collections.shuffle(initialCardDeck.midGameCard);
+			return initialCardDeck.midGameCard ;
+		case 3:
+			Collections.shuffle(initialCardDeck.lateGameCard);
+			return initialCardDeck.lateGameCard ;
+		default :
+			return null ;
+		}
+
 	}
 }
