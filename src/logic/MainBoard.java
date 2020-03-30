@@ -25,24 +25,34 @@ public class MainBoard {
 	}
 
 	public void addCardOnBoard(InitialCardDeck initialCardDeck, int phase) {
-		shuffleDeck(initialCardDeck);
-		int i = 1;
-		for (Card card : initialCardDeck.startingCard) {
-			card.setPosition(i);
-			i++;
-			this.startingCardOnBoard.add(card);
-		}
-		int i1 = 1;
-		for (Card card : initialCardDeck.midGameCard) {
-			card.setPosition(i1);
-			i1++;
-			this.midGameCardOnBoard.add(card);
-		}
-		int i2 = 1;
-		for (Card card : initialCardDeck.lateGameCard) {
-			card.setPosition(i2);
-			i2++;
-			this.lateGameCardOnBoard.add(card);
+		switch (phase) {
+		case 1:
+			Collections.shuffle(initialCardDeck.startingCard);
+			int i = 1;
+			for (Card card : initialCardDeck.startingCard) {
+				card.setPosition(i);
+				i++;
+				this.startingCardOnBoard.add(card);
+			}
+			break;
+		case 2:
+			Collections.shuffle(initialCardDeck.midGameCard);
+			int i1 = 1;
+			for (Card card : initialCardDeck.midGameCard) {
+				card.setPosition(i1);
+				i1++;
+				this.midGameCardOnBoard.add(card);
+			}
+			break;
+		case 3:
+			Collections.shuffle(initialCardDeck.lateGameCard);
+			int i2 = 1;
+			for (Card card : initialCardDeck.lateGameCard) {
+				card.setPosition(i2);
+				i2++;
+				this.lateGameCardOnBoard.add(card);
+			}
+			break;
 		}
 	}
 
@@ -249,15 +259,9 @@ public class MainBoard {
 	public boolean checkIfAllBlankCard(ArrayList<Card> cardOnBoard) {
 		for (Card card : cardOnBoard) {
 			if (!card.equals(blankCard)) {
-				return true;
+				return false;
 			}
 		}
-		return false;
-	}
-
-	public void shuffleDeck(InitialCardDeck initialCardDeck) {
-		Collections.shuffle(initialCardDeck.startingCard);
-		Collections.shuffle(initialCardDeck.startingCard);
-		Collections.shuffle(initialCardDeck.startingCard);
+		return true;
 	}
 }

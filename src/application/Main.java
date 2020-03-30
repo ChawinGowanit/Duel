@@ -28,7 +28,8 @@ public class Main {
 
 		GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 
-		while (!GameController.endGame) {
+		while (!GameController.endGame || (GameController.ATKboard.getPosition() == 9)
+				|| GameController.ATKboard.getPosition() == -9) {
 			if (Turn.getPlayerTurn() == 1) {
 				System.out.println("-----" + GameController.player1.getName() + "'s Turn" + "-----");
 			} else {
@@ -92,7 +93,6 @@ public class Main {
 						}
 					} else {
 						System.out.println("Selected Card Insufficient Material");
-
 					}
 					break;
 				}
@@ -121,6 +121,12 @@ public class Main {
 							System.out.println(GameController.player1.getName() + " and "
 									+ GameController.player2.getName() + " TIE!");
 						}
+					} else if (GameController.ATKboard.getPosition() == 9) {
+						System.out.println("=====The game has end=====");
+						System.out.println(GameController.player1.getName() + " WIN!");
+					} else {
+						System.out.println("=====The game has end=====");
+						System.out.println(GameController.player1.getName() + " WIN!");
 					}
 				default:
 					break;

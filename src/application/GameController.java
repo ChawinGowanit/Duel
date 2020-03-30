@@ -6,11 +6,9 @@ import logic.PlaceBoard;
 import logic.Player;
 import logic.Turn;
 
-import java.util.Scanner;
 
 public class GameController {
 	private static int phase;
-	private static Scanner keyboard = new Scanner(System.in);
 	static InitialCardDeck initialCardDeck = new InitialCardDeck();
 	static InitialPlaceCard placeCardDeck = new InitialPlaceCard();
 	public static Player player1 = new Player(1);

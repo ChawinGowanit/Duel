@@ -7,7 +7,7 @@ import Card.base.Cost;
 import application.GameController;
 
 public class AttackBoard {
-	private int position = 0;
+	private static int position = 0;
 	private HashMap<Integer, Integer> posAndCoinLoss;
 
 	public AttackBoard() {
@@ -39,23 +39,23 @@ public class AttackBoard {
 			rewardAndPun(player, GameController.player2);
 		} else {
 			position -= card.getAttackPoint();
-			rewardAndPun(player, GameController.player1);
+			rewardAndPun(GameController.player1, player);
 		}
 	}
 
 	public void rewardAndPun(Player player1, Player player2) {
 		if (posAndCoinLoss.containsKey(position)) {
-			if (position == 1) {
-				player1.increasePlayerPoint(posAndCoinLoss.get(1));
+			if ((position == 1 )) {
+				GameController.player1.increasePlayerPoint(posAndCoinLoss.get(1));
 				posAndCoinLoss.remove(1);
-			} else if (position == 3 || position == 6) {
-				player2.setResourceCounter(Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
+			} else if (position == 3  || position == 6 ) {
+				GameController.player2.setResourceCounter(Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
 				posAndCoinLoss.remove(position);
-			} else if (position == -3 || position == -6) {
-				player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
+			} else if (position == -3|| position == -6 ) {
+				GameController.player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(position))));
 				posAndCoinLoss.remove(position);
-			} else if (position == -1) {
-				player2.increasePlayerPoint(posAndCoinLoss.get(-1));
+			} else if (position == -1 ) {
+				GameController.player2.increasePlayerPoint(posAndCoinLoss.get(-1));
 				posAndCoinLoss.remove(-1);
 			}
 		}

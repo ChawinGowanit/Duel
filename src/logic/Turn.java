@@ -21,17 +21,7 @@ public class Turn {
 		if (card.isPickAble()) {
 			selectedCard = card;
 		} else {
-<<<<<<< Updated upstream
 			throw new PickCardFailException("This card is not pickable");
-||||||| constructed merge base
-			throw new PickCardFailException("This card is not pickable!");
-=======
-			String respond = keyboard.nextLine();
-			turnConTroller(GameController.mainBoard.getCardFromName(respond,
-					GameController.mainBoard.getStartingCardOnBoard()), GameController.getPhase());
-			throw new PickCardFailException("This card is not pickable!");
-			
->>>>>>> Stashed changes
 		}
 	}
 
@@ -62,7 +52,7 @@ public class Turn {
 		if (selectedCard instanceof Attackable) {
 			((Attackable) selectedCard).attackPlayer(GameController.getCurrentPlayer());
 			System.out.println("Attack!!");
-			System.out.println("Attacker's position :" + AttackBoard.getPosition());
+			System.out.println("Attacker's position :" + GameController.ATKboard.getPosition());
 			if (GameController.getCurrentPlayer().getNum() == 1) {
 				System.out.println(GameController.player2.getName() + "'s resources :"
 						+ GameController.player2.getResourceCounter());
@@ -86,6 +76,7 @@ public class Turn {
 				+ GameController.getCurrentPlayer().getResourceCounter());
 		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
 				+ GameController.getCurrentPlayer().getplayerPoint());
+		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();
 
 	}
@@ -94,6 +85,11 @@ public class Turn {
 		GameController.getCurrentPlayer()
 				.setResourceCounter(Cost.addCost(GameController.getCurrentPlayer().getResourceCounter(),
 						new Cost(0, 0, 0, 0, 0, GameController.getCurrentPlayer().getSellResourceGain())));
+		System.out.println(GameController.getCurrentPlayer().getName() + "'s new resources :"
+				+ GameController.getCurrentPlayer().getResourceCounter());
+		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
+				+ GameController.getCurrentPlayer().getplayerPoint());
+		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();
 	}
 
@@ -124,7 +120,7 @@ public class Turn {
 		if (selectedPlaceCard instanceof Attackable) {
 			((Attackable) selectedPlaceCard).attackPlayer(GameController.getCurrentPlayer());
 			System.out.println("Attack!!");
-			System.out.println("Attacker's position :" + AttackBoard.getPosition());
+			System.out.println("Attacker's position :" + GameController.ATKboard.getPosition());
 			if (GameController.getCurrentPlayer().getNum() == 1) {
 				System.out.println(GameController.player2.getName() + "'s resources :"
 						+ GameController.player2.getResourceCounter());
@@ -138,6 +134,7 @@ public class Turn {
 		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
 				+ GameController.getCurrentPlayer().getplayerPoint());
 		GameController.placeBoard.removeCardFromBoard(selectedPlaceCard, GameController.getPhase());
+		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();
 	}
 

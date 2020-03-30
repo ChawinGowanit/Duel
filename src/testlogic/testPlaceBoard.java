@@ -24,12 +24,12 @@ public class testPlaceBoard {
 		
 	}
 	
-	@Test
+	/*@Test
 	public void testConstructor() {
 		ArrayList<PlaceCard> test1 = new ArrayList<PlaceCard>();
 		PlaceBoard placeBoardPlayerTest = new PlaceBoard();
 		assertEquals(,placeBoardPlayerTest.getPlaceListPlayer1());
 		
-	}
+	}*/
 
 }
