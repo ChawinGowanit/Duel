@@ -63,4 +63,7 @@ public class PlaceBoard {
 	public ArrayList<PlaceCard> getPlaceListPlayer2() {
 		return placeListPlayer2;
 	}
+	public static ArrayList<PlaceCard> getCardOnBoard() {
+		return cardOnBoard;
+	}
 }
