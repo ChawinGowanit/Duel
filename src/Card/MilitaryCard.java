@@ -1,9 +1,5 @@
 package Card;
 
-
-
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 import Card.base.Attackable;
 import Card.base.Card;
 import Card.base.ChainSymbols;

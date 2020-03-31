@@ -1,4 +1,4 @@
-package TestCard.base;
+package test.card.base;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,7 +7,7 @@ import org.junit.Test;
 import Card.base.Cost;
 import logic.Player;
 
-public class testCost {
+public class TestCost {
 	@Test
 	public void testConstructor() {
 		Cost cost = new Cost();
@@ -64,9 +64,6 @@ public class testCost {
 		Cost cost1 = new Cost(1,1,1,1,1,0);
 		P1.setResourceCounter(new Cost(1,1,1,1,0,0));
 		assertEquals(2, Cost.checkLmd(P1.getResourceCounter(), cost1,P1.getbuyResourceCost()));
-
-
-
 
 	}
 }

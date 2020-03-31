@@ -1,4 +1,4 @@
-package testlogic;
+package test.logic;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,7 +14,7 @@ import Card.base.Cost;
 import logic.AttackBoard;
 import logic.Player;
 
-public class testAttackBoard {
+public class TestAttackBoard {
 	AttackBoard attackTest;
 	
 	MilitaryCard testMilitaryCard;
@@ -60,8 +60,6 @@ public class testAttackBoard {
 		testMilitaryCard2 =  new MilitaryCard("testMilitaryCard2", new Cost(), 8, new ChainSymbols());
 		attackTest.attackTime(player2, testMilitaryCard2);
 		assertEquals(-7,attackTest.getPosition());
-		
-		
 		/* cannot check testRewardAndPun by attack  cause in class AttackBoard we did not summon method 
 		 * RewardAndPun by local variable but we call it from GameController so in JUNIT i dont know how to
 		 * call the variables from there T_________________T

@@ -1,4 +1,4 @@
-package Test.card;
+package test.card;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

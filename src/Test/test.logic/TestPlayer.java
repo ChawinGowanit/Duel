@@ -8,7 +8,7 @@ import org.junit.Test;
 import Card.base.Cost;
 import logic.Player;
 
-public class testPlayer {
+public class TestPlayer {
 	Player player1;
 	Player player2;
 	

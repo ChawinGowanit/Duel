@@ -1,5 +1,5 @@
 package testlogic;
 
-public class testTurn {
+public class TestTurn {
 	
 }

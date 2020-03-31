@@ -1,4 +1,4 @@
-package TestCard.base;
+package test.card.base;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,7 +11,7 @@ import Card.base.ChainSymbols;
 import Card.base.Cost;
 import logic.Player;
 
-public class testChainSymbols {
+public class TestChainSymbols {
 	@Test
 	public void testConstructor() {
 		ChainSymbols test1 = new ChainSymbols();

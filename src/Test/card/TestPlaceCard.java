@@ -1,14 +1,10 @@
-package Test.card;
+package test.card;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import Card.MilitaryCard;
 import Card.PlaceCard;
-import Card.PointCard;
-import Card.TradingCard;
-import Card.base.ChainSymbols;
 import Card.base.Cost;
 import logic.AttackBoard;
 import logic.Player;

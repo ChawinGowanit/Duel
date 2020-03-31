@@ -95,9 +95,9 @@ public class MainBoard {
 			break;
 		case 3:
 			for (Card card : this.lateGameCardOnBoard) {
-				if (card.getPosition() == 3 || card.getPosition() == 4 || card.getPosition() == 5
-						|| card.getPosition() == 10 || card.getPosition() == 11 || card.getPosition() == 12
-						|| card.getPosition() == 13 || card.getPosition() == 17 || card.getPosition() == 18) {
+				if (card.getPosition() == 1 || card.getPosition() == 2 || card.getPosition() == 6
+						|| card.getPosition() == 7 || card.getPosition() == 8 || card.getPosition() == 9
+						|| card.getPosition() == 14 || card.getPosition() == 15 || card.getPosition() == 16) {
 					card.setFlipAble(true);
 				}
 			}
@@ -175,12 +175,12 @@ public class MainBoard {
 				if (i == 0 || i == 1) {
 					if (this.lateGameCardOnBoard.get(i + 2).equals(blankCard)
 							&& this.lateGameCardOnBoard.get(i + 3).equals(blankCard)) {
-						this.lateGameCardOnBoard.get(i).setFlipAble(true);
 						this.lateGameCardOnBoard.get(i).setPickAble(true);
 					}
 				} else if (i == 2 || i == 3 || i == 4) {
 					if (this.lateGameCardOnBoard.get(i + 3).equals(blankCard)
 							&& this.lateGameCardOnBoard.get(i + 4).equals(blankCard)) {
+						this.lateGameCardOnBoard.get(i).setFlipAble(true);
 						this.lateGameCardOnBoard.get(i).setPickAble(true);
 					}
 				} else if (i == 5 || i == 6 || i == 7 || i == 8) {
@@ -203,24 +203,7 @@ public class MainBoard {
 							this.lateGameCardOnBoard.get(i).setPickAble(true);
 						}
 					}
-				} else if (i == 13 || i == 14 || i == 15) {
-					if (i == 13) {
-						if (this.lateGameCardOnBoard.get(i + 3).equals(blankCard)) {
-							this.lateGameCardOnBoard.get(i).setFlipAble(true);
-							this.lateGameCardOnBoard.get(i).setPickAble(true);
-						}
-					} else if (i == 14) {
-						if (this.lateGameCardOnBoard.get(i + 2).equals(blankCard)
-								&& this.lateGameCardOnBoard.get(i + 3).equals(blankCard)) {
-							this.lateGameCardOnBoard.get(i).setFlipAble(true);
-							this.lateGameCardOnBoard.get(i).setPickAble(true);
-						}
-					} else {
-						if (this.lateGameCardOnBoard.get(i + 2).equals(blankCard)) {
-							this.lateGameCardOnBoard.get(i).setFlipAble(true);
-							this.lateGameCardOnBoard.get(i).setPickAble(true);
-						}
-					}
+				
 				} else {
 					this.lateGameCardOnBoard.get(i).setFlipAble(true);
 					this.lateGameCardOnBoard.get(i).setPickAble(true);

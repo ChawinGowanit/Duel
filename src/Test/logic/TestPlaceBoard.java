@@ -1,7 +1,5 @@
-package testlogic;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+package test.logic;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -16,13 +14,14 @@ import logic.PlaceBoard;
 import logic.Player;
 
 
-public class testPlaceBoard {
+public class TestPlaceBoard {
 	PlaceBoard placeBoardPlayerTest;
 	InitialPlaceCard initialPlaceCard;
 	
 	
 	@Before
 	public void setUp() {
+		initialPlaceCard = new InitialPlaceCard() ;
 		placeBoardPlayerTest = new PlaceBoard();
 	}
 	@Test
@@ -76,17 +75,27 @@ public class testPlaceBoard {
 	@Test
 	
 	public void testGetPlaceCardFromName() {
-		assertEquals(new PlaceCard("Lungman's Uptown", 2, 3, new Cost(3, 0, 0, 0, 1, 0), new Cost()),placeBoardPlayerTest.getPlaceCardFromName("Lungman's Uptown"));
-		assertEquals(new PlaceCard("Hotel", 0, 3, new Cost(0, 0, 2, 1, 1, 0), new Cost(0, 0, 0, 0, 0, 3)),placeBoardPlayerTest.getPlaceCardFromName("Hotel"));
+		Player player1 = new Player(1);
+		Player player2 = new Player(2);
+		placeBoardPlayerTest.addCardOnBoard(initialPlaceCard.placeCardDeck);
+		placeBoardPlayerTest.construction(player1, new PlaceCard("Bar", 0, 6, new Cost(1, 1, 0, 0, 2, 0), new Cost()));
+		assertEquals("Bar",placeBoardPlayerTest.getPlaceListPlayer1().get(0).getName());
+		placeBoardPlayerTest.construction(player2, new PlaceCard("Lungman's Uptown", 2, 3, new Cost(3, 0, 0, 0, 1, 0), new Cost()));
+		assertEquals("Lungman's Uptown",placeBoardPlayerTest.getPlaceListPlayer2().get(0).getName());
+		assertEquals(new PlaceCard("Lungman's Uptown", 2, 3, new Cost(3, 0, 0, 0, 1, 0), new Cost()).toString(),placeBoardPlayerTest.getPlaceCardFromName("Lungman's Uptown").toString());
+		assertEquals(new PlaceCard("Hotel", 0, 3, new Cost(0, 0, 2, 1, 1, 0), new Cost(0, 0, 0, 0, 0, 3)).toString(),placeBoardPlayerTest.getPlaceCardFromName("Hotel").toString());
 	}
 	
 	
 	@Test
 	
 	public void testRemoveCardFromBoard() {
-		placeBoardPlayerTest.removeCardFromBoard(new PlaceCard("Lungman's Uptown", 2, 3, new Cost(3, 0, 0, 0, 1, 0), new Cost()), 1);
+		initialPlaceCard = new InitialPlaceCard() ;
+		placeBoardPlayerTest = new PlaceBoard();
+		placeBoardPlayerTest.addCardOnBoard(initialPlaceCard.placeCardDeck);
+		placeBoardPlayerTest.removeCardFromBoard(new PlaceCard("Bar", 0, 6, new Cost(1, 1, 0, 0, 2, 0), new Cost()), 1);
 		PlaceCard blankPlace = new PlaceCard("", 0, 0, new Cost(), new Cost()) ;		
-		assertEquals(blankPlace,placeBoardPlayerTest.getCardOnBoard().get(3));
+		assertEquals(blankPlace.toString(),placeBoardPlayerTest.getCardOnBoard().get(0).toString());
 	}
 
 }
