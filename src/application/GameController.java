@@ -28,7 +28,6 @@ public class GameController {
 		GameController.mainBoard.firstUpdateCardOnBoard(3);
 		GameController.placeBoard.addCardOnBoard(GameController.placeCardDeck.placeCardDeck);
 		GameController.setPhase(1);
-		System.out.println("=====Phase 1 Start!=====");
 	}
 
 	public static int getPhase() {

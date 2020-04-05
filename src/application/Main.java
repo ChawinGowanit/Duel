@@ -3,12 +3,153 @@ package application;
 import logic.Turn;
 import logic.exception.PickCardFailException;
 
+import java.util.List;
 import java.util.Scanner;
 
 import Card.base.Cost;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application{
+	private static int step = 1;
+	public void start(Stage primaryStage) {
+		Scene scene = new Scene(getPane(step),1540,868);
+		primaryStage.setTitle("Arknight Duel");
+		primaryStage.setScene(scene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+		primaryStage.setFullScreen(true);
+}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	public Pane getPane(int step) {
+		switch (step) {
+		case 1:
+			Pane startingGame = new Pane();
+			startingGame.setBackground(new Background(new BackgroundImage(new Image("/startingUI/startBg.png",1540,868,false,true),
+			        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+			          BackgroundSize.DEFAULT)));	
+			Image startBtnImg = new Image("/startingUI/startBtn.png");
+			ImageView startBtnImageView = new ImageView(startBtnImg);
+			startBtnImageView.setFitHeight(147);
+			startBtnImageView.setFitWidth(1180);
+			startBtnImageView.setY(600);
+			startBtnImageView.setX(175);
+			Image setNameImg = new Image("/startingUI/setName.png");
+			ImageView setNameImageView = new ImageView(setNameImg);
+			setNameImageView.setVisible(false);
+			setNameImageView.setFitHeight(250);
+			setNameImageView.setFitWidth(1180);
+			setNameImageView.setX(175);
+			setNameImageView.setY(550);
+			TextField player1Name = new TextField("Press Enter when finish");
+			player1Name.setPrefHeight(50);
+			player1Name.setPrefWidth(600);
+			player1Name.setLayoutX(600);
+			player1Name.setLayoutY(620);
+			player1Name.setVisible(false);
+			TextField player2Name = new TextField("Press Enter when finish");
+			player2Name.setPrefHeight(50);
+			player2Name.setPrefWidth(600);
+			player2Name.setLayoutX(600);
+			player2Name.setLayoutY(695);
+			player2Name.setVisible(false);
+			player2Name.setDisable(true);
+			player1Name.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent mouseEvent) {
+					// TODO Auto-generated method stub
+					player1Name.clear();
+				}
+			});
+			player1Name.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent keyEvent) {
+					// TODO Auto-generated method stub
+					if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+						GameController.player1.setName(player1Name.getText());
+						player2Name.setDisable(false);
+					}
+				}
+			});
+			player2Name.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent mouseEvent) {
+					// TODO Auto-generated method stub
+					player2Name.clear();
+				}
+			});
+			player2Name.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent keyEvent) {
+					// TODO Auto-generated method stub
+					if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+						GameController.player2.setName(player2Name.getText());
+					}
+				}
+			});
+			startBtnImageView.setOnMouseEntered(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent event) {
+					Image MouseOnStartBtnImg = new Image("/startingUI/mouseOnStartBtn.png");
+					startBtnImageView.setImage(MouseOnStartBtnImg);
+				}
+			});
+			startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>(){
+				@Override
+				public void handle(MouseEvent event) {
+					// TODO Auto-generated method stub
+					startBtnImageView.setImage(startBtnImg);
 
+				}
+			});
+			startBtnImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					startBtnImageView.setVisible(false);
+					setNameImageView.setVisible(true);
+					player1Name.setVisible(true);
+					player2Name.setVisible(true);
+				}
+				
+			});
+			startingGame.getChildren().addAll(startBtnImageView,setNameImageView,player1Name,player2Name) ;
+			return startingGame;
+		case 2 :
+			Pane gamePhase = new Pane();
+			gamePhase.setBackground(new Background(new BackgroundImage(new Image("/gameUI/gameUI.png",1920,1080,false,true),
+			        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+			          BackgroundSize.DEFAULT)));
+			
+			
+			return gamePhase;
+		default :
+			return null ;
+		}
+		
+	}
+}
+
+/*
 	public static void main(String args[]) throws PickCardFailException {
 		Scanner keyboard = new Scanner(System.in);
 		// set player name
@@ -25,7 +166,7 @@ public class Main {
 		System.out.println("Player2 : " + GameController.player2.getName());
 		System.out.println(
 				GameController.player2.getName() + "'s resources :" + GameController.player2.getResourceCounter());
-
+		============================================finish!!!=======================================================
 		GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 
 		while (!GameController.endGame || (GameController.ATKboard.getPosition() == 9)
@@ -42,7 +183,7 @@ public class Main {
 			String card = keyboard.nextLine();
 			try {
 				Turn.setSelectedCard(GameController.mainBoard.getCardFromName(card, GameController.getPhase()));
-				System.out.println("select action [build,sell,buildPlace]:");
+				System.out.println("select action [build,sell,buildPlace,cancel]:");
 				String action = keyboard.nextLine();
 
 				switch (action) {
@@ -95,6 +236,8 @@ public class Main {
 						System.out.println("Selected Card Insufficient Material");
 					}
 					break;
+				case "cancel" :
+					break;
 				}
 				switch (GameController.getPhase()) {
 				case 1: // phase1
@@ -139,3 +282,4 @@ public class Main {
 	}
 
 }
+*/
