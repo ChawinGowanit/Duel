@@ -136,7 +136,7 @@ public class Main extends Application{
 			return startingGame;
 		case 2 :
 			Pane gamePhase = new Pane();
-			gamePhase.setBackground(new Background(new BackgroundImage(new Image("/gameUI/gameUI.png",1920,1080,false,true),
+			gamePhase.setBackground(new Background(new BackgroundImage(new Image("/gameUI/gameUI.png",1540,868,false,true),
 			        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 			          BackgroundSize.DEFAULT)));
 			

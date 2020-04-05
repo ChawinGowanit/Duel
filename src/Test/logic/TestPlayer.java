@@ -1,4 +1,4 @@
-package test.logic;
+package Test.logic;
 
 import static org.junit.Assert.assertEquals;
 
