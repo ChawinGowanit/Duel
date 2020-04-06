@@ -17,7 +17,7 @@ public class PlaceCardBtn extends Pane {
 
 	PlaceCardBtn(PlaceCard placeCard) {
 		this.placeCard = placeCard;
-		Image placecardImg = new Image("file:res/cardURL/placeCard" + placeCard.getImgURL(), 175, 117, false, false);
+		Image placecardImg = new Image("/cardURL/placeCard" + placeCard.getImgURL(), 175, 117, false, false);
 		this.setMinSize(175, 117);
 		this.setBackground(new Background(new BackgroundImage(placecardImg, BackgroundRepeat.NO_REPEAT,
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
@@ -27,10 +27,10 @@ public class PlaceCardBtn extends Pane {
 	private void setTooltip() {
 		Tooltip tooltip = new Tooltip();
 		tooltip.setFont(new Font(14));
-		tooltip.setText(placeCard.getName()+"\n-----Cost------\n " + placeCard.getCost().toString() + "\nAttackPoint : " + placeCard.getAttackPoint()
-				+ "\nPoint : " + placeCard.getPlayerPoint());
+		tooltip.setText(placeCard.getName()+"\n-----Cost------\n " + placeCard.getCost().toString() + "\n-----Reward-----\nAttackPoint : " + placeCard.getAttackPoint()
+				+ "\nPoint : " + placeCard.getPlayerPoint()+"\nLMD : "+placeCard.getResource().getLMD());
 		this.setOnMouseMoved((MouseEvent e) -> {
-			tooltip.show(this, e.getScreenX(), e.getScreenY() + 10);
+			tooltip.show(this, e.getScreenX()+10, e.getScreenY() + 10);
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tooltip.hide();

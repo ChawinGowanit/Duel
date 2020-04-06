@@ -46,6 +46,8 @@ public abstract class Card {
 	public boolean isFlipAble() {
 		return flipAble;
 	}
-		
+	public String getImgUrl() {
+		return "/"+this.getName()+".png";
+	}
 	
 }

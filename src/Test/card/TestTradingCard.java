@@ -18,7 +18,7 @@ public class TestTradingCard {
 				new Cost(0, 0, 0, 0, 1, 0), 10);
 		assertEquals(new Cost().toString(), card.getCost().toString());
 		assertEquals("testName", card.getName());
-		assertEquals(10, card.getPoint());
+		assertEquals(10, card.getPlayerPoint());
 		assertEquals(new ChainSymbols().toString(), card.getChainSymbols().toString());
 		assertEquals(new Cost(0, 0, 0, 0, 1, 0).toString(), card.getReduceCost().toString());
 	}
@@ -26,7 +26,7 @@ public class TestTradingCard {
 	public void testPointLessThanZero() {
 		TradingCard card = new TradingCard("testName", new Cost(), new ChainSymbols(), new Cost(),
 				new Cost(0, 0, 0, 0, 1, 0), -10);
-		assertEquals(0, card.getPoint());
+		assertEquals(0, card.getPlayerPoint());
 
 	}
 

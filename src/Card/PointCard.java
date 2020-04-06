@@ -35,7 +35,7 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 		// TODO Auto-generated method stub
 		return this.chainSymbol;
 	}
-	public int getPoint() {
+	public int getPlayerPoint() {
 		return point;
 	}
 }

@@ -55,14 +55,9 @@ public class AtkBtn extends Pane {
 				tooltip.setText("Attack Position : -3 \n"+GameController.player1.getName()+" - 2 LMD");		
 		} else if (position == -6 && GameController.ATKboard.getPosAndCoinLoss().containsKey(-6)) {
 			tooltip.setText("Attack Position : -6 \n"+GameController.player1.getName()+" - 5 LMD");		
-		}
-			
-			
-			
-			
-			
+		}			
 		this.setOnMouseMoved((MouseEvent e) -> {
-			tooltip.show(this, e.getScreenX(), e.getScreenY() + 10);
+			tooltip.show(this, e.getScreenX()+10, e.getScreenY() + 10);
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tooltip.hide();

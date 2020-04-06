@@ -49,7 +49,13 @@ public class TradingCard extends Card implements HaveResource, HaveChainSymbol,H
 	public Cost getReduceCost() {
 		return reduceCost;
 	}
-	public int getPoint() {
+	public int getPlayerPoint() {
 		return point;
+	}
+
+	@Override
+	public Cost getResource() {
+		// TODO Auto-generated method stub
+		return resource;
 	}
 }

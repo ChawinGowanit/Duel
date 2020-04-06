@@ -16,13 +16,13 @@ public class TestPointCard {
 		PointCard card = new PointCard("testName",new Cost(),10,new ChainSymbols());
 		assertEquals("testName", card.getName());
 		assertEquals(new Cost().toString(), card.getCost().toString());
-		assertEquals(10, card.getPoint());
+		assertEquals(10, card.getPlayerPoint());
 		assertEquals(new ChainSymbols().toString(), card.getChainSymbols().toString());
 	}
 	@Test
 	public void testPointLessThanZero() {
 		PointCard card = new PointCard("testName",new Cost(),-1,new ChainSymbols());
-		assertEquals(0, card.getPoint());
+		assertEquals(0, card.getPlayerPoint());
 
 	}
 	@Test
