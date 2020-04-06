@@ -1,4 +1,4 @@
-package application;
+package main;
 
 import logic.Turn;
 import logic.exception.PickCardFailException;
@@ -7,10 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import Card.base.Cost;
+import application.GameController;
+import gui.AttackPane;
+import gui.PlacePane;
+import gui.PlayerPane;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,12 +26,6 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -36,38 +33,39 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) {
 		Pane startingGame = new Pane();
-		Scene scene = new Scene(startingGame, 1540, 868);
+		Scene scene = new Scene(startingGame, 1920, 1080);
 		primaryStage.setTitle("Arknight Duel");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.sizeToScene();
 		primaryStage.setFullScreen(true);
 		startingGame.setBackground(new Background(new BackgroundImage(
-				new Image("/startingUI/startBg.png", 1540, 868, false, true), BackgroundRepeat.NO_REPEAT,
+				new Image("/startingUI/startBg.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 		Image startBtnImg = new Image("/startingUI/startBtn.png");
 		ImageView startBtnImageView = new ImageView(startBtnImg);
 		startBtnImageView.setFitHeight(147);
 		startBtnImageView.setFitWidth(1180);
-		startBtnImageView.setY(600);
-		startBtnImageView.setX(175);
+		startBtnImageView.setY(700);
+		startBtnImageView.setX(350);
 		Image setNameImg = new Image("/startingUI/setName.png");
 		ImageView setNameImageView = new ImageView(setNameImg);
 		setNameImageView.setVisible(false);
 		setNameImageView.setFitHeight(250);
 		setNameImageView.setFitWidth(1180);
-		setNameImageView.setX(175);
-		setNameImageView.setY(550);
+		setNameImageView.setX(350);
+		setNameImageView.setY(650);
 		TextField player1Name = new TextField("Press Enter when finish");
 		player1Name.setPrefHeight(50);
 		player1Name.setPrefWidth(600);
-		player1Name.setLayoutX(600);
-		player1Name.setLayoutY(620);
+		player1Name.setLayoutX(800);
+		player1Name.setLayoutY(720);
 		player1Name.setVisible(false);
 		TextField player2Name = new TextField("Press Enter when finish");
 		player2Name.setPrefHeight(50);
 		player2Name.setPrefWidth(600);
-		player2Name.setLayoutX(600);
-		player2Name.setLayoutY(695);
+		player2Name.setLayoutX(800);
+		player2Name.setLayoutY(795);
 		player2Name.setVisible(false);
 		player2Name.setDisable(true);
 		player1Name.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -102,6 +100,12 @@ public class Main extends Application {
 				startBtnImageView.setImage(MouseOnStartBtnImg);
 			}
 		});
+		startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Image MouseOnStartBtnImg = new Image("/startingUI/startBtn.png");
+				startBtnImageView.setImage(MouseOnStartBtnImg);
+			}	
+		});
 		startBtnImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
@@ -124,6 +128,7 @@ public class Main extends Application {
 					GameController.player2.setName(player2Name.getText());
 					primaryStage.setScene(creatGameScene());
 					primaryStage.show();
+					primaryStage.sizeToScene();
 					primaryStage.setFullScreen(true);
 				}
 			}
@@ -136,16 +141,23 @@ public class Main extends Application {
 	public Scene creatGameScene() {
 		Pane gamePhase = new Pane();
 		gamePhase.setBackground(new Background(
-				new BackgroundImage(new Image("/gameUI/gameUI.png", 1540, 868, false, true), BackgroundRepeat.NO_REPEAT,
+				new BackgroundImage(new Image("/gameUI/gameUI.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 						BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 		PlayerPane player1Pane = new PlayerPane(1);
 		player1Pane.setLayoutX(0);
-		player1Pane.setLayoutY(0);
+		player1Pane.setLayoutY(50);
 		PlayerPane player2Pane = new PlayerPane(2);
-		player2Pane.setLayoutX(1325);
-		player2Pane.setLayoutY(0);
-		gamePhase.getChildren().addAll(player1Pane, player2Pane);
-		Scene gameScene = new Scene(gamePhase, 1540, 868);
+		player2Pane.setLayoutX(1650);
+		player2Pane.setLayoutY(50);
+		PlacePane placePane = new PlacePane();
+		placePane.setLayoutX(225);
+		placePane.setLayoutY(760);
+		AttackPane atkPane = new AttackPane();
+		atkPane.setLayoutX(0);
+		atkPane.setLayoutY(982);
+		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane);
+		Scene gameScene = new Scene(gamePhase, 1920, 1080);
 		return gameScene;
 	}
 }

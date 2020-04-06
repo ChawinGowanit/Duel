@@ -1,4 +1,4 @@
-package application;
+package gui;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -23,7 +23,7 @@ public class PlayerPane extends GridPane {
 		this.setHgap(8);
 		this.setPadding(new Insets(8));
 		this.setAlignment(Pos.CENTER);
-		this.setPrefWidth(220);
+		this.setPrefWidth(275);
 		this.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 		Image nameRec = new Image("/gameUI/nameRec.png");
 		ImageView nameRecImgView = new ImageView(nameRec);
@@ -45,10 +45,11 @@ public class PlayerPane extends GridPane {
 		StackPane namePane = new StackPane();
 		namePane.getChildren().addAll(nameRecImgView, name);
 		this.add(namePane, 0, 0, 3, 1);
-		//BopolarNanoflake
+		//BipolarNanoflake
+			//BipolarnanoflakeCost
 		Image BipolarResourceCostRec = new Image("/gameUI/resourceRec.png");
 		ImageView BipolarResourceCostRecImgView = new ImageView(BipolarResourceCostRec);
-		BipolarResourceCostRecImgView.setFitWidth(60);
+		BipolarResourceCostRecImgView.setFitWidth(70);
 		BipolarResourceCostRecImgView.setFitHeight(50);
 		String BipolarCost = Integer.toString(buyCounter.getBipolarNanoflake());
 		Text BipolarCosttext = new Text();
@@ -57,9 +58,10 @@ public class PlayerPane extends GridPane {
 		BipolarCosttext.textProperty().setValue(BipolarCost);
 		StackPane BipolarCostPane = new StackPane();
 		BipolarCostPane.getChildren().addAll(BipolarResourceCostRecImgView,BipolarCosttext);
+			//BipolarNanoflake counter
 		Image BipolarResourceRec = new Image("/gameUI/resourceRec.png");
 		ImageView BipolarResourceRecImgView = new ImageView(BipolarResourceRec);
-		BipolarResourceRecImgView.setFitWidth(60);
+		BipolarResourceRecImgView.setFitWidth(70);
 		BipolarResourceRecImgView.setFitHeight(50);
 		String Bipolar = Integer.toString(playerCounter.getBipolarNanoflake());
 		Text Bipolartext = new Text();
@@ -68,14 +70,16 @@ public class PlayerPane extends GridPane {
 		Bipolartext.textProperty().setValue(Bipolar);
 		StackPane BipolarPane = new StackPane();
 		BipolarPane.getChildren().addAll(BipolarResourceRecImgView,Bipolartext);
+			//BipolarNanoflakeImg
 		Image bipolarImg = new Image("/gameUI/Bipolar.png");
 		ImageView bipolarImgView = new ImageView(bipolarImg);
 		bipolarImgView.setFitWidth(50);
 		bipolarImgView.setFitHeight(50);
 		//D32steel
+			//D32steelCost
 		Image d32steelCostRec = new Image("/gameUI/resourceRec.png");
 		ImageView d32steelCostRecImgView = new ImageView(d32steelCostRec);
-		d32steelCostRecImgView.setFitWidth(60);
+		d32steelCostRecImgView.setFitWidth(70);
 		d32steelCostRecImgView.setFitHeight(50);
 		String d32steelCost = Integer.toString(buyCounter.getD32Steel());
 		Text d32steelCosttext = new Text();
@@ -84,9 +88,10 @@ public class PlayerPane extends GridPane {
 		d32steelCosttext.textProperty().setValue(d32steelCost);
 		StackPane d32steelCostPane = new StackPane();
 		d32steelCostPane.getChildren().addAll(d32steelCostRecImgView,d32steelCosttext);
+			//D32steel counter
 		Image d32ResourceRec = new Image("/gameUI/resourceRec.png");
 		ImageView d32ResourceRecImgView = new ImageView(d32ResourceRec);
-		d32ResourceRecImgView.setFitWidth(60);
+		d32ResourceRecImgView.setFitWidth(70);
 		d32ResourceRecImgView.setFitHeight(50);
 		String d32steel = Integer.toString(playerCounter.getD32Steel());
 		Text d32steeltext = new Text();
@@ -95,14 +100,16 @@ public class PlayerPane extends GridPane {
 		d32steeltext.textProperty().setValue(d32steel);
 		StackPane d32steelPane = new StackPane();
 		d32steelPane.getChildren().addAll(d32ResourceRecImgView,d32steeltext);
+			//D32steel img
 		Image d32steelImg = new Image("/gameUI/d32steel.png");
 		ImageView d32steelImgView = new ImageView(d32steelImg);
 		d32steelImgView.setFitWidth(50);
 		d32steelImgView.setFitHeight(50);
-		//manganese Ore
+		//manganeseOre
+			//manganeseOreCost
 		Image manganeseOreCostRec = new Image("/gameUI/resourceRec.png");
 		ImageView manganeseOreCostRecImgView = new ImageView(manganeseOreCostRec);
-		manganeseOreCostRecImgView.setFitWidth(60);
+		manganeseOreCostRecImgView.setFitWidth(70);
 		manganeseOreCostRecImgView.setFitHeight(50);
 		String manganeseOreCost = Integer.toString(buyCounter.getManganeseOre());
 		Text manganeseOreCosttext = new Text();
@@ -111,9 +118,10 @@ public class PlayerPane extends GridPane {
 		manganeseOreCosttext.textProperty().setValue(manganeseOreCost);
 		StackPane manganeseOreCostPane = new StackPane();
 		manganeseOreCostPane.getChildren().addAll(manganeseOreCostRecImgView,manganeseOreCosttext);
+			//manganeseOreCounter
 		Image manganeseOreRec = new Image("/gameUI/resourceRec.png");
 		ImageView manganeseOreRecImgView = new ImageView(manganeseOreRec);
-		manganeseOreRecImgView.setFitWidth(60);
+		manganeseOreRecImgView.setFitWidth(70);
 		manganeseOreRecImgView.setFitHeight(50);
 		String  manganeseOre = Integer.toString(playerCounter.getManganeseOre());
 		Text manganeseOretext = new Text();
@@ -122,14 +130,16 @@ public class PlayerPane extends GridPane {
 		manganeseOretext.textProperty().setValue(manganeseOre);
 		StackPane manganeseOrePane = new StackPane();
 		manganeseOrePane.getChildren().addAll(manganeseOreRecImgView,manganeseOretext);
+			//manganeseOreImg
 		Image manganeseOreImg = new Image("/gameUI/manganeseOre.png");
 		ImageView manganeseOreImgView = new ImageView(manganeseOreImg);
-		manganeseOreImgView.setFitWidth(50);
+		manganeseOreImgView.setFitWidth(40);
 		manganeseOreImgView.setFitHeight(50);
 		//polymerization
+			//polymerizationCost
 		Image polymerizationCostRec = new Image("/gameUI/resourceRec.png");
 		ImageView polymerizationCostRecImgView = new ImageView(polymerizationCostRec);
-		polymerizationCostRecImgView.setFitWidth(60);
+		polymerizationCostRecImgView.setFitWidth(70);
 		polymerizationCostRecImgView.setFitHeight(50);
 		String polymerizationCost = Integer.toString(buyCounter.getPolymerizationPreparation());
 		Text polymerizationCosttext = new Text();
@@ -138,9 +148,10 @@ public class PlayerPane extends GridPane {
 		polymerizationCosttext.textProperty().setValue(polymerizationCost);
 		StackPane polymerizationCostPane = new StackPane();
 		polymerizationCostPane.getChildren().addAll(polymerizationCostRecImgView,polymerizationCosttext);
+			//polymerizationCounter
 		Image polymerizationRec = new Image("/gameUI/resourceRec.png");
 		ImageView polymerizationRecImgView = new ImageView(polymerizationRec);
-		polymerizationRecImgView.setFitWidth(60);
+		polymerizationRecImgView.setFitWidth(70);
 		polymerizationRecImgView.setFitHeight(50);
 		String  polymerization = Integer.toString(playerCounter.getPolymerizationPreparation());
 		Text polymerizationtext = new Text();
@@ -149,14 +160,16 @@ public class PlayerPane extends GridPane {
 		polymerizationtext.textProperty().setValue(polymerization);
 		StackPane polymerizationPane = new StackPane();
 		polymerizationPane.getChildren().addAll(polymerizationRecImgView,polymerizationtext);
+			//polymerizationImg
 		Image polymerizationImg = new Image("/gameUI/polymerization.png");
 		ImageView polymerizationImgView = new ImageView(polymerizationImg);
 		polymerizationImgView.setFitWidth(50);
 		polymerizationImgView.setFitHeight(50);
-		//sugarpack
+		//sugar pack
+			//sugarpackCost
 		Image sugarpackCostRec = new Image("/gameUI/resourceRec.png");
 		ImageView sugarpackRecCostImgView = new ImageView(sugarpackCostRec);
-		sugarpackRecCostImgView.setFitWidth(60);
+		sugarpackRecCostImgView.setFitWidth(70);
 		sugarpackRecCostImgView.setFitHeight(50);
 		String sugarpackRecCost = Integer.toString(buyCounter.getSugarPack());
 		Text sugarpackRecCosttext = new Text();
@@ -165,9 +178,10 @@ public class PlayerPane extends GridPane {
 		sugarpackRecCosttext.textProperty().setValue(sugarpackRecCost);
 		StackPane sugarpackRecCostPane = new StackPane();
 		sugarpackRecCostPane.getChildren().addAll(sugarpackRecCostImgView,sugarpackRecCosttext);
+			//sugarpackCounter
 		Image sugarpackRec = new Image("/gameUI/resourceRec.png");
 		ImageView sugarpackRecImgView = new ImageView(sugarpackRec);
-		sugarpackRecImgView.setFitWidth(60);
+		sugarpackRecImgView.setFitWidth(70);
 		sugarpackRecImgView.setFitHeight(50);
 		String  sugarpack = Integer.toString(playerCounter.getSugarPack());
 		Text sugarpacktext = new Text();
@@ -176,29 +190,33 @@ public class PlayerPane extends GridPane {
 		sugarpacktext.textProperty().setValue(sugarpack);
 		StackPane sugarpackPane = new StackPane();
 		sugarpackPane.getChildren().addAll(sugarpackRecImgView,sugarpacktext);
+			//sugarpackCImg
 		Image sugarPackImg = new Image("/gameUI/sugarpack.png");
 		ImageView sugarPacImgView = new ImageView(sugarPackImg);
 		sugarPacImgView.setFitWidth(50);
 		sugarPacImgView.setFitHeight(50);	
 		// Point
+			//PointCounter
 		Text pointStr = new Text();
 		pointStr.setFont(new Font(20));
 		pointStr.setFill(Color.WHITE);
 		pointStr.textProperty().setValue(Integer.toString(point));
 		Image resourceRec = new Image("/gameUI/resourceRec.png");
 		ImageView resourceRecImgView = new ImageView(resourceRec);
-		resourceRecImgView.setFitWidth(60);
+		resourceRecImgView.setFitWidth(70);
 		resourceRecImgView.setFitHeight(50);
 		StackPane pointPane = new StackPane();
 		pointPane.getChildren().addAll(resourceRecImgView,pointStr);
+			//PointImg
 		Image pointImg = new Image("/gameUI/point.png");
 		ImageView pointImgView = new ImageView(pointImg);
 		pointImgView.setFitWidth(50);
 		pointImgView.setFitHeight(50);
 		//LMD
+			//LMDCounter
 		Image lmdResourceRec = new Image("/gameUI/resourceRec.png");
 		ImageView lmdResourceRecImgView = new ImageView(lmdResourceRec);
-		lmdResourceRecImgView.setFitWidth(60);
+		lmdResourceRecImgView.setFitWidth(70);
 		lmdResourceRecImgView.setFitHeight(50);
 		String lmd = Integer.toString(playerCounter.getLMD());
 		Text lmdtext = new Text();
@@ -207,13 +225,12 @@ public class PlayerPane extends GridPane {
 		lmdtext.textProperty().setValue(lmd);
 		StackPane lmdPane = new StackPane();
 		lmdPane.getChildren().addAll(lmdResourceRecImgView,lmdtext);
+			//LMDImg
 		Image lmdImg = new Image("/gameUI/lmd.png");
 		ImageView lmdImgView = new ImageView(lmdImg);
 		lmdImgView.setFitWidth(50);
-		lmdImgView.setFitHeight(50);
-		
-		
-		//add on playerpane
+		lmdImgView.setFitHeight(40);	
+		//add on player pane
 		this.addRow(1, pointImgView, pointPane);
 		this.addRow(2, lmdImgView,lmdPane);
 		// this.addRow(3, arg1);
@@ -223,5 +240,10 @@ public class PlayerPane extends GridPane {
 		this.addRow(7, manganeseOreImgView,manganeseOrePane,manganeseOreCostPane);
 		this.addRow(8, sugarPacImgView,sugarpackPane,sugarpackRecCostPane);
 
+	}
+	
+	
+	public void UpdatePlayerPane() {
+		
 	}
 }

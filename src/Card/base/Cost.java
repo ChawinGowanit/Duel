@@ -39,9 +39,9 @@ public class Cost {
 	}
 
 	public String toString() {
-		String output = "(D32Steel = " + this.D32Steel + ")(BipolarNanoflake = " + this.BipolarNanoflake
-				+ ")(PolymerizationPreparation = " + this.PolymerizationPreparation + ")(SugarPack = " + this.SugarPack
-				+ ")(ManganeseOre = " + this.ManganeseOre + ")(LMD = " + this.LMD + ")";
+		String output = "D32Steel = " + this.D32Steel + "\nBipolarNanoflake = " + this.BipolarNanoflake
+				+ "\nPolymerizationPreparation = " + this.PolymerizationPreparation + "\nSugarPack = " + this.SugarPack
+				+ "\nManganeseOre = " + this.ManganeseOre + "\nLMD = " + this.LMD ;
 		return output;
 	}
 

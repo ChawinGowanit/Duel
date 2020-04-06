@@ -20,7 +20,7 @@ public class InitialPlaceCard {
 		this.placeCardDeck
 				.add(new PlaceCard("Rhodes Island's infirmary", 0, 9, new Cost(0, 3, 0, 1, 0, 0), new Cost()));
 		this.placeCardDeck.add(
-				new PlaceCard("Victirian Mounted Cave", 0, 3, new Cost(2, 2, 0, 1, 0, 0), new Cost(0, 0, 0, 0, 0, 3)));
+				new PlaceCard("Victorian Mounted Cave", 0, 3, new Cost(2, 2, 0, 1, 0, 0), new Cost(0, 0, 0, 0, 0, 3)));
 	}
 
 	public ArrayList<PlaceCard> getPlaceCardDeck() {

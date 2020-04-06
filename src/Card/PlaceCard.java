@@ -11,7 +11,6 @@ import logic.Player;
 
 public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	private String name;
-	private String image;
 	private int attackPoint;
 	private int playerPoint;
 	private int position ;
@@ -85,5 +84,8 @@ public class PlaceCard implements HavePoint, HaveResource, Attackable {
 	}
 	public Cost getResource() {
 		return resource;
+	}
+	public String getImgURL() {
+		return "/"+this.name+".png";
 	}
 }

@@ -19,7 +19,6 @@ public class GameController {
 	public static boolean endGame = false;
 
 	public static void InitializeGame() {
-		System.out.println("=====let's Start!!=====");
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 1);
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 2);
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 3);
