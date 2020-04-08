@@ -4,18 +4,14 @@ import Card.base.Card;
 import application.GameController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 
 public class MainPane extends Pane {
 	private static Card selectedCard;
@@ -300,4 +296,5 @@ public class MainPane extends Pane {
 		notEnoughMaterial.setVisible(bool);
 		MainPane.setVisibleSelecttionBtn(false);
 	}
+
 }

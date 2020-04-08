@@ -1,6 +1,5 @@
 package gui;
 
-import com.sun.tools.javac.launcher.Main;
 
 import Card.TradingCard;
 import Card.base.Attackable;
@@ -10,7 +9,6 @@ import Card.base.Cost;
 import Card.base.HaveChainSymbol;
 import Card.base.HavePoint;
 import Card.base.HaveResource;
-import application.GameController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
