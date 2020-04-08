@@ -40,8 +40,8 @@ public class Cost {
 
 	public String toString() {
 		String output = "D32Steel : " + this.D32Steel + "\nBipolarNanoflake : " + this.BipolarNanoflake
-				+ "\nPolymerizationPreparation : " + this.PolymerizationPreparation + "\nSugarPack : " + this.SugarPack
-				+ "\nManganeseOre : " + this.ManganeseOre + "\nLMD : " + this.LMD ;
+				+ "\nPolymerizationPreparation : " + this.PolymerizationPreparation + "\nManganeseOre : "
+				+ this.ManganeseOre + "\nSugarPack : " + this.SugarPack + "\nLMD : " + this.LMD;
 		return output;
 	}
 
@@ -82,11 +82,15 @@ public class Cost {
 	}
 
 	public static boolean checkCost(Cost playerCost, Cost cardCost) {
-		return ((playerCost.D32Steel >= cardCost.D32Steel)&&((playerCost.D32Steel != 0)||(cardCost.D32Steel!=0)))
-				&& ((playerCost.BipolarNanoflake >= cardCost.BipolarNanoflake)&&((playerCost.BipolarNanoflake != 0)||(cardCost.BipolarNanoflake!=0)))
-				&& ((playerCost.PolymerizationPreparation >= cardCost.PolymerizationPreparation)&&((playerCost.PolymerizationPreparation != 0)||(cardCost.PolymerizationPreparation!=0)))
-				&& ((playerCost.SugarPack >= cardCost.SugarPack)&&((playerCost.SugarPack != 0)||(cardCost.SugarPack!=0))) 
-				&& ((playerCost.ManganeseOre >= cardCost.ManganeseOre)&&((playerCost.ManganeseOre != 0)||(cardCost.ManganeseOre!=0)));
+		return ((playerCost.D32Steel >= cardCost.D32Steel) && ((playerCost.D32Steel != 0) || (cardCost.D32Steel != 0)))
+				&& ((playerCost.BipolarNanoflake >= cardCost.BipolarNanoflake)
+						&& ((playerCost.BipolarNanoflake != 0) || (cardCost.BipolarNanoflake != 0)))
+				&& ((playerCost.PolymerizationPreparation >= cardCost.PolymerizationPreparation)
+						&& ((playerCost.PolymerizationPreparation != 0) || (cardCost.PolymerizationPreparation != 0)))
+				&& ((playerCost.SugarPack >= cardCost.SugarPack)
+						&& ((playerCost.SugarPack != 0) || (cardCost.SugarPack != 0)))
+				&& ((playerCost.ManganeseOre >= cardCost.ManganeseOre)
+						&& ((playerCost.ManganeseOre != 0) || (cardCost.ManganeseOre != 0)));
 
 	}
 
@@ -100,7 +104,8 @@ public class Cost {
 			haveToBuy.BipolarNanoflake = cardCost.BipolarNanoflake - playerCost.BipolarNanoflake;
 		}
 		if (playerCost.PolymerizationPreparation < cardCost.PolymerizationPreparation) {
-			haveToBuy.PolymerizationPreparation = cardCost.PolymerizationPreparation- playerCost.PolymerizationPreparation;
+			haveToBuy.PolymerizationPreparation = cardCost.PolymerizationPreparation
+					- playerCost.PolymerizationPreparation;
 		}
 		if (playerCost.SugarPack < cardCost.SugarPack) {
 			haveToBuy.SugarPack = cardCost.SugarPack - playerCost.SugarPack;
@@ -109,11 +114,11 @@ public class Cost {
 			haveToBuy.ManganeseOre = cardCost.ManganeseOre - playerCost.ManganeseOre;
 		}
 		if (cardCost.LMD == 0) {
-			haveToBuy.LMD = 0 ;
+			haveToBuy.LMD = 0;
 		} else if (cardCost.LMD <= playerCost.LMD) {
-			haveToBuy.LMD = cardCost.LMD ;
-		} else if (cardCost.LMD > playerCost.LMD){
-			return 1000 ;
+			haveToBuy.LMD = cardCost.LMD;
+		} else if (cardCost.LMD > playerCost.LMD) {
+			return 1000;
 		}
 		int LMD = 0;
 		LMD += haveToBuy.D32Steel * buyResourceCost.D32Steel;
@@ -122,26 +127,33 @@ public class Cost {
 		LMD += haveToBuy.SugarPack * buyResourceCost.SugarPack;
 		LMD += haveToBuy.ManganeseOre * buyResourceCost.ManganeseOre;
 		LMD += haveToBuy.LMD * buyResourceCost.LMD;
-		return LMD ;
+		return LMD;
 	}
+
 	public void setLMD(int LMD) {
-		this.LMD = LMD ;
+		this.LMD = LMD;
 	}
+
 	public int getLMD() {
 		return this.LMD;
 	}
+
 	public int getD32Steel() {
 		return D32Steel;
 	}
+
 	public int getBipolarNanoflake() {
 		return BipolarNanoflake;
 	}
+
 	public int getPolymerizationPreparation() {
 		return PolymerizationPreparation;
 	}
+
 	public int getSugarPack() {
 		return SugarPack;
 	}
+
 	public int getManganeseOre() {
 		return ManganeseOre;
 	}

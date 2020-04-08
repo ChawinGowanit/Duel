@@ -25,6 +25,9 @@ public class GameController {
 		GameController.mainBoard.firstUpdateCardOnBoard(1);
 		GameController.mainBoard.firstUpdateCardOnBoard(2);
 		GameController.mainBoard.firstUpdateCardOnBoard(3);
+		GameController.mainBoard.updateCardOnBoard(1);
+		GameController.mainBoard.updateCardOnBoard(2);
+		GameController.mainBoard.updateCardOnBoard(3);
 		GameController.placeBoard.addCardOnBoard(GameController.placeCardDeck.placeCardDeck);
 		GameController.setPhase(1);
 	}

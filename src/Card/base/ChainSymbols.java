@@ -50,7 +50,7 @@ public class ChainSymbols {
 	public String toString() {
 		String output = "";
 		for (String chainSymbol : this.chainSymbol) {
-			output += chainSymbol + " ";
+			output += "\n - "+ chainSymbol;
 		}
 		return output;
 	}

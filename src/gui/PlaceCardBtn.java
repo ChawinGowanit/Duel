@@ -27,10 +27,11 @@ public class PlaceCardBtn extends Pane {
 	private void setTooltip() {
 		Tooltip tooltip = new Tooltip();
 		tooltip.setFont(new Font(14));
-		tooltip.setText(placeCard.getName()+"\n-----Cost------\n " + placeCard.getCost().toString() + "\n-----Reward-----\nAttackPoint : " + placeCard.getAttackPoint()
-				+ "\nPoint : " + placeCard.getPlayerPoint()+"\nLMD : "+placeCard.getResource().getLMD());
+		tooltip.setText(placeCard.getName() + "\n-----Cost------\n " + placeCard.getCost().toString()
+				+ "\n-----Reward-----\nAttackPoint : " + placeCard.getAttackPoint() + "\nPoint : "
+				+ placeCard.getPlayerPoint() + "\nLMD : " + placeCard.getResource().getLMD());
 		this.setOnMouseMoved((MouseEvent e) -> {
-			tooltip.show(this, e.getScreenX()+10, e.getScreenY() + 10);
+			tooltip.show(this, e.getScreenX() + 10, e.getScreenY() + 10);
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tooltip.hide();

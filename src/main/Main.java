@@ -9,6 +9,7 @@ import java.util.Scanner;
 import Card.base.Cost;
 import application.GameController;
 import gui.AttackPane;
+import gui.MainPane;
 import gui.PlacePane;
 import gui.PlayerPane;
 import javafx.application.Application;
@@ -30,7 +31,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	Scene scene, gameScene;
-
 	public void start(Stage primaryStage) {
 		Pane startingGame = new Pane();
 		Scene scene = new Scene(startingGame, 1920, 1080);
@@ -126,6 +126,7 @@ public class Main extends Application {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 					GameController.player2.setName(player2Name.getText());
+					GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 					primaryStage.setScene(creatGameScene());
 					primaryStage.show();
 					primaryStage.sizeToScene();
@@ -143,7 +144,6 @@ public class Main extends Application {
 		gamePhase.setBackground(new Background(
 				new BackgroundImage(new Image("/gameUI/gameUI.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 						BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-		GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 		PlayerPane player1Pane = new PlayerPane(1);
 		player1Pane.setLayoutX(0);
 		player1Pane.setLayoutY(50);
@@ -152,14 +152,18 @@ public class Main extends Application {
 		player2Pane.setLayoutY(50);
 		PlacePane placePane = new PlacePane();
 		placePane.setLayoutX(225);
-		placePane.setLayoutY(760);
+		placePane.setLayoutY(810);
 		AttackPane atkPane = new AttackPane();
 		atkPane.setLayoutX(0);
 		atkPane.setLayoutY(982);
-		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane);
+		MainPane mainPane = new MainPane(1);
+		mainPane.setLayoutX(300);
+		mainPane.setLayoutY(0);
+		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane,mainPane);
 		Scene gameScene = new Scene(gamePhase, 1920, 1080);
 		return gameScene;
 	}
+
 }
 /*
 	public static void main(String args[]) throws PickCardFailException {
@@ -178,8 +182,10 @@ public class Main extends Application {
 		System.out.println("Player2 : " + GameController.player2.getName());
 		System.out.println(
 				GameController.player2.getName() + "'s resources :" + GameController.player2.getResourceCounter());
-		============================================finish!!!=======================================================
+
 		GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
+		
+		============================================finish!!!=======================================================
 
 		while (!GameController.endGame || (GameController.ATKboard.getPosition() == 9)
 				|| GameController.ATKboard.getPosition() == -9) {

@@ -264,4 +264,7 @@ public class MainBoard {
 		}
 
 	}
+	public Card getBlankCard() {
+		return blankCard;
+	}
 }

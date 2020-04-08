@@ -34,7 +34,7 @@ public abstract class Card {
 		return this.position ;
 	}
 	public String toString() {
-		return this.name+" "+this.pickAble;
+		return this.name+this.isPickAble() ;
 	}
 	
 	public void setFlipAble(boolean flipAble) {
@@ -47,7 +47,8 @@ public abstract class Card {
 		return flipAble;
 	}
 	public String getImgUrl() {
-		return "/"+this.getName()+".png";
+		return "/"+this.name+".png";
 	}
+
 	
 }
