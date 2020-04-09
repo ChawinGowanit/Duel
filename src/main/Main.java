@@ -31,6 +31,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	Scene scene, gameScene;
+	public static MainPane mainPane;
+	public static PlayerPane player1Pane;
+	public static PlayerPane player2Pane;
+	public static AttackPane atkPane;
 	public void start(Stage primaryStage) {
 		Pane startingGame = new Pane();
 		Scene scene = new Scene(startingGame, 1920, 1080);
@@ -144,19 +148,24 @@ public class Main extends Application {
 		gamePhase.setBackground(new Background(
 				new BackgroundImage(new Image("/gameUI/gameUI.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 						BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-		PlayerPane player1Pane = new PlayerPane(1);
+		
+		player1Pane = new PlayerPane(1);
 		player1Pane.setLayoutX(0);
 		player1Pane.setLayoutY(50);
-		PlayerPane player2Pane = new PlayerPane(2);
+		
+		player2Pane = new PlayerPane(2);
 		player2Pane.setLayoutX(1650);
 		player2Pane.setLayoutY(50);
+		
 		PlacePane placePane = new PlacePane();
 		placePane.setLayoutX(225);
 		placePane.setLayoutY(810);
-		AttackPane atkPane = new AttackPane();
+		
+		atkPane = new AttackPane();
 		atkPane.setLayoutX(0);
 		atkPane.setLayoutY(982);
-		MainPane mainPane = new MainPane(1);
+		
+		mainPane = new MainPane(1);
 		mainPane.setLayoutX(300);
 		mainPane.setLayoutY(0);
 		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane,mainPane);

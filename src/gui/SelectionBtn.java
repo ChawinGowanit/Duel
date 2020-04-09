@@ -13,6 +13,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import logic.Turn;
 import logic.exception.PickCardFailException;
+import main.Main;
 
 public class SelectionBtn extends Pane {
 	public SelectionBtn(int btn) {
@@ -44,17 +45,18 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						Turn.setSelectedCard(MainPane.getSelectedCard());
-						if (Turn.canBulid(MainPane.getSelectedCard(), GameController.getCurrentPlayer())) {
+						System.out.println(Main.mainPane.getSelectedCard());
+						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
+						if (Turn.canBulid(Main.mainPane.getSelectedCard(), GameController.getCurrentPlayer())) {
 							if (Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-									MainPane.getSelectedCard().getCost(),
+									Main.mainPane.getSelectedCard().getCost(),
 									GameController.getCurrentPlayer().getbuyResourceCost()) <= GameController
 											.getCurrentPlayer().getResourceCounter().getLMD()) {
-								MainPane.setVisibleYesNoBtn(true);
-								MainPane.setVisibleSelecttionBtn(false);
+								Main.mainPane.setVisibleYesNoBtn(true);
+								Main.mainPane.setVisibleSelecttionBtn(false);
 							}
 						} else {
-							MainPane.setVisibleNotEnoughmaterial(true);
+							Main.mainPane.setVisibleNotEnoughmaterial(true);
 						}
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
@@ -68,11 +70,15 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						Turn.setSelectedCard(MainPane.getSelectedCard());
+						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.sell();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
-						MainPane.updateCardOnPane();
-						MainPane.setVisibleSelecttionBtn(false);
+						Main.player1Pane.UpdatePlayerPane(1);
+						Main.player2Pane.UpdatePlayerPane(2);
+						Main.player1Pane.updatePlayerPaneScreen();
+						Main.player2Pane.updatePlayerPaneScreen();
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.setVisibleSelecttionBtn(false);
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -86,7 +92,11 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					MainPane.setVisibleSelecttionBtn(false);
+					Main.player1Pane.UpdatePlayerPane(1);
+					Main.player2Pane.UpdatePlayerPane(2);
+					Main.player1Pane.updatePlayerPaneScreen();
+					Main.player2Pane.updatePlayerPaneScreen();
+					Main.mainPane.setVisibleSelecttionBtn(false);
 				}
 			});
 		} else if (btn == 5) {
@@ -95,12 +105,17 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						Turn.setSelectedCard(MainPane.getSelectedCard());
+						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.build();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
-						MainPane.updateCardOnPane();
-						MainPane.setVisibleYesNoBtn(false);
-						MainPane.setVisibleSelecttionBtn(false);
+						Main.atkPane.updateAttackPane();
+						Main.player1Pane.UpdatePlayerPane(1);
+						Main.player2Pane.UpdatePlayerPane(2);
+						Main.player1Pane.updatePlayerPaneScreen();
+						Main.player2Pane.updatePlayerPaneScreen();
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.setVisibleYesNoBtn(false);
+						Main.mainPane.setVisibleSelecttionBtn(false);
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -112,10 +127,15 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					MainPane.setVisibleYesNoBtn(false);
-					MainPane.setVisibleSelecttionBtn(false);
+					Main.player1Pane.UpdatePlayerPane(1);
+					Main.player2Pane.UpdatePlayerPane(2);
+					Main.player1Pane.updatePlayerPaneScreen();
+					Main.player2Pane.updatePlayerPaneScreen();
+					Main.mainPane.setVisibleYesNoBtn(false);
+					Main.mainPane.setVisibleSelecttionBtn(false);
 				}
 			});
 		}
+
 	}
 }

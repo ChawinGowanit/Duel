@@ -15,17 +15,25 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import main.Main;
 
 public class AlertTextPane extends Pane {
-	private Pane lmdcheck;
+	private Text lmdcheck;
 
 	public AlertTextPane() {
 		this.setMinSize(500, 130);
-		lmdcheck = setText();
+		Image bg = new Image("/gameUI/alertTextBg.png", 500, 100, false, false);
+		this.setBackground(new Background(new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT,
+				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		lmdcheck = new Text();
+		lmdcheck.setFill(Color.WHITE);
+		lmdcheck.setFont(new Font(40));
+		lmdcheck.setX(75);
+		lmdcheck.setY(75);
+		this.setText();
 		lmdcheck.setLayoutX(0);
 		lmdcheck.setLayoutY(0);
 		this.getChildren().addAll(lmdcheck);
-		this.setVisible(false);
 
 	}
 
@@ -47,8 +55,8 @@ public class AlertTextPane extends Pane {
 			@Override
 			public void handle(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				MainPane.setVisibleNotEnoughmaterial(false);
-				MainPane.setVisibleSelecttionBtn(false);
+				Main.mainPane.setVisibleNotEnoughmaterial(false);
+				Main.mainPane.setVisibleSelecttionBtn(false);
 
 			}
 		});
@@ -63,25 +71,12 @@ public class AlertTextPane extends Pane {
 		});
 	}
 
-	private Pane setText() {
+	public void setText() {
 
 		// TODO Auto-generated method stub
-		String text = "Spend "
-				+ Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-						MainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
-				+ "LMD to build?";
-		Text alertText = new Text();
-		alertText.setFill(Color.WHITE);
-		alertText.setFont(new Font(40));
-		alertText.setX(75);
-		alertText.setY(75);
-		alertText.textProperty().setValue(text);
-		Pane alertPane = new Pane();
-		Image bg = new Image("/gameUI/alertTextBg.png", 500, 100, false, false);
-		alertPane.setMinSize(500, 100);
-		alertPane.setBackground(new Background(new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT,
-				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-		alertPane.getChildren().add(alertText);
-		return alertPane;
+		lmdcheck.textProperty()
+				.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
+						Main.mainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
+						+ " LMD to build?");
 	}
 }

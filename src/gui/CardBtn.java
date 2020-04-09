@@ -20,6 +20,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import main.Main;
 
 public class CardBtn extends Pane {
 	private Card card;
@@ -34,14 +35,13 @@ public class CardBtn extends Pane {
 	private void setMouseAction() {
 		// TODO Auto-generated method stub
 		if (this.card.isPickAble() == true) {
-			MainPane.setSelectedCard(this.card);
-			MainPane.setSelectedCardBtn(this.card);
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					MainPane.setSelectedCard(card);
-					MainPane.setVisibleSelecttionBtn(true);
+					Main.mainPane.setSelectedCard(card);
+					Main.mainPane.setSelectedCardBtn(card);
+					Main.mainPane.setVisibleSelecttionBtn(true);
 				}
 			});
 		}
@@ -106,7 +106,7 @@ public class CardBtn extends Pane {
 	}
 
 	public void updateCardVisible() {
-		if (card.equals(MainPane.getSelectedCard())) {
+		if (card.equals(Main.mainPane.getSelectedCard())) {
 			this.setVisible(false);
 		}
 	}
@@ -114,14 +114,14 @@ public class CardBtn extends Pane {
 	public void updateMouseAction() {
 		// TODO Auto-generated method stub
 		if (this.card.isPickAble() == true) {
-			MainPane.setSelectedCard(this.card);
-			MainPane.setSelectedCardBtn(this.card);
+			Main.mainPane.setSelectedCard(this.card);
+			Main.mainPane.setSelectedCardBtn(this.card);
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					MainPane.setSelectedCard(card);
-					MainPane.setVisibleSelecttionBtn(true);
+					Main.mainPane.setSelectedCard(card);
+					Main.mainPane.setVisibleSelecttionBtn(true);
 				}
 			});
 		}

@@ -107,7 +107,7 @@ public class MainBoard {
 
 	public void updateCardOnBoard(int phase) {
 		// update boolean flipAble isFlip pickAble from each card
-		if (phase == 1) {
+		if (phase == 1 || phase == 2) {
 			for (Card card : this.startingCardOnBoard) {
 				if (card.getPosition() == 1 || card.getPosition() == 2) {
 					if (this.startingCardOnBoard.get(card.getPosition() + 1).equals(blankCard)

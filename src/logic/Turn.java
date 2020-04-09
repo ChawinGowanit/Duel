@@ -10,7 +10,6 @@ import Card.base.HaveChainSymbol;
 import Card.base.HavePoint;
 import Card.base.HaveResource;
 import application.GameController;
-import gui.MainPane;
 import logic.exception.PickCardFailException;
 
 public class Turn {

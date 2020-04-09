@@ -5,62 +5,78 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
-public class AtkBtn extends Pane {
+public class AtkBtn extends StackPane {
+	private ImageView imgView;
+	private Tooltip tooltip;
+
 	public AtkBtn(int position) {
+		super();
 		Image Oddtile = new Image("/gameUI/Odd.png", 102, 99, false, false);
-		ImageView OddtileImgView = new ImageView(Oddtile);
 		Image Eventile = new Image("/gameUI/Even.png", 102, 99, false, false);
-		ImageView EventileImgView = new ImageView(Eventile);
 		if (position % 2 == 0) {
-			this.getChildren().add(EventileImgView);
+			imgView = new ImageView(Eventile);
+			this.getChildren().add(imgView);
 		} else {
-			this.getChildren().add(OddtileImgView);
+			imgView = new ImageView(Oddtile);
+			this.getChildren().add(imgView);
 		}
 		if (position == 1 || position == 3 || position == 6 || position == -1 || position == -3 || position == -6) {
 			this.setTooltip(position);
 		}
 	}
 
-	public AtkBtn(int position,boolean atkpos){
-		Image AtkOddtile = new Image("/gameUI/AttackOdd.png",102,99,false,false);
-		ImageView AtkOddtileImgView = new ImageView(AtkOddtile);
-		Image AtkEventile = new Image("/gameUI/AttackEven.png",102,99,false,false);
-		ImageView AtkEventileImgView = new ImageView(AtkEventile);
-		if (position%2==0) {
-			this.getChildren().add(AtkEventileImgView);
+	public AtkBtn(int position, boolean atkpos) {
+		super();
+		Image AtkOddtile = new Image("/gameUI/AttackOdd.png", 102, 99, false, false);
+		Image AtkEventile = new Image("/gameUI/AttackEven.png", 102, 99, false, false);
+		if (position % 2 == 0) {
+			imgView = new ImageView(AtkEventile);
+			this.getChildren().add(imgView);
 		} else {
-			this.getChildren().add(AtkOddtileImgView);
+			imgView = new ImageView(AtkOddtile);
+			this.getChildren().add(imgView);
 		}
 		this.setTooltip(position);
 	}
 
 	public void setTooltip(int position) {
-		Tooltip tooltip = new Tooltip();
+		tooltip = new Tooltip();
 		tooltip.setFont(new Font(14));
 		if (position == GameController.ATKboard.getPosition()) {
-			tooltip.setText("Attack Position : "+GameController.ATKboard.getPosition());
-
+			tooltip.setText("Attack Position : " + GameController.ATKboard.getPosition());
 		} else if (position == 1 && GameController.ATKboard.getPosAndCoinLoss().containsKey(1)) {
-				tooltip.setText("Attack Position : 1 \n"+GameController.player1.getName()+" + 2 Points!");	
+			tooltip.setText("Attack Position : 1 \n" + GameController.player1.getName() + " + 2 Points!");
 		} else if (position == 3 && GameController.ATKboard.getPosAndCoinLoss().containsKey(3)) {
-				tooltip.setText("Attack Position : 3 \n"+GameController.player2.getName()+" - 2 LMD");		
+			tooltip.setText("Attack Position : 3 \n" + GameController.player2.getName() + " - 2 LMD");
 		} else if (position == 6 && GameController.ATKboard.getPosAndCoinLoss().containsKey(6)) {
-				tooltip.setText("Attack Position : 6 \n"+GameController.player2.getName()+" - 5 LMD");		
+			tooltip.setText("Attack Position : 6 \n" + GameController.player2.getName() + " - 5 LMD");
 		} else if (position == -1 && GameController.ATKboard.getPosAndCoinLoss().containsKey(-1)) {
-			tooltip.setText("Attack Position : -1 \n"+GameController.player2.getName()+" + 2 Points!");	
+			tooltip.setText("Attack Position : -1 \n" + GameController.player2.getName() + " + 2 Points!");
 		} else if (position == -3 && GameController.ATKboard.getPosAndCoinLoss().containsKey(-3)) {
-				tooltip.setText("Attack Position : -3 \n"+GameController.player1.getName()+" - 2 LMD");		
+			tooltip.setText("Attack Position : -3 \n" + GameController.player1.getName() + " - 2 LMD");
 		} else if (position == -6 && GameController.ATKboard.getPosAndCoinLoss().containsKey(-6)) {
-			tooltip.setText("Attack Position : -6 \n"+GameController.player1.getName()+" - 5 LMD");		
-		}			
+			tooltip.setText("Attack Position : -6 \n" + GameController.player1.getName() + " - 5 LMD");
+		} else {
+			tooltip = null;
+		}
 		this.setOnMouseMoved((MouseEvent e) -> {
-			tooltip.show(this, e.getScreenX()+10, e.getScreenY() + 10);
+			if (tooltip != null) {
+				tooltip.show(this, e.getScreenX() + 10, e.getScreenY() + 10);
+			}
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tooltip.hide();
 		});
+	}
+
+	public ImageView getImgView() {
+		return imgView;
+	}
+
+	public void setImgView(ImageView imgView) {
+		this.imgView = imgView;
 	}
 }

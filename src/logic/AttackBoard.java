@@ -44,7 +44,6 @@ public class AttackBoard {
 	}
 
 	public void rewardAndPun(Player player1, Player player2) {
-
 		if ((position >= 1 && position < 3) && posAndCoinLoss.containsKey(1)) {
 			player1.increasePlayerPoint(posAndCoinLoss.get(1));
 			posAndCoinLoss.remove(1);
