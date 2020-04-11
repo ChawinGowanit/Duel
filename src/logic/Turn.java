@@ -46,36 +46,18 @@ public class Turn {
 		}
 		if (selectedCard instanceof HaveChainSymbol) {
 			((HaveChainSymbol) selectedCard).addChainSymbol(GameController.getCurrentPlayer());
-			System.out.println(GameController.getCurrentPlayer().getName() + "'s Chain Symbols :"
-					+ GameController.getCurrentPlayer().getChainSymbols());
 		}
 		if (selectedCard instanceof Attackable) {
 			((Attackable) selectedCard).attackPlayer(GameController.getCurrentPlayer());
-			System.out.println("Attack!!");
-			System.out.println("Attacker's position :" + GameController.ATKboard.getPosition());
-			if (GameController.getCurrentPlayer().getNum() == 1) {
-				System.out.println(GameController.player2.getName() + "'s resources :"
-						+ GameController.player2.getResourceCounter());
-			} else {
-				System.out.println(GameController.player1.getName() + "'s resources :"
-						+ GameController.player1.getResourceCounter());
-			}
 		}
 		if (selectedCard instanceof TradingCard) {
 			GameController.getCurrentPlayer()
 					.setSellResourceGain(GameController.getCurrentPlayer().getSellResourceGain() + 1);
-			System.out.println(GameController.getCurrentPlayer().getName() + "'s new sell card gain = "
-					+ GameController.getCurrentPlayer().getSellResourceGain());
+
 			GameController.getCurrentPlayer()
 					.setBuyResourceCost(Cost.reduceCost(GameController.getCurrentPlayer().getbuyResourceCost(),
 							((TradingCard) selectedCard).getReduceCost()));
-			System.out.println(GameController.getCurrentPlayer().getName() + "'s new buy resource cost :"
-					+ GameController.getCurrentPlayer().getbuyResourceCost());
 		}
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s new resources :"
-				+ GameController.getCurrentPlayer().getResourceCounter());
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
-				+ GameController.getCurrentPlayer().getplayerPoint());
 		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();
 
@@ -85,10 +67,6 @@ public class Turn {
 		GameController.getCurrentPlayer()
 				.setResourceCounter(Cost.addCost(GameController.getCurrentPlayer().getResourceCounter(),
 						new Cost(0, 0, 0, 0, 0, GameController.getCurrentPlayer().getSellResourceGain())));
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s new resources :"
-				+ GameController.getCurrentPlayer().getResourceCounter());
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
-				+ GameController.getCurrentPlayer().getplayerPoint());
 		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();
 	}
@@ -114,25 +92,10 @@ public class Turn {
 		}
 		if (selectedPlaceCard instanceof HaveChainSymbol) {
 			((HaveChainSymbol) selectedPlaceCard).addChainSymbol(GameController.getCurrentPlayer());
-			System.out.println(GameController.getCurrentPlayer().getName() + "'s Chain Symbols :"
-					+ GameController.getCurrentPlayer().getChainSymbols());
 		}
 		if (selectedPlaceCard instanceof Attackable) {
 			((Attackable) selectedPlaceCard).attackPlayer(GameController.getCurrentPlayer());
-			System.out.println("Attack!!");
-			System.out.println("Attacker's position :" + GameController.ATKboard.getPosition());
-			if (GameController.getCurrentPlayer().getNum() == 1) {
-				System.out.println(GameController.player2.getName() + "'s resources :"
-						+ GameController.player2.getResourceCounter());
-			} else {
-				System.out.println(GameController.player1.getName() + "'s resources :"
-						+ GameController.player1.getResourceCounter());
-			}
 		}
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s new resources :"
-				+ GameController.getCurrentPlayer().getResourceCounter());
-		System.out.println(GameController.getCurrentPlayer().getName() + "'s point "
-				+ GameController.getCurrentPlayer().getplayerPoint());
 		GameController.placeBoard.removeCardFromBoard(selectedPlaceCard, GameController.getPhase());
 		GameController.mainBoard.removeCardFromBoard(selectedCard, GameController.getPhase());
 		switchPlayerTurn();

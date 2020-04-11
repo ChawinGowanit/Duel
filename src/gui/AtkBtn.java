@@ -68,7 +68,9 @@ public class AtkBtn extends StackPane {
 			}
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
-			tooltip.hide();
+			if (tooltip != null) {
+				tooltip.hide();
+			}
 		});
 	}
 

@@ -1,5 +1,6 @@
 package gui;
 
+import Card.PlaceCard;
 import Card.base.Card;
 import application.GameController;
 import javafx.collections.FXCollections;
@@ -12,22 +13,28 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
+import main.Main;
 
 public class MainPane extends Pane {
-	private  Card selectedCard;
-	private  SelectionBtn buildBtn;
-	private  SelectionBtn sellBtn;
-	private  SelectionBtn buildPlaceBtn;
-	private  SelectionBtn cancelBtn;
-	private  SelectionBtn yesBtn;
-	private  SelectionBtn noBtn;
-	private  CardBtn selectedCardBtn;
-	private  AlertTextPane alertTextPane;
-	private  Pane notEnoughMaterial;
+	private Card selectedCard;
+	private PlaceCard selectedPlaceCard;
+	private PlaceCardBtn selectedPlaceCardBtn;
+	private SelectionBtn buildBtn;
+	private SelectionBtn sellBtn;
+	private SelectionBtn buildPlaceBtn;
+	private SelectionBtn cancelBtn;
+	private SelectionBtn yesBtn;
+	private SelectionBtn noBtn;
+	private SelectionBtn yesPlaceBtn;
+	private Pane selectPlace;
+	private CardBtn selectedCardBtn;
+	private AlertTextPane alertTextPane;
+	private Pane notEnoughMaterial;
 
 	private ObservableList<CardBtn> CardBtnList = FXCollections.observableArrayList();
 
 	public MainPane(int phase) {
+		CardBtnList = FXCollections.observableArrayList();
 		this.setPrefSize(1357, 743);
 		this.setPadding(new Insets(8));
 		this.setBackground(new Background(new BackgroundImage(
@@ -66,13 +73,19 @@ public class MainPane extends Pane {
 		yesBtn = new SelectionBtn(5);
 		yesBtn.setLayoutX(550);
 		yesBtn.setLayoutY(775);
+		yesPlaceBtn = new SelectionBtn(7);
+		yesPlaceBtn.setLayoutX(550);
+		yesPlaceBtn.setLayoutY(775);
 		noBtn = new SelectionBtn(6);
 		noBtn.setLayoutX(725);
 		noBtn.setLayoutY(775);
-		notEnoughMaterial = new AlertTextPane("notEnoughMaterial");
+		notEnoughMaterial = new AlertTextPane("Not Enough Material!");
 		notEnoughMaterial.setLayoutX(450);
 		notEnoughMaterial.setLayoutY(650);
-		this.getChildren().addAll(buildBtn, sellBtn, buildPlaceBtn, cancelBtn, yesBtn, noBtn,notEnoughMaterial);
+		selectPlace = new AlertTextPane("Select Place to build");
+		selectPlace.setLayoutX(450);
+		selectPlace.setLayoutY(650);
+		this.getChildren().addAll(buildBtn, sellBtn, buildPlaceBtn, cancelBtn, yesBtn,yesPlaceBtn, noBtn, notEnoughMaterial,selectPlace);
 	}
 
 	private void addCardOnPane(int phase) {
@@ -199,7 +212,7 @@ public class MainPane extends Pane {
 		}
 	}
 
-	public  void updateCardOnPane() {
+	public void updateCardOnPane() {
 		for (CardBtn cardbtn : CardBtnList) {
 			cardbtn.updateCardImg();
 			cardbtn.updateCardVisible();
@@ -210,25 +223,28 @@ public class MainPane extends Pane {
 		}
 	}
 
-	private  void updatePickableCardOnPane(int phase) {
+	public void updatePickableCardOnPane(int phase) {
 		// TODO Auto-generated method stub
 		if (phase == 1 || phase == 2) {
 			for (CardBtn Cardbtn : CardBtnList) {
 				if (Cardbtn.getCard().getPosition() == 1 || Cardbtn.getCard().getPosition() == 2) {
 					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 1).isVisible())
 							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
 					}
 				} else if (Cardbtn.getCard().getPosition() == 3 || Cardbtn.getCard().getPosition() == 4
 						|| Cardbtn.getCard().getPosition() == 5) {
 					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())
 							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
 					}
 				} else if (Cardbtn.getCard().getPosition() == 6 || Cardbtn.getCard().getPosition() == 7
 						|| Cardbtn.getCard().getPosition() == 8 || Cardbtn.getCard().getPosition() == 9) {
 					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())
 							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 4).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
 					}
 				} else if (Cardbtn.getCard().getPosition() == 10 | Cardbtn.getCard().getPosition() == 11
@@ -236,9 +252,13 @@ public class MainPane extends Pane {
 						| Cardbtn.getCard().getPosition() == 14) {
 					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 4).isVisible())
 							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 5).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
 					}
-				}
+				} else {
+					Cardbtn.getCard().setFlipAble(true);
+					Cardbtn.getCard().setPickAble(true);
+					}
 
 			}
 		} else {
@@ -282,7 +302,7 @@ public class MainPane extends Pane {
 
 	}
 
-	public  void setVisibleSelecttionBtn(boolean bool) {
+	public void setVisibleSelecttionBtn(boolean bool) {
 		buildBtn.setVisible(bool);
 		buildPlaceBtn.setVisible(bool);
 		sellBtn.setVisible(bool);
@@ -290,21 +310,21 @@ public class MainPane extends Pane {
 
 	}
 
-	public  void setSelectedCard(Card card) {
+	public void setSelectedCard(Card card) {
 		// TODO Auto-generated method stub
 		selectedCard = card;
 	}
 
-	public  Card getSelectedCard() {
+	public Card getSelectedCard() {
 		// TODO Auto-generated method stub
 		return selectedCard;
 	}
 
-	public  void removedCardFromPane(CardBtn card) {
+	public void removedCardFromPane(CardBtn card) {
 		CardBtnList.set(CardBtnList.indexOf(card), new CardBtn(GameController.mainBoard.getBlankCard()));
 	}
 
-	public  void setSelectedCardBtn(Card card) {
+	public void setSelectedCardBtn(Card card) {
 		// TODO Auto-generated method stub
 		for (CardBtn cardBtn : CardBtnList) {
 			if (cardBtn.getCard().equals(card)) {
@@ -313,24 +333,27 @@ public class MainPane extends Pane {
 		}
 	}
 
-	public  CardBtn getSelectedCardBtn() {
+	public CardBtn getSelectedCardBtn() {
 		// TODO Auto-generated method stub
 		return selectedCardBtn;
 	}
 
-	public  void setVisibleYesNoBtn(boolean b) {
+	public void setVisibleYesNoBtn(boolean b) {
 		// TODO Auto-generated method stub
 		if (b) {
 			setAlertTextPane();
-
 		} else {
 			alertTextPane.setVisible(false);
 		}
-		yesBtn.setVisible(b);
+		if (selectedPlaceCard == null) {
+			yesBtn.setVisible(b);
+		} else {
+			yesPlaceBtn.setVisible(b);
+		}
 		noBtn.setVisible(b);
 	}
 
-	public  void setVisibleNotEnoughmaterial(boolean bool) {
+	public void setVisibleNotEnoughmaterial(boolean bool) {
 		notEnoughMaterial.setVisible(bool);
 		this.setVisibleSelecttionBtn(false);
 	}
@@ -339,10 +362,33 @@ public class MainPane extends Pane {
 		return alertTextPane;
 	}
 
-	public  void setAlertTextPane() {
+	public void setAlertTextPane() {
 		alertTextPane = new AlertTextPane();
 		alertTextPane.setLayoutX(450);
 		alertTextPane.setLayoutY(650);
 		this.getChildren().add(alertTextPane);
+	}
+
+	public PlaceCard getSelectedPlaceCard() {
+		return selectedPlaceCard;
+	}
+
+	public void setSelectedPlaceCard(PlaceCard selectedPlaceCard) {
+		this.selectedPlaceCard = selectedPlaceCard;
+	}
+
+	public PlaceCardBtn getSelectedPlaceCardBtn() {
+		return selectedPlaceCardBtn;
+	}
+
+	public void setSelectedPlaceCardBtn(PlaceCard selectedPlaceCard) {
+		for (PlaceCardBtn placeCardBtn : Main.placePane.getPlaceBtnList()) {
+			if (placeCardBtn.getPlaceCard().equals(selectedPlaceCard)) {
+				selectedPlaceCardBtn = placeCardBtn;
+			}
+		}
+	}
+	public Pane getSelectPlace() {
+		return selectPlace;
 	}
 }

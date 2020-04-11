@@ -32,9 +32,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	Scene scene, gameScene;
 	public static MainPane mainPane;
+	public static PlacePane placePane;
 	public static PlayerPane player1Pane;
 	public static PlayerPane player2Pane;
 	public static AttackPane atkPane;
+	public static Pane gamePhase;
 	public void start(Stage primaryStage) {
 		Pane startingGame = new Pane();
 		Scene scene = new Scene(startingGame, 1920, 1080);
@@ -144,7 +146,7 @@ public class Main extends Application {
 		launch(args);
 	}
 	public Scene creatGameScene() {
-		Pane gamePhase = new Pane();
+		gamePhase = new Pane();
 		gamePhase.setBackground(new Background(
 				new BackgroundImage(new Image("/gameUI/gameUI.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 						BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
@@ -156,21 +158,29 @@ public class Main extends Application {
 		player2Pane = new PlayerPane(2);
 		player2Pane.setLayoutX(1650);
 		player2Pane.setLayoutY(50);
-		
-		PlacePane placePane = new PlacePane();
+				
+		placePane = new PlacePane();
 		placePane.setLayoutX(225);
 		placePane.setLayoutY(810);
 		
 		atkPane = new AttackPane();
 		atkPane.setLayoutX(0);
 		atkPane.setLayoutY(982);
-		
-		mainPane = new MainPane(1);
-		mainPane.setLayoutX(300);
-		mainPane.setLayoutY(0);
-		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane,mainPane);
+
+		gamePhase.getChildren().addAll(player1Pane, player2Pane,placePane,atkPane);
+		newMainPane(1);
 		Scene gameScene = new Scene(gamePhase, 1920, 1080);
 		return gameScene;
+	}
+
+	public static void newMainPane(int phase) {
+		// TODO Auto-generated method stub
+		mainPane = new MainPane(phase);
+		mainPane.setLayoutX(300);
+		mainPane.setLayoutY(0);
+		gamePhase.getChildren().add(mainPane);
+		mainPane.updateCardOnPane();
+		mainPane.updatePickableCardOnPane(GameController.getPhase());
 	}
 
 }

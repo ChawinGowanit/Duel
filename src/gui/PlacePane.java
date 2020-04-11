@@ -14,9 +14,10 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
+import main.Main;
 
 public class PlacePane extends HBox{
-	private ObservableList<PlaceCardBtn> PlaceBtnnList = FXCollections.observableArrayList();
+	private ObservableList<PlaceCardBtn> PlaceBtnList = FXCollections.observableArrayList();
 	public PlacePane() {
 		this.setPrefSize(1450, 145);
 		this.setPadding(new Insets(8));	
@@ -26,9 +27,22 @@ public class PlacePane extends HBox{
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 		for (PlaceCard placeCard : GameController.placeBoard.getPlaceCardOnBoard()) {
 			PlaceCardBtn placeCardBtn = new PlaceCardBtn(placeCard);
-			this.PlaceBtnnList.add(placeCardBtn);
+			this.PlaceBtnList.add(placeCardBtn);
 		}
-		this.getChildren().addAll(PlaceBtnnList);
+		this.getChildren().addAll(PlaceBtnList);
 
+	}
+	public ObservableList<PlaceCardBtn> getPlaceBtnList() {
+		return PlaceBtnList;
+	}
+	public void updateMouseCardAction() {
+		for (PlaceCardBtn placeCardBtn :PlaceBtnList) {
+			placeCardBtn.setMouseAction();
+		}
+	}
+	public void updateUnable() {
+		for (PlaceCardBtn placeCardBtn :PlaceBtnList) {
+			placeCardBtn.setUnAbleMouseAction();
+		}
 	}
 }

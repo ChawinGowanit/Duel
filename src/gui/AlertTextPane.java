@@ -37,13 +37,13 @@ public class AlertTextPane extends Pane {
 
 	}
 
-	public AlertTextPane(String notEnoughMaterial) {
+	public AlertTextPane(String text) {
 		Text alertText = new Text();
 		alertText.setFill(Color.WHITE);
 		alertText.setFont(new Font(40));
 		alertText.setX(75);
 		alertText.setY(75);
-		alertText.textProperty().setValue("Not enough material!");
+		alertText.textProperty().setValue(text);
 		Image bg = new Image("/gameUI/alertTextBg.png", 500, 100, false, false);
 		this.setMinSize(500, 100);
 		this.setBackground(new Background(new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT,
@@ -51,10 +51,10 @@ public class AlertTextPane extends Pane {
 		this.getChildren().add(alertText);
 		this.setVisible(false);
 		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
 			@Override
 			public void handle(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				Main.mainPane.getSelectPlace().setVisible(false);
 				Main.mainPane.setVisibleNotEnoughmaterial(false);
 				Main.mainPane.setVisibleSelecttionBtn(false);
 
@@ -72,11 +72,17 @@ public class AlertTextPane extends Pane {
 	}
 
 	public void setText() {
-
 		// TODO Auto-generated method stub
-		lmdcheck.textProperty()
-				.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-						Main.mainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
-						+ " LMD to build?");
+		if (Main.mainPane.getSelectedPlaceCard() == null) {
+			lmdcheck.textProperty()
+			.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
+					Main.mainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
+					+ " LMD to build?");
+		}else {
+			lmdcheck.textProperty()
+			.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
+					Main.mainPane.getSelectedPlaceCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
+					+ " LMD to build?");
+		}
 	}
 }

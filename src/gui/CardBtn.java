@@ -114,13 +114,12 @@ public class CardBtn extends Pane {
 	public void updateMouseAction() {
 		// TODO Auto-generated method stub
 		if (this.card.isPickAble() == true) {
-			Main.mainPane.setSelectedCard(this.card);
-			Main.mainPane.setSelectedCardBtn(this.card);
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					Main.mainPane.setSelectedCard(card);
+					Main.mainPane.setSelectedCardBtn(card);
 					Main.mainPane.setVisibleSelecttionBtn(true);
 				}
 			});

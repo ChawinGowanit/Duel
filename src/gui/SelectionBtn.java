@@ -11,6 +11,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
+import logic.CheckEndPhase;
 import logic.Turn;
 import logic.exception.PickCardFailException;
 import main.Main;
@@ -26,9 +27,9 @@ public class SelectionBtn extends Pane {
 			Btn = new Image("/gameUI/buildPlaceBtn.png", 461, 108, false, false);
 		} else if (btn == 4) {
 			Btn = new Image("/gameUI/cancelBtn.png", 261, 108, false, false);
-		} else if (btn == 5) {
+		} else if (btn == 5 || btn == 7) {
 			Btn = new Image("/gameUI/yesBtn.png", 118, 64, false, false);
-		} else {
+		} else  {
 			Btn = new Image("/gameUI/noBtn.png", 101, 63, false, false);
 		}
 		this.setPrefSize(Btn.getWidth(), Btn.getHeight());
@@ -66,6 +67,7 @@ public class SelectionBtn extends Pane {
 			});
 		} else if (btn == 2) {
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
@@ -73,12 +75,19 @@ public class SelectionBtn extends Pane {
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.sell();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
 						Main.player1Pane.UpdatePlayerPane(1);
 						Main.player2Pane.UpdatePlayerPane(2);
 						Main.player1Pane.updatePlayerPaneScreen();
 						Main.player2Pane.updatePlayerPaneScreen();
-						Main.mainPane.updateCardOnPane();
 						Main.mainPane.setVisibleSelecttionBtn(false);
+						Main.mainPane.setSelectedPlaceCard(null);
+						CheckEndPhase.updateMainPane();
+						System.out.println(GameController.mainBoard.getCardOnBoard(2));
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -86,8 +95,20 @@ public class SelectionBtn extends Pane {
 				}
 			});
 		} else if (btn == 3) {
+			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					Main.mainPane.getSelectPlace().setVisible(true);
+					Main.mainPane.setVisibleSelecttionBtn(false);
+					Main.placePane.updateMouseCardAction();
+					Main.mainPane.setSelectedPlaceCard(null);
+					Main.placePane.updateMouseCardAction();
+				}
+			});
+		} else if (btn == 4)
 
-		} else if (btn == 4) {
+		{
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
@@ -97,6 +118,8 @@ public class SelectionBtn extends Pane {
 					Main.player1Pane.updatePlayerPaneScreen();
 					Main.player2Pane.updatePlayerPaneScreen();
 					Main.mainPane.setVisibleSelecttionBtn(false);
+					Main.mainPane.setSelectedPlaceCard(null);
+					Main.placePane.updateUnable();
 				}
 			});
 		} else if (btn == 5) {
@@ -116,13 +139,15 @@ public class SelectionBtn extends Pane {
 						Main.mainPane.updateCardOnPane();
 						Main.mainPane.setVisibleYesNoBtn(false);
 						Main.mainPane.setVisibleSelecttionBtn(false);
+						Main.mainPane.setSelectedPlaceCard(null);
+						CheckEndPhase.updateMainPane();
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
 			});
-		} else {
+		} else if (btn == 6) {
 			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
@@ -133,6 +158,37 @@ public class SelectionBtn extends Pane {
 					Main.player2Pane.updatePlayerPaneScreen();
 					Main.mainPane.setVisibleYesNoBtn(false);
 					Main.mainPane.setVisibleSelecttionBtn(false);
+					Main.mainPane.setSelectedPlaceCard(null);
+					Main.placePane.updateUnable();
+				}
+			});
+		} else if (btn == 7) {
+			this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					try {
+						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
+						Turn.setSelectedPlaceCard(Main.mainPane.getSelectedPlaceCard());
+						Turn.buildPlace();
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.atkPane.updateAttackPane();
+						Main.player1Pane.UpdatePlayerPane(1);
+						Main.player2Pane.UpdatePlayerPane(2);
+						Main.player1Pane.updatePlayerPaneScreen();
+						Main.player2Pane.updatePlayerPaneScreen();
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.getAlertTextPane().setVisible(false);
+						Main.mainPane.getSelectedPlaceCardBtn().setVisible(false);
+						Main.mainPane.setVisibleYesNoBtn(false);
+						Main.mainPane.setVisibleSelecttionBtn(false);
+						Main.mainPane.setSelectedPlaceCard(null);
+						Main.placePane.updateUnable();
+						CheckEndPhase.updateMainPane();
+					} catch (PickCardFailException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			});
 		}

@@ -29,8 +29,6 @@ public class AttackPane extends HBox {
 	}
 
 	public void updateAttackPane() {
-		
-		System.out.println(AtckPos);
 		if (AtckPos % 2 == 0) {
 			Image Eventile = new Image("/gameUI/Even.png", 102, 99, false, false);
 			AtkBtnList.get(AtckPos + 9).getImgView().setImage(Eventile);
@@ -41,8 +39,6 @@ public class AttackPane extends HBox {
 			;
 		}
 		AtckPos = GameController.ATKboard.getPosition();
-		System.out.println(AtckPos);
-
 		if (AtckPos % 2 == 0) {
 			Image AtkEventile = new Image("/gameUI/AttackEven.png", 102, 99, false, false);
 			AtkBtnList.get(AtckPos + 9).getImgView().setImage(AtkEventile);
