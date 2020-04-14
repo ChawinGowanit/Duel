@@ -1,10 +1,10 @@
 package gui;
 
-
 import java.io.File;
 
 import application.GameController;
 import javafx.event.EventHandler;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -15,6 +15,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import logic.CheckEndPhase;
 import logic.Turn;
 import logic.exception.PickCardFailException;
@@ -41,8 +42,35 @@ public class SelectionBtn extends Pane {
 		this.setPrefSize(Btn.getWidth(), Btn.getHeight());
 		this.setBackground(new Background(new BackgroundImage(Btn, BackgroundRepeat.NO_REPEAT,
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		this.setTooltip(btn);
 		this.setMouseAction(btn);
 		this.setVisible(false);
+	}
+
+	private void setTooltip(int btn) {
+		// TODO Auto-generated method stub
+		Tooltip tooltip = new Tooltip();
+		tooltip.setFont(new Font(20));
+		if (btn == 1) {
+			tooltip.setText("Build this card by resource or chain symbol");
+		} else if (btn == 2) {
+			tooltip.setText("Sell this card");
+		} else if (btn == 3) {
+			tooltip.setText("Use this card to build place");
+		} else if (btn == 4) {
+			tooltip.setText("cancel and pick new card");
+		} else if (btn == 5 || btn == 7) {
+			tooltip.setText("confirm build");
+		} else {
+			tooltip.setText("cancel and pick new card");
+		}
+		this.setOnMouseMoved((MouseEvent e) -> {
+				tooltip.show(this, e.getScreenX() +10, e.getScreenY() + 10);
+			
+		});
+		this.setOnMouseExited((MouseEvent e) -> {
+			tooltip.hide();
+		});
 	}
 
 	public void setMouseAction(int btn) {

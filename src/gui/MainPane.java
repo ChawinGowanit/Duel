@@ -1,3 +1,4 @@
+ 
 package gui;
 
 import Card.PlaceCard;
@@ -125,7 +126,7 @@ public class MainPane extends Pane {
 					CardBtnList.get(i).setLayoutX(225);
 					CardBtnList.get(i).setLayoutY(375);
 				} else if (i == 10) {
-					CardBtnList.get(i).setLayoutX(400);
+					CardBtnList.get(i).setLayoutX(425);
 					CardBtnList.get(i).setLayoutY(375);
 				} else if (i == 11) {
 					CardBtnList.get(i).setLayoutX(600);

@@ -16,6 +16,7 @@ import gui.PlayerPane;
 import javafx.animation.Animation;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,13 +25,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -174,12 +178,11 @@ public class Main extends Application {
 		mediaPlayer = new MediaPlayer(musicFile);
 		mediaPlayer.setAutoPlay(true);
 		mediaPlayer.setCycleCount(Animation.INDEFINITE);
-		mediaPlayer.setVolume(0.075);
+		mediaPlayer.setVolume(0.1);
 
 		gamePhase = new Pane();
-		gamePhase.setBackground(new Background(new BackgroundImage(
-				new Image("/gameUI/gameUI.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
-				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		gamePhase.setPrefSize(1920, 1080);
+		gamePhase.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
 		player1Pane = new PlayerPane(1);
 		player1Pane.setLayoutX(0);
@@ -239,8 +242,6 @@ public class Main extends Application {
  * 
  * GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
  * 
- * ============================================finish!!!========================
- * ===============================
  * 
  * while (!GameController.endGame || (GameController.ATKboard.getPosition() ==
  * 9) || GameController.ATKboard.getPosition() == -9) { if (Turn.getPlayerTurn()
@@ -300,6 +301,7 @@ public class Main extends Application {
  * System.out.println("=====The game has end=====");
  * System.out.println(GameController.player1.getName() + " WIN!"); } else if
  * (GameController.ATKboard.getPosition() == -9){
+ *  ===========================FINISH!!!!====================================
  * System.out.println("=====The game has end=====");
  * System.out.println(GameController.player1.getName() + " WIN!"); } } catch
  * (PickCardFailException e) { System.out.println(e.message); } } }
