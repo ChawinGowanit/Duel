@@ -1,5 +1,7 @@
 package gui;
 
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tooltip;
@@ -14,11 +16,16 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-
+import javafx.util.Duration;
+import main.Main;
 import Card.base.ChainSymbols;
 import application.GameController;
 
+
 public class PlayerPane extends GridPane {
+	public static FadeTransition fade1 = new FadeTransition();
+	public static FadeTransition fade2 = new FadeTransition();
+	private StackPane namePane ;
 	private CounterPane pointPane;
 	private CounterPane lmdPane;
 	private CounterPane sellCardGainPane;
@@ -66,7 +73,7 @@ public class PlayerPane extends GridPane {
 		} else {
 			name.textProperty().setValue(GameController.player2.getName());
 		}
-		StackPane namePane = new StackPane();
+		namePane = new StackPane();
 		namePane.getChildren().addAll(nameRecImgView, name);
 		this.add(namePane, 0, 0, 3, 1);
 		UpdatePlayerPane(player);
@@ -246,7 +253,43 @@ public class PlayerPane extends GridPane {
 	}
 
 	public void updatePlayerPaneScreen() {
-
+		this.fade2.setNode(Main.player2Pane.namePane);
+		this.fade1.setNode(Main.player1Pane.namePane);
+		if (GameController.getCurrentPlayer().getNum() == 1) {
+			
+			Main.player2Pane.fade2.stop();
+			Main.player2Pane.fade2.setFromValue(1);
+			Main.player2Pane.fade2.setToValue(1);
+			Main.player2Pane.fade2.setCycleCount(1);
+			Main.player2Pane.fade2.setDuration(Duration.millis(1));
+			Main.player2Pane.fade2.setAutoReverse(true);
+			Main.player2Pane.fade2.play();
+			
+			Main.player1Pane.fade1.stop();
+			Main.player1Pane.fade1.setFromValue(1);
+			Main.player1Pane.fade1.setToValue(0.2);
+			Main.player1Pane.fade1.setCycleCount(Animation.INDEFINITE);
+			Main.player1Pane.fade1.setDuration(Duration.millis(500));
+			Main.player1Pane.fade1.setAutoReverse(true);
+			Main.player1Pane.fade1.play();
+		}else {
+			
+			Main.player1Pane.fade1.stop();
+			Main.player1Pane.fade1.setFromValue(1);
+			Main.player1Pane.fade1.setToValue(1);
+			Main.player1Pane.fade1.setCycleCount(1);
+			Main.player1Pane.fade1.setDuration(Duration.millis(1));
+			Main.player1Pane.fade1.setAutoReverse(true);
+			Main.player1Pane.fade1.play();
+			
+			Main.player2Pane.fade2.stop();
+			Main.player2Pane.fade2.setFromValue(1);
+			Main.player2Pane.fade2.setToValue(0.2);
+			Main.player2Pane.fade2.setCycleCount(Animation.INDEFINITE);
+			Main.player2Pane.fade2.setDuration(Duration.millis(500));
+			Main.player2Pane.fade2.setAutoReverse(true);
+			Main.player2Pane.fade2.play();
+		}
 		BipolarCostPane.getText().textProperty().setValue(bipolarCost);
 		BipolarPane.getText().textProperty().setValue(playerBipolar);
 
@@ -292,5 +335,5 @@ public class PlayerPane extends GridPane {
 			}
 		}
 	}
-
+	
 }

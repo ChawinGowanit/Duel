@@ -1,6 +1,8 @@
 package gui;
 
 
+import java.io.File;
+
 import Card.TradingCard;
 import Card.base.Attackable;
 import Card.base.Card;
@@ -20,12 +22,14 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import main.Main;
 
 public class CardBtn extends Pane {
 	private Card card;
-
+	private static MediaPlayer mediaPlayer;
 	public CardBtn(Card card) {
 		this.card = card;
 		updateCardImg();
@@ -40,6 +44,11 @@ public class CardBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
+					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					Media buttonClick = new Media(new File(path).toURI().toString());
+					mediaPlayer = new MediaPlayer(buttonClick);
+					mediaPlayer.setAutoPlay(true);
+					mediaPlayer.setVolume(1);
 					Main.mainPane.setSelectedCard(card);
 					Main.mainPane.setSelectedCardBtn(card);
 					Main.mainPane.setVisibleSelecttionBtn(true);

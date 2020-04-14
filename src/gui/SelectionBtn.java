@@ -1,6 +1,8 @@
 package gui;
 
 
+import java.io.File;
+
 import application.GameController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -11,12 +13,16 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import logic.CheckEndPhase;
 import logic.Turn;
 import logic.exception.PickCardFailException;
 import main.Main;
 
 public class SelectionBtn extends Pane {
+	private static MediaPlayer mediaPlayer;
+
 	public SelectionBtn(int btn) {
 		Image Btn;
 		if (btn == 1) {
@@ -46,6 +52,11 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
+						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						Media buttonClick = new Media(new File(path).toURI().toString());
+						mediaPlayer = new MediaPlayer(buttonClick);
+						mediaPlayer.setAutoPlay(true);
+						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						if (Turn.canBulid(Main.mainPane.getSelectedCard(), GameController.getCurrentPlayer())) {
 							Main.mainPane.setVisibleYesNoBtn(true);
@@ -66,6 +77,11 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
+						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						Media buttonClick = new Media(new File(path).toURI().toString());
+						mediaPlayer = new MediaPlayer(buttonClick);
+						mediaPlayer.setAutoPlay(true);
+						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.sell();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
@@ -95,6 +111,11 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
+					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					Media buttonClick = new Media(new File(path).toURI().toString());
+					mediaPlayer = new MediaPlayer(buttonClick);
+					mediaPlayer.setAutoPlay(true);
+					mediaPlayer.setVolume(1);
 					Main.mainPane.getSelectPlace().setVisible(true);
 					Main.mainPane.setVisibleSelecttionBtn(false);
 					Main.placePane.updateMouseCardAction();
@@ -109,6 +130,11 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
+					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					Media buttonClick = new Media(new File(path).toURI().toString());
+					mediaPlayer = new MediaPlayer(buttonClick);
+					mediaPlayer.setAutoPlay(true);
+					mediaPlayer.setVolume(1);
 					Main.player1Pane.UpdatePlayerPane(1);
 					Main.player2Pane.UpdatePlayerPane(2);
 					Main.player1Pane.updatePlayerPaneScreen();
@@ -124,6 +150,11 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
+						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						Media buttonClick = new Media(new File(path).toURI().toString());
+						mediaPlayer = new MediaPlayer(buttonClick);
+						mediaPlayer.setAutoPlay(true);
+						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.build();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
@@ -154,6 +185,11 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
+					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					Media buttonClick = new Media(new File(path).toURI().toString());
+					mediaPlayer = new MediaPlayer(buttonClick);
+					mediaPlayer.setAutoPlay(true);
+					mediaPlayer.setVolume(1);
 					Main.player1Pane.UpdatePlayerPane(1);
 					Main.player2Pane.UpdatePlayerPane(2);
 					Main.player1Pane.updatePlayerPaneScreen();
@@ -171,6 +207,11 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
+						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						Media buttonClick = new Media(new File(path).toURI().toString());
+						mediaPlayer = new MediaPlayer(buttonClick);
+						mediaPlayer.setAutoPlay(true);
+						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.setSelectedPlaceCard(Main.mainPane.getSelectedPlaceCard());
 						Turn.buildPlace();
