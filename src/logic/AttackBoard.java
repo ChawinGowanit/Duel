@@ -48,10 +48,23 @@ public class AttackBoard {
 			player1.increasePlayerPoint(posAndCoinLoss.get(1));
 			posAndCoinLoss.remove(1);
 		} else if ((position >= 3 && position < 6) && posAndCoinLoss.containsKey(3)) {
+			if (posAndCoinLoss.containsKey(1)) {
+				player1.increasePlayerPoint(posAndCoinLoss.get(1));
+				posAndCoinLoss.remove(1);
+			}
 			player2.setResourceCounter(
 					Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(3))));
 			posAndCoinLoss.remove(3);
 		} else if ((position >= 6 && position < 9) && posAndCoinLoss.containsKey(6)) {
+			if (posAndCoinLoss.containsKey(1)) {
+				player1.increasePlayerPoint(posAndCoinLoss.get(1));
+				posAndCoinLoss.remove(1);
+			}
+			if (posAndCoinLoss.containsKey(3)) {
+				player2.setResourceCounter(
+						Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(3))));
+				posAndCoinLoss.remove(3);
+			}
 			player2.setResourceCounter(
 					Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(6))));
 			posAndCoinLoss.remove(6);
@@ -59,10 +72,23 @@ public class AttackBoard {
 			player2.increasePlayerPoint(posAndCoinLoss.get(-1));
 			posAndCoinLoss.remove(-1);
 		} else if ((position <= -3 && position > -6) && posAndCoinLoss.containsKey(-3)) {
+			if (posAndCoinLoss.containsKey(-1)) {
+				player2.increasePlayerPoint(posAndCoinLoss.get(-1));
+				posAndCoinLoss.remove(-1);
+			}
 			player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(),
 					new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(-3))));
 			posAndCoinLoss.remove(-3);
 		} else if ((position <= -6 && position > -9) && posAndCoinLoss.containsKey(-6)) {
+			if (posAndCoinLoss.containsKey(-1)) {
+				player2.increasePlayerPoint(posAndCoinLoss.get(-1));
+				posAndCoinLoss.remove(-1);
+			}
+			if (posAndCoinLoss.containsKey(-3)) {
+				player1.setResourceCounter(Cost.reduceCost(player1.getResourceCounter(),
+						new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(-3))));
+				posAndCoinLoss.remove(-3);
+			}
 			player2.setResourceCounter(
 					Cost.reduceCost(player2.getResourceCounter(), new Cost(0, 0, 0, 0, 0, posAndCoinLoss.get(-6))));
 			posAndCoinLoss.remove(-6);

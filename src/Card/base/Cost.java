@@ -39,9 +39,25 @@ public class Cost {
 	}
 
 	public String toString() {
-		String output = "D32Steel : " + this.D32Steel + "\nBipolarNanoflake : " + this.BipolarNanoflake
-				+ "\nPolymerizationPreparation : " + this.PolymerizationPreparation + "\nManganeseOre : "
-				+ this.ManganeseOre + "\nSugarPack : " + this.SugarPack + "\nLMD : " + this.LMD;
+		String output = "";
+		if (this.D32Steel !=0) {
+			output += "D32 Steel : "+this.D32Steel +"\n";
+		}
+		if (this.BipolarNanoflake != 0) {
+			output += "Bipolar Nanoflake : " + this.BipolarNanoflake +"\n";
+		}
+		if (this.PolymerizationPreparation != 0) {
+			output += "Polymerization Preparation : " + this.PolymerizationPreparation +"\n";
+		}
+		if (this.ManganeseOre != 0) {
+			output += "Manganese Ore : " + this.ManganeseOre +"\n";
+		}
+		if (this.SugarPack != 0) {
+			output += "Sugar Pack : " + this.SugarPack +"\n";
+		}
+		if (this.LMD != 0) {
+			output += "LMD : " + this.LMD +"\n";
+		}		
 		return output;
 	}
 
@@ -118,7 +134,7 @@ public class Cost {
 		} else if (cardCost.LMD <= playerCost.LMD) {
 			haveToBuy.LMD = cardCost.LMD;
 		} else if (cardCost.LMD > playerCost.LMD) {
-			return 1000;
+			haveToBuy.LMD = cardCost.LMD - playerCost.LMD ;
 		}
 		int LMD = 0;
 		LMD += haveToBuy.D32Steel * buyResourceCost.D32Steel;

@@ -14,7 +14,6 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
-import main.Main;
 
 public class PlacePane extends HBox{
 	private ObservableList<PlaceCardBtn> PlaceBtnList = FXCollections.observableArrayList();

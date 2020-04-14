@@ -179,8 +179,12 @@ public class Main extends Application {
 		mainPane.setLayoutX(300);
 		mainPane.setLayoutY(0);
 		gamePhase.getChildren().add(mainPane);
+		GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
 		mainPane.updateCardOnPane();
 		mainPane.updatePickableCardOnPane(GameController.getPhase());
+		System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
+
+
 	}
 
 }

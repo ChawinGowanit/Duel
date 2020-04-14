@@ -27,10 +27,12 @@ public class TradingCard extends Card implements HaveResource, HaveChainSymbol,H
 		}
 	}
 
-	public void addChainSymbol(Player player) {
+	public boolean addChainSymbol(Player player) {
+		boolean result = false;
 		for (String chainSymbol:this.chainSymbol.getChainSymbol()) {
-		player.addChainSymbol(chainSymbol);
+			player.addChainSymbol(chainSymbol);
 		}
+		return result;
 	}
 	public void addPlayerCounter(Player player) {
 		player.setResourceCounter(Cost.addCost(this.resource,player.getResourceCounter()));

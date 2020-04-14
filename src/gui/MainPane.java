@@ -85,7 +85,9 @@ public class MainPane extends Pane {
 		selectPlace = new AlertTextPane("Select Place to build");
 		selectPlace.setLayoutX(450);
 		selectPlace.setLayoutY(650);
-		this.getChildren().addAll(buildBtn, sellBtn, buildPlaceBtn, cancelBtn, yesBtn,yesPlaceBtn, noBtn, notEnoughMaterial,selectPlace);
+		this.getChildren().addAll(buildBtn, sellBtn, buildPlaceBtn, cancelBtn, yesBtn, yesPlaceBtn, noBtn,
+				notEnoughMaterial, selectPlace);
+
 	}
 
 	private void addCardOnPane(int phase) {
@@ -258,50 +260,58 @@ public class MainPane extends Pane {
 				} else {
 					Cardbtn.getCard().setFlipAble(true);
 					Cardbtn.getCard().setPickAble(true);
-					}
+				}
 
 			}
 		} else {
 			for (CardBtn Cardbtn : CardBtnList) {
 				if (Cardbtn.getCard().getPosition() == 1 || Cardbtn.getCard().getPosition() == 2) {
-					if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 1).isVisible())
-							&& (CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())) {
+					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 1).isVisible())
+							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
 					}
 				} else if (Cardbtn.getCard().getPosition() == 3 || Cardbtn.getCard().getPosition() == 4
 						|| Cardbtn.getCard().getPosition() == 5) {
-					if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())
-							&& (CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())
+							&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
 						Cardbtn.getCard().setPickAble(true);
-					} else if (Cardbtn.getCard().getPosition() == 6 || Cardbtn.getCard().getPosition() == 7
-							|| Cardbtn.getCard().getPosition() == 8 || (Cardbtn.getCard().getPosition() == 9)) {
-						if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+					}
+				} else if (Cardbtn.getCard().getPosition() == 6 || Cardbtn.getCard().getPosition() == 7
+						|| Cardbtn.getCard().getPosition() == 8 || (Cardbtn.getCard().getPosition() == 9)) {
+					if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+						Cardbtn.getCard().setFlipAble(true);
+						Cardbtn.getCard().setPickAble(true);
+					}
+				} else if (Cardbtn.getCard().getPosition() == 10 || Cardbtn.getCard().getPosition() == 11
+						|| Cardbtn.getCard().getPosition() == 12 || Cardbtn.getCard().getPosition() == 13) {
+					if (Cardbtn.getCard().getPosition() == 10) {
+						if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+							Cardbtn.getCard().setFlipAble(true);
 							Cardbtn.getCard().setPickAble(true);
-						} else if (Cardbtn.getCard().getPosition() == 10 || Cardbtn.getCard().getPosition() == 11
-								|| Cardbtn.getCard().getPosition() == 12 || Cardbtn.getCard().getPosition() == 13) {
-							if (Cardbtn.getCard().getPosition() == 10) {
-								if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
-									Cardbtn.getCard().setPickAble(true);
-								}
-							} else if (Cardbtn.getCard().getPosition() == 11 || Cardbtn.getCard().getPosition() == 12) {
-								if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())
-										&& (CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
-									Cardbtn.getCard().setPickAble(true);
-								}
-							} else {
-								if ((CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())) {
-									Cardbtn.getCard().setPickAble(true);
-								}
-							}
-
+						}
+					} else if (Cardbtn.getCard().getPosition() == 11 || Cardbtn.getCard().getPosition() == 12) {
+						if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())
+								&& (!CardBtnList.get(Cardbtn.getCard().getPosition() + 3).isVisible())) {
+							Cardbtn.getCard().setFlipAble(true);
+							Cardbtn.getCard().setPickAble(true);
+						}
+					} else {
+						if (!(CardBtnList.get(Cardbtn.getCard().getPosition() + 2).isVisible())) {
+							Cardbtn.getCard().setFlipAble(true);
+							Cardbtn.getCard().setPickAble(true);
 						}
 					}
+
+				} else {
+					Cardbtn.getCard().setFlipAble(true);
+					Cardbtn.getCard().setPickAble(true);
+
 				}
 			}
 		}
-
 	}
-
 	public void setVisibleSelecttionBtn(boolean bool) {
 		buildBtn.setVisible(bool);
 		buildPlaceBtn.setVisible(bool);
@@ -388,6 +398,7 @@ public class MainPane extends Pane {
 			}
 		}
 	}
+
 	public Pane getSelectPlace() {
 		return selectPlace;
 	}

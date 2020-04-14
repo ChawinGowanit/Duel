@@ -44,7 +44,7 @@ public class InitialCardDeck {
 				new Cost(1, 0, 0, 0, 0, 0), 0));
 		this.startingCard.add(new TradingCard("Dur-Nar", new Cost(0, 0, 0, 0, 0, 3), new ChainSymbols(), new Cost(),
 				new Cost(0, 0, 1, 0, 0, 0), 0));
-		this.startingCard.add(new TradingCard("Rope", new Cost(), new ChainSymbols("Rim Bilition"),
+		this.startingCard.add(new TradingCard("Rope", new Cost(), new ChainSymbols("Rim Billiton"),
 				new Cost(0, 0, 0, 0, 0, 4), new Cost(), 0));
 		// cardAgeTwo
 		this.midGameCard = new ArrayList<Card>();
@@ -86,10 +86,10 @@ public class InitialCardDeck {
 		this.lateGameCard.add(new PointCard("Aak", new Cost(0, 3, 2, 0, 0, 0), 7, new ChainSymbols()));
 		this.lateGameCard.add(new PointCard("Hoshiguma", new Cost(0, 2, 0, 0, 1, 0), 5, new ChainSymbols()));
 		this.lateGameCard
-				.add(new PointCard("Exusial", new Cost(2, 0, 2, 0, 0, 0), 6, new ChainSymbols("Penguin Logistic", "")));
-		this.lateGameCard.add(new PointCard("Siege", new Cost(1, 0, 1, 2, 0, 0), 6, new ChainSymbols("Victoria", "")));
+				.add(new PointCard("Exusial", new Cost(2, 0, 2, 0, 0, 0), 6, new ChainSymbols("Penguin Logistic")));
+		this.lateGameCard.add(new PointCard("Siege", new Cost(1, 0, 1, 2, 0, 0), 6, new ChainSymbols("Victoria")));
 		this.lateGameCard
-				.add(new PointCard("Liskarm", new Cost(2, 1, 0, 1, 0, 0), 5, new ChainSymbols("Black Steel", "")));
+				.add(new PointCard("Liskarm", new Cost(2, 1, 0, 1, 0, 0), 5, new ChainSymbols("Black Steel")));
 		this.lateGameCard.add(
 				new TradingCard("Hung", new Cost(0, 0, 0, 2, 0, 0), new ChainSymbols(), new Cost(), new Cost(), 3));
 		this.lateGameCard.add(new TradingCard("Nightingale", new Cost(0, 0, 1, 1, 1, 0), new ChainSymbols(), new Cost(),
@@ -97,8 +97,8 @@ public class InitialCardDeck {
 		this.lateGameCard.add(
 				new TradingCard("Magallan", new Cost(0, 2, 0, 0, 1, 0), new ChainSymbols(), new Cost(), new Cost(), 3));
 		this.lateGameCard.add(new TradingCard("Savage", new Cost(2, 0, 0, 0, 1, 0),
-				new ChainSymbols("Rim Bilition", ""), new Cost(), new Cost(), 3));
-		this.lateGameCard.add(new TradingCard("Silverash", new Cost(1, 1, 1, 0, 0, 0), new ChainSymbols("Kjerag", ""),
+				new ChainSymbols("Rim Billiton"), new Cost(), new Cost(), 3));
+		this.lateGameCard.add(new TradingCard("Silverash", new Cost(1, 1, 1, 0, 0, 0), new ChainSymbols("Kjerag"),
 				new Cost(), new Cost(), 3));
 	}
 }

@@ -44,7 +44,7 @@ public class AtkBtn extends StackPane {
 
 	public void setTooltip(int position) {
 		tooltip = new Tooltip();
-		tooltip.setFont(new Font(14));
+		tooltip.setFont(new Font(16));
 		if (position == GameController.ATKboard.getPosition()) {
 			tooltip.setText("Attack Position : " + GameController.ATKboard.getPosition());
 		} else if (position == 1 && GameController.ATKboard.getPosAndCoinLoss().containsKey(1)) {
@@ -64,7 +64,7 @@ public class AtkBtn extends StackPane {
 		}
 		this.setOnMouseMoved((MouseEvent e) -> {
 			if (tooltip != null) {
-				tooltip.show(this, e.getScreenX() + 10, e.getScreenY() + 10);
+				tooltip.show(this, e.getScreenX()+10, e.getScreenY());
 			}
 		});
 		this.setOnMouseExited((MouseEvent e) -> {

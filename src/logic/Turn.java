@@ -34,10 +34,12 @@ public class Turn {
 	}
 
 	public static void build() {
-		GameController.getCurrentPlayer()
-				.setResourceCounter(Cost.reduceCost(GameController.getCurrentPlayer().getResourceCounter(),
-						new Cost(0, 0, 0, 0, 0, Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-								selectedCard.getCost(), GameController.getCurrentPlayer().getbuyResourceCost()))));
+		if (!(selectedCard instanceof HaveChainSymbol && ChainSymbols.isHaveChainSymbol(GameController.getCurrentPlayer(), (HaveChainSymbol) selectedCard))) {
+			GameController.getCurrentPlayer()
+			.setResourceCounter(Cost.reduceCost(GameController.getCurrentPlayer().getResourceCounter(),
+					new Cost(0, 0, 0, 0, 0, Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
+							selectedCard.getCost(), GameController.getCurrentPlayer().getbuyResourceCost()))));
+		}
 		if (selectedCard instanceof HaveResource) {
 			((HaveResource) selectedCard).addPlayerCounter(GameController.getCurrentPlayer());
 		}
@@ -45,7 +47,7 @@ public class Turn {
 			((HavePoint) selectedCard).addPlayerPoint(GameController.getCurrentPlayer());
 		}
 		if (selectedCard instanceof HaveChainSymbol) {
-			((HaveChainSymbol) selectedCard).addChainSymbol(GameController.getCurrentPlayer());
+			((HaveChainSymbol) selectedCard).addChainSymbol(GameController.getCurrentPlayer());	
 		}
 		if (selectedCard instanceof Attackable) {
 			((Attackable) selectedCard).attackPlayer(GameController.getCurrentPlayer());

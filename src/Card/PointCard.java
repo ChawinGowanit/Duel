@@ -22,10 +22,12 @@ public class PointCard extends Card implements HaveChainSymbol, HavePoint {
 		this.chainSymbol = chainsymbol;
 	}
 
-	public void addChainSymbol(Player player) {
+	public boolean addChainSymbol(Player player) {
+		boolean result = false;
 		for (String chainSymbol:this.chainSymbol.getChainSymbol()) {
-		player.addChainSymbol(chainSymbol);
+			player.addChainSymbol(chainSymbol);
 		}
+		return result;
 	}
 
 	public void addPlayerPoint(Player player) {

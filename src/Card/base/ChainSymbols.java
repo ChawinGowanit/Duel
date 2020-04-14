@@ -2,7 +2,9 @@ package Card.base;
 
 import java.util.ArrayList;
 
+import application.GameController;
 import logic.Player;
+import main.Main;
 
 public class ChainSymbols {
 	private ArrayList<String> chainSymbol;
@@ -23,13 +25,19 @@ public class ChainSymbols {
 	}
 
 	public boolean addChainSymbols(String chainSymbol1) {
-		for (String ChainSymbols:this.chainSymbol) {
+		for (String ChainSymbols : chainSymbol) {
 			if (chainSymbol1.equals(ChainSymbols)) {
-				return false ;
+				return false;
 			}
-		} 
+		}
 		this.chainSymbol.add(chainSymbol1);
-		return true ;
+		System.out.println(chainSymbol1);
+		if (GameController.getCurrentPlayer().getNum() == 1) {
+			Main.player1Pane.printChainSymbol(chainSymbol1);
+		} else {
+			Main.player2Pane.printChainSymbol(chainSymbol1);
+		}
+		return true;
 	}
 
 	public ArrayList<String> getChainSymbol() {
@@ -50,9 +58,12 @@ public class ChainSymbols {
 	public String toString() {
 		String output = "";
 		for (String chainSymbol : this.chainSymbol) {
-			output += "\n - "+ chainSymbol;
+			output += "\n - " + chainSymbol;
 		}
 		return output;
 	}
 
+	public void setChainSymbol(ArrayList<String> chainSymbol) {
+		this.chainSymbol = chainSymbol;
+	}
 }

@@ -72,10 +72,10 @@ public class Player {
 	}
 
 	public void addChainSymbol(String chainSymbol) {
-		this.chainSymbols.addChainSymbols(chainSymbol);
+		 this.chainSymbols.addChainSymbols(chainSymbol);
 	}
 	public ChainSymbols getChainSymbols() {
-		return chainSymbols;
+		return this.chainSymbols ;
 	}
 	public int getSellResourceGain() {
 		return sellResourceGain;

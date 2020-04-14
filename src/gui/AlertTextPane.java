@@ -1,6 +1,8 @@
 package gui;
 
+import Card.base.ChainSymbols;
 import Card.base.Cost;
+import Card.base.HaveChainSymbol;
 import application.GameController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
@@ -11,13 +13,13 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.Main;
 
-public class AlertTextPane extends Pane {
+public class AlertTextPane extends StackPane {
 	private Text lmdcheck;
 
 	public AlertTextPane() {
@@ -28,8 +30,6 @@ public class AlertTextPane extends Pane {
 		lmdcheck = new Text();
 		lmdcheck.setFill(Color.WHITE);
 		lmdcheck.setFont(new Font(40));
-		lmdcheck.setX(75);
-		lmdcheck.setY(75);
 		this.setText();
 		lmdcheck.setLayoutX(0);
 		lmdcheck.setLayoutY(0);
@@ -74,10 +74,14 @@ public class AlertTextPane extends Pane {
 	public void setText() {
 		// TODO Auto-generated method stub
 		if (Main.mainPane.getSelectedPlaceCard() == null) {
-			lmdcheck.textProperty()
-			.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-					Main.mainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
-					+ " LMD to build?");
+			if ((Main.mainPane.getSelectedCard() instanceof HaveChainSymbol && ChainSymbols
+					.isHaveChainSymbol(GameController.getCurrentPlayer(), (HaveChainSymbol) Main.mainPane.getSelectedCard()))) {
+				lmdcheck.textProperty().setValue("Build by Chain Symbol?");
+			} else {
+				lmdcheck.textProperty().setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
+						Main.mainPane.getSelectedCard().getCost(), GameController.getCurrentPlayer().getbuyResourceCost())
+						+ " LMD to build?");
+			}
 		}else {
 			lmdcheck.textProperty()
 			.setValue("Spend " + Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),

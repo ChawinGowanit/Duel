@@ -12,6 +12,7 @@ import Card.base.HaveResource;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -49,12 +50,13 @@ public class CardBtn extends Pane {
 
 	private void setTooltip() {
 		Tooltip tooltip = new Tooltip();
-		tooltip.setFont(new Font(14));
-		String tooltipText = card.getName();
+		tooltip.setGraphic(new ImageView(new Image("/cardURL/Card" + card.getImgUrl(), 300, 422, false, false)));
+		tooltip.setFont(new Font(20));
+		String tooltipText = card.getName()+"\n";
 		if (card.getCost().toString().equals(new Cost().toString())) {
-			tooltipText += "\n-----No Cost-----\n";
+			//tooltipText += "\n-----No Cost-----\n";
 		} else {
-			tooltipText += "\n-----Cost-----\n" + card.getCost() + "\n";
+			tooltipText += "-----Cost-----\n" + card.getCost();
 		}
 		if (card instanceof HaveChainSymbol
 				&& ((HaveChainSymbol) card).getChainSymbols().toString() != new ChainSymbols().toString()
@@ -79,7 +81,7 @@ public class CardBtn extends Pane {
 		tooltip.setText(tooltipText);
 		this.setOnMouseMoved((MouseEvent e) -> {
 			if (card.isFlipAble()) {
-				tooltip.show(this, e.getScreenX(), e.getScreenY() + 10);
+				tooltip.show(this, e.getScreenX() +10, e.getScreenY() + 10);
 			}
 		});
 		this.setOnMouseExited((MouseEvent e) -> {

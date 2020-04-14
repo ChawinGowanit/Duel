@@ -5,6 +5,7 @@ import application.GameController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -30,12 +31,23 @@ public class PlaceCardBtn extends Pane {
 
 	public void setTooltip() {
 		Tooltip tooltip = new Tooltip();
-		tooltip.setFont(new Font(14));
-		tooltip.setText(placeCard.getName() + "\n-----Cost------\n " + placeCard.getCost().toString()
-				+ "\n-----Reward-----\nAttackPoint : " + placeCard.getAttackPoint() + "\nPoint : "
-				+ placeCard.getPlayerPoint() + "\nLMD : " + placeCard.getResource().getLMD());
+		tooltip.setGraphic(new ImageView(new Image("/cardURL/placeCard" + placeCard.getImgURL(), 700, 468, false, false)));
+		tooltip.setFont(new Font(18));
+		String text = placeCard.getName() + "\n-----Cost------\n " + placeCard.getCost().toString()+ "\n-----Reward-----\n" ;
+		if (placeCard.getAttackPoint() != 0) {
+			text += "AttackPoint : " + placeCard.getAttackPoint() +"\n";
+		}
+		if (placeCard.getPlayerPoint() != 0) {
+			text += "Point : " + placeCard.getPlayerPoint() +"\n";
+		}
+		if (placeCard.getResource().getLMD() != 0) {
+			text += "LMD : " + placeCard.getResource().getLMD();
+		}
+		tooltip.setText(text);
+		tooltip.setX(this.getMaxWidth());
+		tooltip.setY(this.getMinHeight());
 		this.setOnMouseMoved((MouseEvent e) -> {
-			tooltip.show(this, e.getScreenX() + 10, e.getScreenY() + 10);
+			tooltip.show(this, 500 , 200);
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tooltip.hide();

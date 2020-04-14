@@ -1,6 +1,6 @@
 package gui;
 
-import Card.base.Cost;
+
 import application.GameController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -29,7 +29,7 @@ public class SelectionBtn extends Pane {
 			Btn = new Image("/gameUI/cancelBtn.png", 261, 108, false, false);
 		} else if (btn == 5 || btn == 7) {
 			Btn = new Image("/gameUI/yesBtn.png", 118, 64, false, false);
-		} else  {
+		} else {
 			Btn = new Image("/gameUI/noBtn.png", 101, 63, false, false);
 		}
 		this.setPrefSize(Btn.getWidth(), Btn.getHeight());
@@ -46,16 +46,10 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						System.out.println(Main.mainPane.getSelectedCard());
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						if (Turn.canBulid(Main.mainPane.getSelectedCard(), GameController.getCurrentPlayer())) {
-							if (Cost.checkLmd(GameController.getCurrentPlayer().getResourceCounter(),
-									Main.mainPane.getSelectedCard().getCost(),
-									GameController.getCurrentPlayer().getbuyResourceCost()) <= GameController
-											.getCurrentPlayer().getResourceCounter().getLMD()) {
-								Main.mainPane.setVisibleYesNoBtn(true);
-								Main.mainPane.setVisibleSelecttionBtn(false);
-							}
+							Main.mainPane.setVisibleYesNoBtn(true);
+							Main.mainPane.setVisibleSelecttionBtn(false);
 						} else {
 							Main.mainPane.setVisibleNotEnoughmaterial(true);
 						}
@@ -80,6 +74,9 @@ public class SelectionBtn extends Pane {
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
 						Main.mainPane.updateCardOnPane();
 						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
 						Main.player1Pane.UpdatePlayerPane(1);
 						Main.player2Pane.UpdatePlayerPane(2);
 						Main.player1Pane.updatePlayerPaneScreen();
@@ -87,7 +84,6 @@ public class SelectionBtn extends Pane {
 						Main.mainPane.setVisibleSelecttionBtn(false);
 						Main.mainPane.setSelectedPlaceCard(null);
 						CheckEndPhase.updateMainPane();
-						System.out.println(GameController.mainBoard.getCardOnBoard(2));
 					} catch (PickCardFailException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -131,7 +127,13 @@ public class SelectionBtn extends Pane {
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
 						Turn.build();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
 						Main.atkPane.updateAttackPane();
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
 						Main.player1Pane.UpdatePlayerPane(1);
 						Main.player2Pane.UpdatePlayerPane(2);
 						Main.player1Pane.updatePlayerPaneScreen();
@@ -160,6 +162,7 @@ public class SelectionBtn extends Pane {
 					Main.mainPane.setVisibleSelecttionBtn(false);
 					Main.mainPane.setSelectedPlaceCard(null);
 					Main.placePane.updateUnable();
+
 				}
 			});
 		} else if (btn == 7) {
@@ -172,7 +175,13 @@ public class SelectionBtn extends Pane {
 						Turn.setSelectedPlaceCard(Main.mainPane.getSelectedPlaceCard());
 						Turn.buildPlace();
 						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
 						Main.atkPane.updateAttackPane();
+						GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
+						Main.mainPane.updateCardOnPane();
+						Main.mainPane.updatePickableCardOnPane(GameController.getPhase());
 						Main.player1Pane.UpdatePlayerPane(1);
 						Main.player2Pane.UpdatePlayerPane(2);
 						Main.player1Pane.updatePlayerPaneScreen();
