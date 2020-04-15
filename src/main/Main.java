@@ -1,13 +1,7 @@
 package main;
 
-import logic.Turn;
-import logic.exception.PickCardFailException;
-
 import java.io.File;
-import java.util.List;
-import java.util.Scanner;
 
-import Card.base.Cost;
 import application.GameController;
 import gui.AttackPane;
 import gui.MainPane;
@@ -45,7 +39,10 @@ public class Main extends Application {
 	public static PlayerPane player2Pane;
 	public static AttackPane atkPane;
 	public static Pane gamePhase;
+	public static Pane endPhase;
 	public static MediaPlayer mediaPlayer;
+	public static Stage primaryStage = new Stage();
+	public static boolean endGame = false;
 
 	public void start(Stage primaryStage) {
 		Pane startingGame = new Pane();
@@ -123,6 +120,11 @@ public class Main extends Application {
 		});
 		startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
+				String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+				Media buttonClick = new Media(new File(path).toURI().toString());
+				mediaPlayer = new MediaPlayer(buttonClick);
+				mediaPlayer.setAutoPlay(true);
+				mediaPlayer.setVolume(1);
 				Image MouseOnStartBtnImg = new Image("/startingUI/startBtn.png");
 				startBtnImageView.setImage(MouseOnStartBtnImg);
 			}
@@ -132,16 +134,12 @@ public class Main extends Application {
 			@Override
 			public void handle(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
-				Media buttonClick = new Media(new File(path).toURI().toString());
-				mediaPlayer = new MediaPlayer(buttonClick);
-				mediaPlayer.setAutoPlay(true);
-				mediaPlayer.setVolume(1);
+				
 				startBtnImageView.setVisible(false);
 				setNameImageView.setVisible(true);
 				player1Name.setVisible(true);
 				player2Name.setVisible(true);
-				
+
 			}
 
 		});
@@ -163,6 +161,7 @@ public class Main extends Application {
 					primaryStage.show();
 					primaryStage.sizeToScene();
 					primaryStage.setFullScreen(true);
+
 				}
 			}
 		});
@@ -188,12 +187,12 @@ public class Main extends Application {
 		player1Pane.setLayoutX(0);
 		player1Pane.setLayoutY(50);
 		player1Pane.UpdatePlayerPane(1);
-		
+
 		player2Pane = new PlayerPane(2);
 		player2Pane.setLayoutX(1650);
 		player2Pane.setLayoutY(50);
 		player2Pane.UpdatePlayerPane(2);
-		
+
 		player1Pane.updatePlayerPaneScreen();
 		player2Pane.updatePlayerPaneScreen();
 
@@ -220,9 +219,9 @@ public class Main extends Application {
 		GameController.mainBoard.updateCardOnBoard(GameController.getPhase());
 		mainPane.updateCardOnPane();
 		mainPane.updatePickableCardOnPane(GameController.getPhase());
-		System.out.println(GameController.mainBoard.getCardOnBoard(GameController.getPhase()));
 
 	}
+
 
 }
 /*
@@ -301,7 +300,7 @@ public class Main extends Application {
  * System.out.println("=====The game has end=====");
  * System.out.println(GameController.player1.getName() + " WIN!"); } else if
  * (GameController.ATKboard.getPosition() == -9){
- *  ===========================FINISH!!!!====================================
+ * ===========================FINISH!!!!====================================
  * System.out.println("=====The game has end=====");
  * System.out.println(GameController.player1.getName() + " WIN!"); } } catch
  * (PickCardFailException e) { System.out.println(e.message); } } }

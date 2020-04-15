@@ -403,4 +403,7 @@ public class MainPane extends Pane {
 	public Pane getSelectPlace() {
 		return selectPlace;
 	}
+	public ObservableList<CardBtn> getCardBtnList() {
+		return CardBtnList;
+	}
 }
