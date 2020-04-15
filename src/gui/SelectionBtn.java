@@ -80,7 +80,7 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 						Media buttonClick = new Media(new File(path).toURI().toString());
 						mediaPlayer = new MediaPlayer(buttonClick);
 						mediaPlayer.setAutoPlay(true);
@@ -105,7 +105,7 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 						Media buttonClick = new Media(new File(path).toURI().toString());
 						mediaPlayer = new MediaPlayer(buttonClick);
 						mediaPlayer.setAutoPlay(true);
@@ -139,7 +139,7 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 					Media buttonClick = new Media(new File(path).toURI().toString());
 					mediaPlayer = new MediaPlayer(buttonClick);
 					mediaPlayer.setAutoPlay(true);
@@ -158,7 +158,7 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 					Media buttonClick = new Media(new File(path).toURI().toString());
 					mediaPlayer = new MediaPlayer(buttonClick);
 					mediaPlayer.setAutoPlay(true);
@@ -178,7 +178,7 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 						Media buttonClick = new Media(new File(path).toURI().toString());
 						mediaPlayer = new MediaPlayer(buttonClick);
 						mediaPlayer.setAutoPlay(true);
@@ -213,7 +213,7 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 					Media buttonClick = new Media(new File(path).toURI().toString());
 					mediaPlayer = new MediaPlayer(buttonClick);
 					mediaPlayer.setAutoPlay(true);
@@ -235,7 +235,7 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 						Media buttonClick = new Media(new File(path).toURI().toString());
 						mediaPlayer = new MediaPlayer(buttonClick);
 						mediaPlayer.setAutoPlay(true);

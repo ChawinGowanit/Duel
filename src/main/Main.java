@@ -93,7 +93,7 @@ public class Main extends Application {
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 					Media buttonClick = new Media(new File(path).toURI().toString());
 					mediaPlayer = new MediaPlayer(buttonClick);
 					mediaPlayer.setAutoPlay(true);
@@ -120,7 +120,7 @@ public class Main extends Application {
 		});
 		startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+				String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 				Media buttonClick = new Media(new File(path).toURI().toString());
 				mediaPlayer = new MediaPlayer(buttonClick);
 				mediaPlayer.setAutoPlay(true);
@@ -150,7 +150,7 @@ public class Main extends Application {
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					String path = new File("src/music/buttonClickSound.mp3").getAbsolutePath();
+					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
 					Media buttonClick = new Media(new File(path).toURI().toString());
 					mediaPlayer = new MediaPlayer(buttonClick);
 					mediaPlayer.setAutoPlay(true);
@@ -172,7 +172,7 @@ public class Main extends Application {
 	}
 
 	public Scene creatGameScene() {
-		String path = new File("src/music/bgm.mp3").getAbsolutePath();
+		String path = new File("res/music/bgm.mp3").getAbsolutePath();
 		Media musicFile = new Media(new File(path).toURI().toString());
 		mediaPlayer = new MediaPlayer(musicFile);
 		mediaPlayer.setAutoPlay(true);
