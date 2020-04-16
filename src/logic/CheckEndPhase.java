@@ -21,9 +21,8 @@ public class CheckEndPhase {
 				.checkIfAllBlankCard(GameController.mainBoard.getCardOnBoard(GameController.getPhase()))) {
 			if (GameController.ATKboard.getPosition() != 9 && GameController.ATKboard.getPosition() != -9) {
 				if (GameController.getPhase() == 1) {
-					endPhase();
-					// GameController.setPhase(2);
-					// Main.newMainPane(2);
+					GameController.setPhase(2);
+					Main.newMainPane(2);
 
 				} else if (GameController.getPhase() == 2) {
 					GameController.setPhase(3);

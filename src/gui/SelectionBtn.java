@@ -80,9 +80,9 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-						Media buttonClick = new Media(new File(path).toURI().toString());
-						mediaPlayer = new MediaPlayer(buttonClick);
+						Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+						MediaPlayer buttonClick = new MediaPlayer(musicFile);
+						mediaPlayer = buttonClick;
 						mediaPlayer.setAutoPlay(true);
 						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
@@ -105,9 +105,9 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-						Media buttonClick = new Media(new File(path).toURI().toString());
-						mediaPlayer = new MediaPlayer(buttonClick);
+						Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+						MediaPlayer buttonClick = new MediaPlayer(musicFile);
+						mediaPlayer = buttonClick;
 						mediaPlayer.setAutoPlay(true);
 						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
@@ -139,9 +139,9 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-					Media buttonClick = new Media(new File(path).toURI().toString());
-					mediaPlayer = new MediaPlayer(buttonClick);
+					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+					MediaPlayer buttonClick = new MediaPlayer(musicFile);
+					mediaPlayer = buttonClick;
 					mediaPlayer.setAutoPlay(true);
 					mediaPlayer.setVolume(1);
 					Main.mainPane.getSelectPlace().setVisible(true);
@@ -158,9 +158,9 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-					Media buttonClick = new Media(new File(path).toURI().toString());
-					mediaPlayer = new MediaPlayer(buttonClick);
+					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+					MediaPlayer buttonClick = new MediaPlayer(musicFile);
+					mediaPlayer = buttonClick;
 					mediaPlayer.setAutoPlay(true);
 					mediaPlayer.setVolume(1);
 					Main.player1Pane.UpdatePlayerPane(1);
@@ -178,9 +178,9 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-						Media buttonClick = new Media(new File(path).toURI().toString());
-						mediaPlayer = new MediaPlayer(buttonClick);
+						Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+						MediaPlayer buttonClick = new MediaPlayer(musicFile);
+						mediaPlayer = buttonClick;
 						mediaPlayer.setAutoPlay(true);
 						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());
@@ -213,9 +213,9 @@ public class SelectionBtn extends Pane {
 				@Override
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-					Media buttonClick = new Media(new File(path).toURI().toString());
-					mediaPlayer = new MediaPlayer(buttonClick);
+					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+					MediaPlayer buttonClick = new MediaPlayer(musicFile);
+					mediaPlayer = buttonClick;
 					mediaPlayer.setAutoPlay(true);
 					mediaPlayer.setVolume(1);
 					Main.player1Pane.UpdatePlayerPane(1);
@@ -235,9 +235,9 @@ public class SelectionBtn extends Pane {
 				public void handle(MouseEvent arg0) {
 					// TODO Auto-generated method stub
 					try {
-						String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-						Media buttonClick = new Media(new File(path).toURI().toString());
-						mediaPlayer = new MediaPlayer(buttonClick);
+						Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+						MediaPlayer buttonClick = new MediaPlayer(musicFile);
+						mediaPlayer = buttonClick;
 						mediaPlayer.setAutoPlay(true);
 						mediaPlayer.setVolume(1);
 						Turn.setSelectedCard(Main.mainPane.getSelectedCard());

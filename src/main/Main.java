@@ -93,9 +93,9 @@ public class Main extends Application {
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-					Media buttonClick = new Media(new File(path).toURI().toString());
-					mediaPlayer = new MediaPlayer(buttonClick);
+					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+					MediaPlayer buttonClick = new MediaPlayer(musicFile);
+					mediaPlayer = buttonClick;
 					mediaPlayer.setAutoPlay(true);
 					mediaPlayer.setVolume(1);
 					GameController.player1.setName(player1Name.getText());
@@ -120,9 +120,9 @@ public class Main extends Application {
 		});
 		startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-				Media buttonClick = new Media(new File(path).toURI().toString());
-				mediaPlayer = new MediaPlayer(buttonClick);
+				Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+				MediaPlayer buttonClick = new MediaPlayer(musicFile);
+				mediaPlayer = buttonClick;
 				mediaPlayer.setAutoPlay(true);
 				mediaPlayer.setVolume(1);
 				Image MouseOnStartBtnImg = new Image("/startingUI/startBtn.png");
@@ -150,9 +150,9 @@ public class Main extends Application {
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					String path = new File("res/music/buttonClickSound.mp3").getAbsolutePath();
-					Media buttonClick = new Media(new File(path).toURI().toString());
-					mediaPlayer = new MediaPlayer(buttonClick);
+					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+					MediaPlayer buttonClick = new MediaPlayer(musicFile);
+					mediaPlayer = buttonClick;
 					mediaPlayer.setAutoPlay(true);
 					mediaPlayer.setVolume(1);
 					GameController.player2.setName(player2Name.getText());
@@ -172,9 +172,9 @@ public class Main extends Application {
 	}
 
 	public Scene creatGameScene() {
-		String path = new File("res/music/bgm.mp3").getAbsolutePath();
-		Media musicFile = new Media(new File(path).toURI().toString());
-		mediaPlayer = new MediaPlayer(musicFile);
+		Media musicFile = new Media(ClassLoader.getSystemResource("bgm.mp3").toString());
+		MediaPlayer bgm = new MediaPlayer(musicFile);
+		mediaPlayer = bgm;
 		mediaPlayer.setAutoPlay(true);
 		mediaPlayer.setCycleCount(Animation.INDEFINITE);
 		mediaPlayer.setVolume(0.1);
