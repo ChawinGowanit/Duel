@@ -1,7 +1,5 @@
 package gui;
 
-import java.io.File;
-
 import Card.PlaceCard;
 import application.GameController;
 import javafx.event.EventHandler;
@@ -15,15 +13,12 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import logic.Turn;
 import main.Main;
 
 public class PlaceCardBtn extends Pane {
 	private PlaceCard placeCard;
-	private static MediaPlayer mediaPlayer;
 
 
 	PlaceCardBtn(PlaceCard placeCard) {
@@ -72,9 +67,9 @@ public class PlaceCardBtn extends Pane {
 					if (Turn.canBuildPlace(Main.mainPane.getSelectedPlaceCard(), GameController.getCurrentPlayer())) {
 						Main.mainPane.setVisibleYesNoBtn(true);
 					} else {
+						Main.mainPane.setSelectedPlaceCard(null);
 						Main.mainPane.setVisibleNotEnoughmaterial(true);
 					}
-					System.out.println(Main.mainPane.getSelectedPlaceCard());
 				}
 			});
 		}

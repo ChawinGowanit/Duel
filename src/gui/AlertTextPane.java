@@ -57,7 +57,6 @@ public class AlertTextPane extends StackPane {
 				Main.mainPane.getSelectPlace().setVisible(false);
 				Main.mainPane.setVisibleNotEnoughmaterial(false);
 				Main.mainPane.setVisibleSelecttionBtn(false);
-
 			}
 		});
 		Tooltip tooltip = new Tooltip();

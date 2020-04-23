@@ -1,9 +1,8 @@
 package main;
 
-import java.io.File;
-
 import application.GameController;
 import gui.AttackPane;
+import gui.HowToPlayPane;
 import gui.MainPane;
 import gui.PlacePane;
 import gui.PlayerPane;
@@ -33,6 +32,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	Scene scene, gameScene;
+	public static ImageView startBtnImageView;
+	public static ImageView howtoPlayImgView ;
 	public static MainPane mainPane;
 	public static PlacePane placePane;
 	public static PlayerPane player1Pane;
@@ -56,7 +57,7 @@ public class Main extends Application {
 				new Image("/startingUI/startBg.png", 1920, 1080, false, true), BackgroundRepeat.NO_REPEAT,
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 		Image startBtnImg = new Image("/startingUI/startBtn.png");
-		ImageView startBtnImageView = new ImageView(startBtnImg);
+		startBtnImageView = new ImageView(startBtnImg);
 		startBtnImageView.setFitHeight(147);
 		startBtnImageView.setFitWidth(1180);
 		startBtnImageView.setY(700);
@@ -81,6 +82,43 @@ public class Main extends Application {
 		player2Name.setLayoutY(795);
 		player2Name.setVisible(false);
 		player2Name.setDisable(true);
+		Image howtoPlayImg = new Image("/startingUI/howToPlayBtn.png");
+		howtoPlayImgView = new ImageView(howtoPlayImg);
+		howtoPlayImgView.setFitHeight(117);
+		howtoPlayImgView.setFitWidth(588);
+		howtoPlayImgView.setY(875);
+		howtoPlayImgView.setX(650);
+		howtoPlayImgView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+				MediaPlayer buttonClick = new MediaPlayer(musicFile);
+				mediaPlayer = buttonClick;
+				mediaPlayer.setAutoPlay(true);
+				mediaPlayer.setVolume(1);
+				startBtnImageView.setDisable(true);
+				howtoPlayImgView.setDisable(true);
+				HowToPlayPane howToPlayPane = new HowToPlayPane();
+				howToPlayPane.setLayoutX(300);
+				howToPlayPane.setLayoutY(200);
+				startingGame.getChildren().add(howToPlayPane);
+				
+			}
+		});
+		howtoPlayImgView.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				Image MouseOnmouseOnhowToPlayBtnImg = new Image("/startingUI/mouseOnhowToPlayBtn.png");
+				howtoPlayImgView.setImage(MouseOnmouseOnhowToPlayBtnImg);
+			}
+		});
+		howtoPlayImgView.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				playSound();
+				howtoPlayImgView.setImage(howtoPlayImg);
+			}
+		});
 		player1Name.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouseEvent) {
@@ -93,11 +131,7 @@ public class Main extends Application {
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
-					MediaPlayer buttonClick = new MediaPlayer(musicFile);
-					mediaPlayer = buttonClick;
-					mediaPlayer.setAutoPlay(true);
-					mediaPlayer.setVolume(1);
+					playSound();
 					GameController.player1.setName(player1Name.getText());
 					player1Name.setDisable(true);
 					player2Name.setDisable(false);
@@ -120,11 +154,7 @@ public class Main extends Application {
 		});
 		startBtnImageView.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
-				MediaPlayer buttonClick = new MediaPlayer(musicFile);
-				mediaPlayer = buttonClick;
-				mediaPlayer.setAutoPlay(true);
-				mediaPlayer.setVolume(1);
+				playSound();
 				Image MouseOnStartBtnImg = new Image("/startingUI/startBtn.png");
 				startBtnImageView.setImage(MouseOnStartBtnImg);
 			}
@@ -134,7 +164,7 @@ public class Main extends Application {
 			@Override
 			public void handle(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				howtoPlayImgView.setVisible(false);
 				startBtnImageView.setVisible(false);
 				setNameImageView.setVisible(true);
 				player1Name.setVisible(true);
@@ -143,18 +173,14 @@ public class Main extends Application {
 			}
 
 		});
-		startingGame.getChildren().addAll(startBtnImageView, setNameImageView, player1Name, player2Name);
+		startingGame.getChildren().addAll(startBtnImageView, setNameImageView, player1Name, player2Name,howtoPlayImgView);
 		// after entered player2 name go to next scene
 		player2Name.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent keyEvent) {
 				// TODO Auto-generated method stub
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-					Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
-					MediaPlayer buttonClick = new MediaPlayer(musicFile);
-					mediaPlayer = buttonClick;
-					mediaPlayer.setAutoPlay(true);
-					mediaPlayer.setVolume(1);
+					playSound();
 					GameController.player2.setName(player2Name.getText());
 					GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
 					primaryStage.setScene(creatGameScene());
@@ -171,7 +197,7 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	public Scene creatGameScene() {
+	public static Scene creatGameScene() {
 		Media musicFile = new Media(ClassLoader.getSystemResource("bgm.mp3").toString());
 		MediaPlayer bgm = new MediaPlayer(musicFile);
 		mediaPlayer = bgm;
@@ -222,7 +248,13 @@ public class Main extends Application {
 
 	}
 
-
+	public void playSound() {
+		Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
+		MediaPlayer buttonClick = new MediaPlayer(musicFile);
+		mediaPlayer = buttonClick;
+		mediaPlayer.setAutoPlay(true);
+		mediaPlayer.setVolume(1);
+	}
 }
 /*
  * public static void main(String args[]) throws PickCardFailException { Scanner

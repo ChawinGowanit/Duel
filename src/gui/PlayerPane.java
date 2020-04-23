@@ -23,8 +23,8 @@ import application.GameController;
 
 
 public class PlayerPane extends GridPane {
-	public static FadeTransition fade1 = new FadeTransition();
-	public static FadeTransition fade2 = new FadeTransition();
+	public FadeTransition fade1 = new FadeTransition();
+	public FadeTransition fade2 = new FadeTransition();
 	private StackPane namePane ;
 	private CounterPane pointPane;
 	private CounterPane lmdPane;
@@ -230,7 +230,7 @@ public class PlayerPane extends GridPane {
 			this.manganeseOreCost = Integer.toString(GameController.player1.getbuyResourceCost().getManganeseOre());
 			this.playerSugarPack = Integer.toString(GameController.player1.getResourceCounter().getSugarPack());
 			this.sugarPackCost = Integer.toString(GameController.player1.getbuyResourceCost().getSugarPack());
-			this.playerChainSymbols = GameController.player1.getChainSymbols();
+			this.setPlayerChainSymbols(GameController.player1.getChainSymbols());
 		} else {
 			this.playerPoint = Integer.toString(GameController.player2.getplayerPoint());
 			this.playerLMD = Integer.toString(GameController.player2.getResourceCounter().getLMD());
@@ -247,7 +247,7 @@ public class PlayerPane extends GridPane {
 			this.manganeseOreCost = Integer.toString(GameController.player2.getbuyResourceCost().getManganeseOre());
 			this.playerSugarPack = Integer.toString(GameController.player2.getResourceCounter().getSugarPack());
 			this.sugarPackCost = Integer.toString(GameController.player2.getbuyResourceCost().getSugarPack());
-			this.playerChainSymbols = GameController.player2.getChainSymbols();
+			this.setPlayerChainSymbols(GameController.player2.getChainSymbols());
 		}
 
 	}
@@ -334,6 +334,14 @@ public class PlayerPane extends GridPane {
 				i = 0;
 			}
 		}
+	}
+
+	public ChainSymbols getPlayerChainSymbols() {
+		return playerChainSymbols;
+	}
+
+	public void setPlayerChainSymbols(ChainSymbols playerChainSymbols) {
+		this.playerChainSymbols = playerChainSymbols;
 	}
 	
 }

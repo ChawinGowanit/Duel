@@ -38,15 +38,17 @@ public class CheckEndPhase {
 			} else {
 				endPhase();
 			}
-
+		}
+		if (GameController.ATKboard.getPosition() == 9 || GameController.ATKboard.getPosition() == -9) {
+			endPhase();
 		}
 	}
 
 	public static void endPhase() {
-		for (CardBtn card:Main.mainPane.getCardBtnList()) {
+		for (CardBtn card : Main.mainPane.getCardBtnList()) {
 			card.setVisible(false);
 		}
-		for (PlaceCardBtn card:Main.placePane.getPlaceBtnList()) {
+		for (PlaceCardBtn card : Main.placePane.getPlaceBtnList()) {
 			card.setDisable(true);
 		}
 		String text;
