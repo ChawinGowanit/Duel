@@ -39,6 +39,11 @@ public class AttackPane extends HBox {
 			;
 		}
 		AtckPos = GameController.ATKboard.getPosition();
+		if (AtckPos > 9) {
+			AtckPos = 9;
+		} else if (AtckPos < -9) {
+			AtckPos = -9;
+		}
 		if (AtckPos % 2 == 0) {
 			Image AtkEventile = new Image("/gameUI/AttackEven.png", 102, 99, false, false);
 			AtkBtnList.get(AtckPos + 9).getImgView().setImage(AtkEventile);

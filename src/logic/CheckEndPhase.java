@@ -39,7 +39,7 @@ public class CheckEndPhase {
 				endPhase();
 			}
 		}
-		if (GameController.ATKboard.getPosition() == 9 || GameController.ATKboard.getPosition() == -9) {
+		if (GameController.ATKboard.getPosition() >= 9 || GameController.ATKboard.getPosition() <= -9) {
 			endPhase();
 		}
 	}
@@ -53,9 +53,9 @@ public class CheckEndPhase {
 		}
 		String text;
 		Text winText = new Text();
-		if (GameController.ATKboard.getPosition() == 9) {
+		if (GameController.ATKboard.getPosition() >= 9) {
 			text = GameController.player1.getName() + " win!";
-		} else if (GameController.ATKboard.getPosition() == -9) {
+		} else if (GameController.ATKboard.getPosition() <= -9) {
 			text = GameController.player2.getName() + " win!";
 		} else {
 			if (GameController.player1.getplayerPoint() > GameController.player2.getplayerPoint()) {

@@ -82,7 +82,7 @@ public class Main extends Application {
 		player2Name.setLayoutY(795);
 		player2Name.setVisible(false);
 		player2Name.setDisable(true);
-		Image howtoPlayImg = new Image("/startingUI/howToPlayBtn.png");
+		Image howtoPlayImg = new Image("/startingUI/howtoPlayBtn.png");
 		howtoPlayImgView = new ImageView(howtoPlayImg);
 		howtoPlayImgView.setFitHeight(117);
 		howtoPlayImgView.setFitWidth(588);

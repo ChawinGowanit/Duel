@@ -31,7 +31,6 @@ public class ChainSymbols {
 			}
 		}
 		this.chainSymbol.add(chainSymbol1);
-		System.out.println(chainSymbol1);
 		if (GameController.getCurrentPlayer().getNum() == 1) {
 			Main.player1Pane.printChainSymbol(chainSymbol1);
 		} else {
