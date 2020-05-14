@@ -131,10 +131,8 @@ public class Cost {
 		}
 		if (cardCost.LMD == 0) {
 			haveToBuy.LMD = 0;
-		} else if (cardCost.LMD <= playerCost.LMD) {
+		} else {
 			haveToBuy.LMD = cardCost.LMD;
-		} else if (cardCost.LMD > playerCost.LMD) {
-			return 1000 ;
 		}
 		int LMD = 0;
 		LMD += haveToBuy.D32Steel * buyResourceCost.D32Steel;

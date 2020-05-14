@@ -23,8 +23,8 @@ import application.GameController;
 
 
 public class PlayerPane extends GridPane {
-	public FadeTransition fade1 = new FadeTransition();
-	public FadeTransition fade2 = new FadeTransition();
+	private FadeTransition fade1 = new FadeTransition();
+	private FadeTransition fade2 = new FadeTransition();
 	private StackPane namePane ;
 	private CounterPane pointPane;
 	private CounterPane lmdPane;

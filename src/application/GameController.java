@@ -9,8 +9,8 @@ import logic.Turn;
 
 public class GameController {
 	private static int phase;
-	static InitialCardDeck initialCardDeck = new InitialCardDeck();
-	static InitialPlaceCard placeCardDeck = new InitialPlaceCard();
+	public static InitialCardDeck initialCardDeck = new InitialCardDeck();
+	public static InitialPlaceCard placeCardDeck = new InitialPlaceCard();
 	public static Player player1 = new Player(1);
 	public static Player player2 = new Player(2);
 	public static AttackBoard ATKboard = new AttackBoard();

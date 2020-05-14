@@ -64,7 +64,8 @@ public class HowToPlayPane extends Pane {
 		});
 		this.setOnMouseExited((MouseEvent e) -> {
 			tt.hide();
-		});		if (clicktime != 12) {
+		});		
+		if (clicktime != 12) {
 			clicktime++;
 			this.setBackground(new Background(new BackgroundImage(
 					new Image("/howToPlay/"+clicktime+".png", 1358, 744, false, true), BackgroundRepeat.NO_REPEAT,

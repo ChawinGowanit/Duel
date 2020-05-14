@@ -24,9 +24,7 @@ public class MilitaryCard extends Card implements HaveChainSymbol, Attackable {
 	}
 
 	public void attackPlayer(Player ATKplayer) {
-
 		GameController.ATKboard.attackTime(ATKplayer, this);
-
 	}
 
 	public boolean addChainSymbol(Player player) {

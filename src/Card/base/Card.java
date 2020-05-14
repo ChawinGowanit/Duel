@@ -34,7 +34,7 @@ public abstract class Card {
 		return this.position ;
 	}
 	public String toString() {
-		return this.name +this.pickAble;
+		return this.name;
 	}
 	
 	public void setFlipAble(boolean flipAble) {
