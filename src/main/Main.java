@@ -31,7 +31,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	Scene scene, gameScene;
+	public Scene scene, gameScene;
 	public static ImageView startBtnImageView;
 	public static ImageView howtoPlayImgView ;
 	public static MainPane mainPane;
@@ -92,11 +92,7 @@ public class Main extends Application {
 			@Override
 			public void handle(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				Media musicFile = new Media(ClassLoader.getSystemResource("buttonClickSound.mp3").toString());
-				MediaPlayer buttonClick = new MediaPlayer(musicFile);
-				mediaPlayer = buttonClick;
-				mediaPlayer.setAutoPlay(true);
-				mediaPlayer.setVolume(1);
+				playSound();
 				startBtnImageView.setDisable(true);
 				howtoPlayImgView.setDisable(true);
 				HowToPlayPane howToPlayPane = new HowToPlayPane();
