@@ -18,7 +18,7 @@ public class GameController {
 	public static PlaceBoard placeBoard = new PlaceBoard();
 	public static boolean endGame = false;
 
-	public static void InitializeGame() {
+	public static void initializeGame() {
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 1);
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 2);
 		GameController.mainBoard.addCardOnBoard(GameController.initialCardDeck, 3);

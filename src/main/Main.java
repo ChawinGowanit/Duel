@@ -1,5 +1,8 @@
 package main;
 
+
+
+
 import application.GameController;
 import gui.AttackPane;
 import gui.HowToPlayPane;
@@ -178,7 +181,7 @@ public class Main extends Application {
 				if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 					playSound();
 					GameController.player2.setName(player2Name.getText());
-					GameController.InitializeGame(); // addCardOnBoard 3 phase and firstUpdate
+					GameController.initializeGame(); // addCardOnBoard 3 phase and firstUpdate
 					primaryStage.setScene(creatGameScene());
 					primaryStage.show();
 					primaryStage.sizeToScene();

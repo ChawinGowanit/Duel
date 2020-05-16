@@ -1,5 +1,8 @@
 package gui;
 
+
+
+
 import Card.PlaceCard;
 import application.GameController;
 import javafx.event.EventHandler;
@@ -13,6 +16,13 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
+
+
+
+
+
+
+
 import javafx.scene.text.Font;
 import logic.Turn;
 import main.Main;
@@ -20,8 +30,10 @@ import main.Main;
 public class PlaceCardBtn extends Pane {
 	private PlaceCard placeCard;
 
+	
 
-	PlaceCardBtn(PlaceCard placeCard) {
+
+	public PlaceCardBtn(PlaceCard placeCard) {
 		this.placeCard = placeCard;
 		Image placecardImg = new Image("/cardURL/placeCard" + placeCard.getImgURL(), 175, 117, false, false);
 		this.setMinSize(175, 117);
