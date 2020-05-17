@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="logic.CheckEndPhase" project="Duel" file="/Duel/src/logic/CheckEndPhase.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="429" y="886"/>    
+    <position height="-1" width="-1" x="429" y="884"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="logic.PlaceBoard" project="Duel" file="/Duel/src/logic/PlaceBoard.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="972" y="975"/>    
+    <position height="-1" width="-1" x="1255" y="1038"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="logic.Player" project="Duel" file="/Duel/src/logic/Player.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1249" y="1073"/>    
+    <position height="-1" width="-1" x="1015" y="1057"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,7 +156,7 @@
   </class>  
   <class id="18" language="java" name="logic.Turn" project="Duel" file="/Duel/src/logic/Turn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1509" y="1010"/>    
+    <position height="-1" width="-1" x="1514" y="963"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="logic.exception.PickCardFailException" project="Duel" 
     file="/Duel/src/logic/exception/PickCardFailException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1506" y="1269"/>    
+    <position height="-1" width="-1" x="1531" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -192,7 +192,7 @@
   </class>  
   <class id="22" language="java" name="gui.AtkBtn" project="Duel" file="/Duel/src/gui/AtkBtn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="662" y="1553"/>    
+    <position height="-1" width="-1" x="606" y="1563"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -201,7 +201,7 @@
   </class>  
   <class id="23" language="java" name="gui.AttackPane" project="Duel" file="/Duel/src/gui/AttackPane.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="686" y="1379"/>    
+    <position height="-1" width="-1" x="622" y="1379"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -210,7 +210,7 @@
   </class>  
   <class id="24" language="java" name="gui.CardBtn" project="Duel" file="/Duel/src/gui/CardBtn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="431" y="1565"/>    
+    <position height="-1" width="-1" x="432" y="1567"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -228,7 +228,7 @@
   </class>  
   <class id="26" language="java" name="gui.PlayerPane" project="Duel" file="/Duel/src/gui/PlayerPane.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1101" y="1751"/>    
+    <position height="-1" width="-1" x="1095" y="1763"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -237,7 +237,7 @@
   </class>  
   <class id="27" language="java" name="gui.SelectionBtn" project="Duel" file="/Duel/src/gui/SelectionBtn.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="433" y="1749"/>    
+    <position height="-1" width="-1" x="421" y="1761"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -246,7 +246,7 @@
   </class>  
   <class id="28" language="java" name="gui.PlaceCardBtn" project="Duel" file="/Duel/src/gui/PlaceCardBtn.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="668" y="1959"/>    
+    <position height="-1" width="-1" x="612" y="1956"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -255,7 +255,7 @@
   </class>  
   <class id="29" language="java" name="gui.PlacePane" project="Duel" file="/Duel/src/gui/PlacePane.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="724" y="1781"/>    
+    <position height="-1" width="-1" x="652" y="1773"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -264,7 +264,7 @@
   </class>  
   <class id="30" language="java" name="gui.HowToPlayPane" project="Duel" file="/Duel/src/gui/HowToPlayPane.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1565" y="1476"/>    
+    <position height="-1" width="-1" x="1525" y="1476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -282,7 +282,7 @@
   </class>  
   <class id="32" language="java" name="application.InitialCardDeck" project="Duel" 
     file="/Duel/src/application/InitialCardDeck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="384" y="2240"/>    
+    <position height="-1" width="-1" x="352" y="2248"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -291,27 +291,27 @@
   </class>  
   <class id="33" language="java" name="application.InitialPlaceCard" project="Duel" 
     file="/Duel/src/application/InitialPlaceCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="652" y="2232"/>    
+    <position height="-1" width="-1" x="606" y="2229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="34">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
   <realization id="35">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
   </realization>  
   <realization id="36">    
     <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="TARGET" refId="4"/>  
   </realization>  
   <realization id="37">    
-    <end type="SOURCE" refId="12"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
   <generalization id="38">    
@@ -319,12 +319,12 @@
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <realization id="39">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
   </realization>  
   <realization id="40">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
   </realization>  
   <generalization id="41">    
     <end type="SOURCE" refId="10"/>    
@@ -335,28 +335,28 @@
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <realization id="43">    
-    <end type="SOURCE" refId="11"/>    
+    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
   <realization id="44">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
   </realization>  
   <realization id="45">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="46">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="47">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <realization id="46">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
   <realization id="48">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
